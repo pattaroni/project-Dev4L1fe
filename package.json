@@ -1,11 +1,11 @@
 {
-  "name": "artistshub",
+  "name": "project-Dev4L1fe",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/artistshub/",
+    "build": "vite build --base=/project-Dev4L1fe/",
     "preview": "vite preview"
   },
   "devDependencies": {
