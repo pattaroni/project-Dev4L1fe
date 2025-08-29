@@ -1,10 +1,12 @@
 import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import { fetchArtists } from './api';
 import { renderArtists } from './render-function';
 
 export async function handleArtists() {
   try {
     const { data } = await fetchArtists();
+    console.log(data);
     renderArtists(data.artists);
   } catch (error) {
     if (error.response) {
