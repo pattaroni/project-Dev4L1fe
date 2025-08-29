@@ -1,8 +1,8 @@
 .header {
   padding: 20px 0;
-  background-color: #060307;
+  background: #060307;
 }
-/* .nav {
+.nav {
   display: flex;
   justify-content: space-between;
 }
@@ -16,6 +16,9 @@
   align-items: center;
   justify-content: flex-end;
   gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .nav-link {
   position: relative;
@@ -42,4 +45,4 @@
 }
 .nav-link.active::after {
   background: #747bff;
-} */
+}
