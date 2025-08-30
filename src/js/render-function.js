@@ -48,12 +48,12 @@ export const renderFeedbackSlider = feedbacks => {
           </div>
         `).join('')}
       </div>
-      <div class="swiper-button-prev hidden">
+      <div class="swiper-button-prev">
         <svg class="icon">
           <use href="/img/sprite.svg#left-arrow-icon"></use>
         </svg>
       </div>
-      <div class="swiper-button-next hidden">
+      <div class="swiper-button-next">
         <svg class="icon">
           <use href="/img/sprite.svg#right-arrow-icon"></use>
         </svg>
@@ -74,10 +74,10 @@ export const renderFeedbackSlider = feedbacks => {
   const swiperInstance = new Swiper(swiperEl, {
     spaceBetween: 30,
     slidesPerView: 1,
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
     on: {
       init(swiper) {
         updateCustomPagination(swiper);
@@ -87,6 +87,14 @@ export const renderFeedbackSlider = feedbacks => {
       },
     },
   });
+    
+    document.querySelector('.swiper-button-next')?.addEventListener('click', () => {
+  swiperInstance.slideNext();
+});
+    document.querySelector('.swiper-button-prev')?.addEventListener('click', () => {
+  swiperInstance.slidePrev();
+});
+
 
   function updateCustomPagination(swiper) {
     const total = swiper.slides.length;

@@ -1,32 +1,54 @@
 .hidden {
   display: none;
-  /* visibility: hidden; */
-  /* pointer-events: none; */
-  /* opacity: 0; */
 }
 
 .section-feedback {
-  padding-top: 64px;
-  padding-bottom: 108px;
+  padding: 64px 0;
+  background-color: #060307;
 }
 
-/* Styles for Desktop devices */
-@media only screen and (min-width: 1200px) {
-  .section-feedback {
-    padding-top: 112px;
-    padding-bottom: 112px;
-  }
+.feedback-slider {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 288px;
+  background: #060307;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 24px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* === Typography === */
 .comment {
   font-family: 'Epilogue', sans-serif;
   font-weight: 700;
-  font-size: 26px;
-
-  /* line-height: 36px; */
+  font-size: 18px;
   line-height: 140%;
   letter-spacing: -0.01em;
-  text-align: center;
   color: #fff;
   margin-bottom: 32px;
 }
@@ -35,37 +57,26 @@
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   font-size: 18px;
-
-  /* line-height: 27px; */
   line-height: 150%;
   color: #fff;
 }
 
-.feedback-slider {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.feedback-card {
+/* === Stars === */
+.stars {
   display: flex;
-  flex-direction: column;
-
-  padding: 60px 93px;
-  background: #0a0a0a;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   justify-content: center;
-  align-items: center;
-}
-
-.stars .fa-star {
-  font-size: 24px;
-  margin: 0 2px;
+  gap: 4px;
   margin-bottom: 32px;
 }
 
-.checked {
+.fa-star {
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: middle;
+  color: #fff;
+}
+
+.fa-star.checked {
   color: #764191;
 }
 
@@ -73,10 +84,12 @@
   color: #fa3636;
 }
 
+/* === Pagination === */
 .custom-pagination {
   display: flex;
   justify-content: center;
   gap: 12px;
+  margin-top: 24px;
 }
 
 .bullet {
@@ -91,36 +104,66 @@
   background-color: rgb(248, 246, 246);
 }
 
-.icon {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  padding: 12px;
-  width: 48px;
-  height: 48px;
-  background: #c86fe6;
-  background-color: #fa3636;
+/* === Navigation Buttons === */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
-/* .swiper-button-prev {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
+
+.swiper-button-prev {
+  left: -40px;
 }
 
 .swiper-button-next {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
-} */
+  right: -40px;
+}
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
   display: none;
+  content: none;
 }
-.swiper-button-prev .icon,
-.swiper-button-next .icon {
-  width: 24px;
-  height: 24px;
-  fill: #fff;
-  display: block;
-  margin: auto;
+
+.icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #f1eeee;
+  background: #060307;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* === Hide buttons on mobile === */
+@media (max-width: 767px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+/* === Tablet === */
+@media (min-width: 768px) {
+  .feedback-card {
+    max-width: 704px;
+    width: 100%;
+  }
+
+  .comment {
+    max-width: 518px;
+  }
+}
+
+/* === Desktop === */
+@media (min-width: 1200px) {
+  .section-feedback {
+    padding: 112px 0;
+  }
 }
