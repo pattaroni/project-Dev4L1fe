@@ -1,3 +1,7 @@
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { refs } from './refs';
 
 export function renderArtists(data) {
@@ -12,9 +16,7 @@ export function renderArtists(data) {
                     ${genresMarkup}
                 </ul>
                 <h3 class="artist-name">${artist.strArtist}</h3>
-                <p class="artist-descr">${
-                  artist.strBiographyEN.split('.')[0] + '.'
-                }</p>
+                <p class="artist-descr">${(artist.strBiographyEN.split('.')[0]) + '.'}</p>
                 <button type="button" class="artist-btn-learn-more">
                     <span>Learn More</span>
                     <span>
@@ -25,6 +27,99 @@ export function renderArtists(data) {
                 </button>
             </li>
         </ul>`;
-  });
+  }).join('');
   refs.artistsList.insertAdjacentHTML('beforeend', markup);
+}
+
+export const renderFeedbackSlider = feedbacks => {
+  const container = document.querySelector('.section-feedback .container');
+  if (!container) return console.error('Container not found');
+
+  const markup = `
+    <div class="feedback-slider swiper">
+      <div class="swiper-wrapper">
+        ${feedbacks.map(fb => `
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <div class="stars">${renderStars(fb.rating)}</div>
+              <p class="comment">"${fb.descr}"</p>
+              <h3 class="comm-name">${fb.name}</h3>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="swiper-button-prev hidden">
+        <svg class="icon">
+          <use href="/img/sprite.svg#left-arrow-icon"></use>
+        </svg>
+      </div>
+      <div class="swiper-button-next hidden">
+        <svg class="icon">
+          <use href="/img/sprite.svg#right-arrow-icon"></use>
+        </svg>
+      </div>
+      <div class="custom-pagination">
+        <span class="bullet bullet-left"></span>
+        <span class="bullet bullet-middle"></span>
+        <span class="bullet bullet-right"></span>
+      </div>
+    </div>
+  `;
+
+  container.insertAdjacentHTML('beforeend', markup);
+
+  const swiperEl = container.querySelector('.feedback-slider');
+  if (!swiperEl) return console.error('Swiper container not found');
+
+  const swiperInstance = new Swiper(swiperEl, {
+    spaceBetween: 30,
+    slidesPerView: 1,
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+    on: {
+      init(swiper) {
+        updateCustomPagination(swiper);
+      },
+      slideChange(swiper) {
+        updateCustomPagination(swiper);
+      },
+    },
+  });
+
+  function updateCustomPagination(swiper) {
+    const total = swiper.slides.length;
+    const current = swiper.activeIndex;
+
+    const left = swiper.el.querySelector('.bullet-left');
+    const middle = swiper.el.querySelector('.bullet-middle');
+    const right = swiper.el.querySelector('.bullet-right');
+
+    if (!left || !middle || !right) return;
+
+    left.classList.remove('active');
+    middle.classList.remove('active');
+    right.classList.remove('active');
+
+    if (current === 0) {
+      left.classList.add('active');
+    } else if (current === total - 1) {
+      right.classList.add('active');
+    } else {
+      middle.classList.add('active');
+    }
+  }
+};
+
+function renderStars(rating) {
+  const fullStars = Math.round(rating);
+  const emptyStars = 5 - fullStars;
+
+  return (
+    '<span class="stars">' +
+    '<span class="fa fa-star checked"></span>'.repeat(fullStars) +
+    '<span class="fa fa-star" style="color: #fff;"></span>'.repeat(emptyStars) +
+    '</span>'
+  );
 }

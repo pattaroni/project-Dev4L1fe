@@ -1,3 +1,7 @@
-import { handleArtists } from './js/handlers';
 
+import { handleArtists, initFeedbackSection } from './js/handlers';
 document.addEventListener('DOMContentLoaded', handleArtists());
+
+
+initFeedbackSection()
+

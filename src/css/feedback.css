@@ -1,0 +1,126 @@
+.hidden {
+  display: none;
+  /* visibility: hidden; */
+  /* pointer-events: none; */
+  /* opacity: 0; */
+}
+
+.section-feedback {
+  padding-top: 64px;
+  padding-bottom: 108px;
+}
+
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1200px) {
+  .section-feedback {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+}
+
+.comment {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+
+  /* line-height: 36px; */
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+.comm-name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  /* line-height: 27px; */
+  line-height: 150%;
+  color: #fff;
+}
+
+.feedback-slider {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+
+  padding: 60px 93px;
+  background: #0a0a0a;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+}
+
+.stars .fa-star {
+  font-size: 24px;
+  margin: 0 2px;
+  margin-bottom: 32px;
+}
+
+.checked {
+  color: #764191;
+}
+
+.fa-star.empty {
+  color: #fa3636;
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.bullet.active {
+  background-color: rgb(248, 246, 246);
+}
+
+.icon {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background: #c86fe6;
+  background-color: #fa3636;
+}
+/* .swiper-button-prev {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.swiper-button-next {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+} */
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
+}
+.swiper-button-prev .icon,
+.swiper-button-next .icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  display: block;
+  margin: auto;
+}

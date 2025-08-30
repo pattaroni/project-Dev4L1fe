@@ -15,6 +15,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+:root {
+  --swiper-navigation-size: 0px; /* або будь-який розмір, який тобі треба */
+}
+
 body {
   display: flex;
   flex-direction: column;
