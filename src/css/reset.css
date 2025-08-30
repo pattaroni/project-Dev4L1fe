@@ -1,3 +1,9 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -21,6 +27,7 @@ ul {
 a {
   color: currentColor;
   text-decoration: none;
+  cursor: pointer;
 }
 
 button {
@@ -31,4 +38,8 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+input:focus-within {
+  outline: none;
 }
