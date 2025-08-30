@@ -3,12 +3,14 @@
   flex-wrap: wrap;
   background-color: #060307;
   min-width: 320px;
-  padding: 64px 16px;
+  padding: 64px 0;
 
   .artists-title {
     font-family: "IBM Plex Sans",
       sans-serif;
     font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
   }
 
   .artists-subtitle {
@@ -22,13 +24,10 @@
     letter-spacing: -0.01em;
   }
 
-  .artists-list-item {
-    margin-bottom: 64px;
-    color: #fff;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+  .artists-list {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
   }
 
   .artist-image {
@@ -110,7 +109,38 @@
     }
   }
 
-  @media only screen and (min-width: 768px) {}
+  @media only screen and (min-width: 768px) {
+    .artists-list {
+      gap: 32px;
+    }
 
-  @media only screen and (min-width: 1440px) {}
+    .artist-image {
+      height: 432px;
+    }
+  }
+
+  @media only screen and (min-width: 1440px) {
+    padding: 112px 0;
+
+    .artists-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .artists-subtitle {
+      max-width: 523px;
+      font-size: 60px;
+      margin-bottom: 80px;
+    }
+
+    .artists-list-item {
+      width: calc((100% - 32px) / 2);
+    }
+
+    .artist-image {
+      height: 393px;
+    }
+  }
 }
