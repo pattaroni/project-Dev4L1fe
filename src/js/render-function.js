@@ -1,5 +1,6 @@
 import { refs } from './refs';
 import { prepareArtistDescription } from './helpers';
+import spriteUrl from '../img/sprite.svg?url';
 
 export function renderArtists(data) {
   const markup = data
@@ -11,7 +12,7 @@ export function renderArtists(data) {
         artist.strBiographyEN
       );
 
-      return `<li class="artists-list-item">
+      return `<li class="artists-list-item" data-id="${artist._id}">
                 <img class="artist-image"
                   src="${artist.strArtistThumb}" 
                   alt="${artist.strArtist}" />
@@ -24,7 +25,7 @@ export function renderArtists(data) {
                     <span>Learn More</span>
                     <span>
                         <svg class="artist-learn-svg" width="14" height="14">
-                            <use href="/img/sprite.svg#next-icon"></use>
+                          <use href="${spriteUrl}#next-icon"></use>
                         </svg>
                     </span>
                 </button>
