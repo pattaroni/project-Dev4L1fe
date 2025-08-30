@@ -156,7 +156,20 @@
   }
 
   .comment {
-    max-width: 518px;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+
+    /* line-height: 36px; */
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #fff;
+  }
+
+  feedback-card {
+    max-width: 704px;
+    width: 100%;
   }
 }
 
@@ -169,5 +182,17 @@
   .feedback-card {
     max-width: 1312px;
     width: 100%;
+  }
+
+  .comment {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+
+    /* line-height: 42px; */
+    line-height: 130%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #fff;
   }
 }
