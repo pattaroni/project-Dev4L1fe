@@ -13,10 +13,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --swiper-navigation-size: 0px; 
 }
 
-:root {
-  --swiper-navigation-size: 0px; /* або будь-який розмір, який тобі треба */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
