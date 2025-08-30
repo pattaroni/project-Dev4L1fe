@@ -25,7 +25,7 @@
 }
 
 .team-about {
-    width: 100%;
+    max-width: 100%;
     overflow: hidden;
     border-radius: 16px;
 }
@@ -73,10 +73,23 @@
 .container-about {
 padding: 64px 32px;
 gap: 24px;
+
+}
+.team-foto {
+width: auto;
+    max-width: 704px;
+    display: block;
+    margin: 0 auto;
 }
 
 .text-container {
     gap: 24px;
+    width: auto;
+        max-width: 704px;
+        display: block;
+        margin: 0 auto;
+   
+   
 }
 .logo-about {
     width: 80px;
