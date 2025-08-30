@@ -6,7 +6,6 @@ import { refs } from './refs';
 import { prepareArtistDescription } from './helpers';
 import spriteUrl from '../img/sprite.svg?url';
 
-
 export function renderArtists(data) {
   const markup = data
     .map(artist => {
@@ -28,7 +27,7 @@ export function renderArtists(data) {
                     <span>Learn More</span>
                     <span>
                         <svg class="artist-learn-svg" width="14" height="14">
-                            <use href="/img/sprite.svg#next-icon"></use>
+                          <use href="${spriteUrl}#next-icon"></use>
                         </svg>
                     </span>
                 </button>
@@ -94,14 +93,13 @@ export const renderFeedbackSlider = feedbacks => {
       },
     },
   });
-    
-    document.querySelector('.swiper-button-next')?.addEventListener('click', () => {
-  swiperInstance.slideNext();
-});
-    document.querySelector('.swiper-button-prev')?.addEventListener('click', () => {
-  swiperInstance.slidePrev();
-});
 
+  document.querySelector('.swiper-button-next')?.addEventListener('click', () => {
+    swiperInstance.slideNext();
+  });
+  document.querySelector('.swiper-button-prev')?.addEventListener('click', () => {
+    swiperInstance.slidePrev();
+  });
 
   function updateCustomPagination(swiper) {
     const total = swiper.slides.length;
