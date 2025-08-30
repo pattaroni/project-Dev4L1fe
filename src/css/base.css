@@ -15,9 +15,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
-/* :root {
-  --swiper-navigation-size: 0px;
-} */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
 body {
   display: flex;

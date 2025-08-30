@@ -6,7 +6,6 @@ import { renderArtists, renderFeedbackSlider } from './render-function';
 export async function handleArtists() {
   try {
     const { data } = await fetchArtists();
-   
     renderArtists(data.artists);
   } catch (error) {
     if (error.response) {
