@@ -48,7 +48,7 @@ export const postFeedback = async feedback => {
   return data;
 };
 
-export const fetchFeedbacks = async (page = 1) => {
+export const fetchFeedbacks = async (page = 1, PER_PAGE = 10) => {
   const { data } = await axios.get(ENDPOINTS.feedbacks(), {
     params: {
       page,
@@ -56,8 +56,10 @@ export const fetchFeedbacks = async (page = 1) => {
     },
   });
 
+  const feedbacks = data.data || [];
   const totalItems = data.total || 0;
   const isLastPage = page >= Math.ceil(totalItems / PER_PAGE);
 
-  return { data, isLastPage };
+  return { feedbacks, isLastPage };
 };
+
