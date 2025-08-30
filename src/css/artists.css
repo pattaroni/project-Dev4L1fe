@@ -6,8 +6,7 @@
   padding: 64px 0;
 
   .artists-title {
-    font-family: "IBM Plex Sans",
-      sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
@@ -16,8 +15,7 @@
   .artists-subtitle {
     margin-top: 16px;
     margin-bottom: 32px;
-    font-family: "Epilogue",
-      sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-weight: 700;
     font-size: 44px;
     line-height: 120%;
@@ -34,6 +32,7 @@
     width: 100%;
     height: 177px;
     object-fit: cover;
+    object-position: top;
     border-radius: 16px;
   }
 
@@ -50,16 +49,14 @@
       background-color: rgba(255, 255, 255, 0);
       border-radius: 6px;
       padding: 4px 10px;
-      font-family: "IBM Plex Sans",
-        sans-serif;
+      font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 600;
     }
   }
 
   .artist-name {
     margin-top: 16px;
-    font-family: "Epilogue",
-      sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-weight: 700;
     font-size: 32px;
     line-height: 130%;
@@ -84,8 +81,7 @@
     display: flex;
     align-items: center;
     margin-top: 24px;
-    font-family: "IBM Plex Sans",
-      sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 150%;
@@ -93,7 +89,8 @@
     background-color: transparent;
     outline: none;
     border: none;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus,
@@ -105,7 +102,8 @@
       margin-left: 8px;
       stroke: #fff;
       fill: #fff;
-      transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
