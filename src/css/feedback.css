@@ -10,7 +10,7 @@
 .feedback-slider {
   position: relative;
   width: 100%;
-  max-width: 600px;
+
   margin: 0 auto;
   overflow: hidden;
 }
@@ -89,7 +89,6 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 24px;
 }
 
 .bullet {
@@ -165,5 +164,10 @@
 @media (min-width: 1200px) {
   .section-feedback {
     padding: 112px 0;
+  }
+
+  .feedback-card {
+    max-width: 1312px;
+    width: 100%;
   }
 }

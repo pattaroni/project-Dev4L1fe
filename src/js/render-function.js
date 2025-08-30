@@ -4,6 +4,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { refs } from './refs';
 import { prepareArtistDescription } from './helpers';
+import spriteUrl from '../img/sprite.svg?url';
+
 
 export function renderArtists(data) {
   const markup = data
@@ -55,12 +57,12 @@ export const renderFeedbackSlider = feedbacks => {
       </div>
       <div class="swiper-button-prev">
         <svg class="icon">
-          <use href="/img/sprite.svg#left-arrow-icon"></use>
+          <use href="${spriteUrl}#left-arrow-icon"></use>
         </svg>
       </div>
       <div class="swiper-button-next">
         <svg class="icon">
-          <use href="/img/sprite.svg#right-arrow-icon"></use>
+          <use href="${spriteUrl}#right-arrow-icon"></use>
         </svg>
       </div>
       <div class="custom-pagination">
