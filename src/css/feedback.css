@@ -129,18 +129,6 @@
   content: none;
 }
 
-.icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: #f1eeee;
-  background: #060307;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
 /* === Hide buttons on mobile === */
 @media (max-width: 767px) {
   .swiper-button-prev,

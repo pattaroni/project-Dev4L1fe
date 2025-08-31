@@ -59,6 +59,9 @@
     padding: 64px 32px;
     gap: 24px;
   }
+  .team-about {
+    margin-bottom: 24px;
+  }
   .team-foto {
     width: auto;
     max-width: 704px;
@@ -68,10 +71,9 @@
 
   .text-container {
     gap: 24px;
-    width: auto;
     max-width: 704px;
-    display: block;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
   .logo-about {
     width: 80px;
@@ -87,11 +89,12 @@
 
 @media screen and (min-width: 1440px) {
   .container-about {
-    padding: 64px 112px;
+    padding: 112px 64px;
 
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 32px;
   }
   .text-container {
