@@ -244,24 +244,24 @@
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    gap: 4px;
+    gap: 8px;
 }
 
 .pagination-btn {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: transparent;
+    color: #fff;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .pagination-btn:hover {
@@ -280,13 +280,7 @@
     border: none;
 }
 
-/* SVG стрелки */
-.arrow {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-}
-
-.flipped {
-    transform: rotate(180deg);
+.arrow-img {
+    width: 24px;
+    height: 24px;
 }

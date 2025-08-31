@@ -199,3 +199,4 @@ async function handleFilters() {
   renderArtistsUI(list);
   setupPagination(total);
 }
+
