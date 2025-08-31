@@ -1,0 +1,164 @@
+.filters-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 304px;
+    color: #ffffff;
+    margin-bottom: 32px;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.filters-reset-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity 250ms ease;
+}
+
+.filters-reset-btn:hover,
+.filters-reset-btn:focus {
+    opacity: 0.7;
+}
+
+/* Форма */
+.filters-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filters-search-input {
+    width: 100%;
+    padding: 10px 36px 10px 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: #ffffff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+}
+
+.filters-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.filters-search-btn {
+    position: absolute;
+    left: 12px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.filters-search-btn svg {
+    stroke: currentColor;
+    fill: none;
+    width: 16px;
+    height: 16px;
+}
+
+/* Select fields */
+.filters-select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: #ffffff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+.filters-select:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+
+/* Контейнер фильтров + артисты */
+.filters-and-artists {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+/* Контейнер для фильтров */
+#filters-container-placeholder {
+    flex: 0 0 304px;
+    max-width: 304px;
+    width: 100%;
+}
+.search-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filters-search-btn {
+    position: absolute;
+    left: 12px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.filters-search-icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.filters-search-btn:hover .filters-search-icon {
+    opacity: 1;
+}
+
+.filters-search-input {
+    width: 100%;
+    padding: 10px 36px 10px 40px;
+    /* место для иконки */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 14px;
+}

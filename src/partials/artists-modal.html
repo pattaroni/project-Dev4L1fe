@@ -1,0 +1,35 @@
+<div class="filters-wrapper">
+    <div class="filters-header">
+        <h3 class="filters-title">Filters</h3>
+        <button type="button" class="filters-reset-btn" id="reset-filters-btn">Reset</button>
+    </div>
+
+    <form class="filters-form" id="filters-form">
+        <div class="search-group">
+            <button type="submit" class="filters-search-btn" id="search-button" aria-label="Search">
+                <svg class="filters-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <input type="text" class="filters-search-input" id="search-input" name="search"
+                placeholder="Search artists..." autocomplete="off" />
+        </div>
+
+        <select name="sort" id="sort-select" class="filters-select">
+            <option value="">Select sorting</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+        </select>
+
+        <select name="genre" id="genre-select" class="filters-select">
+            <option value="">Select genre</option>
+            <!-- жанры будут добавляться через JS -->
+        </select>
+    </form>
+</div>
