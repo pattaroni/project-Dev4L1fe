@@ -14,7 +14,7 @@ export function renderArtists(data) {
         .join('');
       const preparedArtistDescription = prepareArtistDescription(artist.strBiographyEN);
 
-      return `<li class="artists-list-item">
+      return `<li class="artists-list-item" data-id="${artist._id}">
                 <img class="artist-image"
                   src="${artist.strArtistThumb}" 
                   alt="${artist.strArtist}" />
