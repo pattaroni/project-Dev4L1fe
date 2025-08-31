@@ -4,7 +4,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { refs } from './refs';
 import { prepareArtistDescription } from './helpers';
-import spriteUrl from '../img/sprite.svg?url';
+import spriteUrl from '../img/sprite.svg';
 
 export function renderArtists(data) {
   const markup = data
