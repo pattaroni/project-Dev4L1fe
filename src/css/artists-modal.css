@@ -162,3 +162,14 @@
     color: #ffffff;
     font-size: 14px;
 }
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.no-results {
+    color: #ccc;
+    text-align: center;
+    margin-top: 20px;
+}

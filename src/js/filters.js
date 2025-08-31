@@ -1,5 +1,9 @@
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
 const API_URL = 'https://sound-wave.b.goit.study/api/artists';
 const GENRES_URL = 'https://sound-wave.b.goit.study/api/genres';
+const ITEMS_PER_PAGE = 12;
 
 const refs = {
   form: document.getElementById('filters-form'),
@@ -9,14 +13,20 @@ const refs = {
   searchButton: document.getElementById('search-button'),
   resetButton: document.getElementById('reset-filters-btn'),
   artistsList: document.querySelector('.artists-list'),
+  paginationContainer: document.getElementById('pagination'),
 };
 
-// ---------------------- 1. Загрузка жанров ----------------------
+let pagination = null;
+let currentFilters = {
+  genre: '',
+  sort: '',
+  search: '',
+};
+
 async function fetchGenres() {
   try {
     const res = await fetch(GENRES_URL);
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
     console.error('Ошибка загрузки жанров:', error);
     return [];
@@ -25,7 +35,6 @@ async function fetchGenres() {
 
 async function populateGenreSelect() {
   const genres = await fetchGenres();
-
   refs.genreSelect.innerHTML = '<option value="">Select genre</option>';
   genres.forEach(genre => {
     const option = document.createElement('option');
@@ -35,32 +44,30 @@ async function populateGenreSelect() {
   });
 }
 
-// ---------------------- 2. Получение артистов ----------------------
 async function fetchArtists({ genre = '', sort = '', search = '', page = 1 } = {}) {
   const params = new URLSearchParams({
     genre,
     sortBy: sort,
     keyword: search,
     page,
-    limit: 12,
+    limit: ITEMS_PER_PAGE,
   });
 
   try {
-    const res = await fetch(`${API_URL}?${params.toString()}`);
-    const data = await res.json();
-    return data;
+    const res = await fetch(`${API_URL}?${params}`);
+    return await res.json();
   } catch (error) {
     console.error('Ошибка загрузки артистов:', error);
-    return { results: [] };
+    return { results: [], totalItems: 0 };
   }
 }
 
-// ---------------------- 3. Отрисовка ----------------------
 function renderArtists(data) {
   refs.artistsList.innerHTML = '';
 
   if (!data.results || data.results.length === 0) {
-    refs.artistsList.innerHTML = '<p>No artists found.</p>';
+    refs.artistsList.innerHTML = '<p class="no-results">No artists found.</p>';
+    refs.paginationContainer.innerHTML = '';
     return;
   }
 
@@ -81,7 +88,28 @@ function renderArtists(data) {
   refs.artistsList.insertAdjacentHTML('beforeend', markup);
 }
 
-// ---------------------- 4. Слушатели ----------------------
+function setupPagination(totalItems) {
+  if (pagination) {
+    pagination.reset(totalItems);
+    return;
+  }
+
+  pagination = new Pagination(refs.paginationContainer, {
+    totalItems,
+    itemsPerPage: ITEMS_PER_PAGE,
+    visiblePages: 5,
+    centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+  });
+
+  pagination.on('beforeMove', async evt => {
+    const page = evt.page;
+    const data = await fetchArtists({ ...currentFilters, page });
+    renderArtists(data);
+  });
+}
+
 function setupEventListeners() {
   refs.form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -93,22 +121,24 @@ function setupEventListeners() {
 
   refs.resetButton.addEventListener('click', async () => {
     refs.form.reset();
+    currentFilters = { genre: '', sort: '', search: '' };
     await handleFilters();
   });
 }
 
 async function handleFilters() {
-  const genre = refs.genreSelect.value;
-  const sort = refs.sortSelect.value;
-  const search = refs.searchInput.value.trim();
+  currentFilters.genre = refs.genreSelect.value;
+  currentFilters.sort = refs.sortSelect.value;
+  currentFilters.search = refs.searchInput.value.trim();
 
-  const data = await fetchArtists({ genre, sort, search });
+  const data = await fetchArtists({ ...currentFilters, page: 1 });
+
   renderArtists(data);
+  setupPagination(data.totalItems || 0);
 }
 
-// ---------------------- 5. Инициализация ----------------------
 export async function initFilters() {
   await populateGenreSelect();
   setupEventListeners();
-  await handleFilters(); // Загрузка по умолчанию
+  await handleFilters();
 }
