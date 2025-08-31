@@ -3,6 +3,14 @@ import { prepareArtistDescription } from './helpers';
 import spriteUrl from '../img/sprite.svg?url';
 import { fetchArtistById, fetchArtistByIdWithAlbums } from './api';
 
+function formatDuration(ms) {
+  if (!ms || isNaN(ms)) return 'N/A';
+  const totalSeconds = Math.floor(ms / 1000);
+  const min = Math.floor(totalSeconds / 60);
+  const sec = totalSeconds % 60;
+  return `${min}:${sec.toString().padStart(2, '0')}`;
+}
+
 export function renderArtists(data) {
   const markup = data
     .map(artist => {
@@ -35,6 +43,7 @@ export function renderArtists(data) {
     .join('');
   refs.artistsList.insertAdjacentHTML('beforeend', markup);}
 
+  
 export async function renderArtistDetails(artistId, modalContent) {
   // modalContent.innerHTML = `<p class="loader">Loading...</p>`;
 
@@ -68,30 +77,26 @@ export async function renderArtistDetails(artistId, modalContent) {
       </div>
 
       <h3 class="albums-heading">Albums</h3>
-      <div class="albums-container">
-        ${albums.length > 0 
-           ? albums.map(album => `
-            <div class="album-card">
-               <h4>${album.strAlbum || 'Unknown Album'}</h4>
-               ${album.strAlbumThumb 
-                ? `<img src="${album.strAlbumThumb}" alt="${album.strAlbum}" class="album-thumb" />`
-                : ''
-              }
-              <p><strong>Year:</strong> ${album.intYearReleased || 'N/A'}</p>
-              <ul class="track-list">
-                ${Array.isArray(album.tracks) && album.tracks.length > 0 
-                  ? album.tracks.map(track => `
-                    <li class="track-item">${track.strTrack || 'Track'} – ${track.intDuration || 'N/A'}</li>
-                  `).join('')
-                  : '<li class="track-item">No tracklist available</li>'
-                }
-              </ul>
-            </div>
-          `).join('')
-          : '<p>No albums found</p>'
-        }
+<div class="albums-container">
+  ${albums.length > 0 
+    ? albums.map(album => `
+      <div class="album-card">
+        <h4 class="album-title">${album.strAlbum || 'Unknown Album'}</h4>
+        <p class="album-year">Year: ${album.intYearReleased || 'N/A'}</p>
+        <ul class="album-tracklist">
+          ${Array.isArray(album.tracks) && album.tracks.length > 0
+            ? album.tracks.map(track => `
+              <li class="album-track-item">
+                ${track.strTrack || 'Track'} – ${formatDuration(track.intDuration)}
+              </li>`).join('')
+            : '<li class="album-track-item">No tracks available</li>'
+          }
+        </ul>
       </div>
-    `;
+    `).join('')
+    : '<p>No albums found</p>'
+  }
+</div>`
   } catch (err) {
     console.error('Modal render error:', err);
     modalContent.innerHTML = `<p>Error loading artist data</p>`;
