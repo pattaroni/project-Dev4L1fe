@@ -1,15 +1,3 @@
-.icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: #f1eeee;
-  background: #060307;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
 .to-top {
   position: fixed;
   bottom: 15px;
@@ -39,7 +27,7 @@
   background-color: #333;
 }
 
-.to-top .icon {
+.to-top .icon-top {
   width: 20px;
   height: 20px;
 }
@@ -52,7 +40,7 @@
     right: 20px;
   }
 
-  .to-top .icon {
+  .to-top .icon-top {
     width: 25px;
     height: 25px;
   }
@@ -66,7 +54,7 @@
     right: 25px;
   }
 
-  .to-top .icon {
+  .to-top .icon-top {
     width: 30px;
     height: 30px;
   }
@@ -80,7 +68,7 @@
     right: 30px;
   }
 
-  .to-top .icon {
+  .to-top .icon-top {
     width: 35px;
     height: 35px;
   }
