@@ -1,0 +1,47 @@
+<section class="feedback-modal-section">
+  <div
+    class="modal"
+    id="feedback-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="feedback-modal-title"
+  >
+    <div class="modal__backdrop"></div>
+
+    <div class="modal__panel">
+      <button class="modal__close" type="button" aria-label="Close dialog">
+        ×
+      </button>
+
+      <h2 id="feedback-modal-title" class="modal__title">Submit feedback</h2>
+
+      <form class="modal__form" action="#" method="post" novalidate>
+        <div class="form__group">
+          <label for="fb-name">Name</label>
+          <input
+            id="fb-name"
+            name="name"
+            type="text"
+            placeholder="Emily"
+            required
+          />
+        </div>
+
+        <div class="form__group">
+          <label for="fb-message">Message</label>
+          <textarea
+            id="fb-message"
+            name="message"
+            rows="5"
+            placeholder="Type your message..."
+            required
+          ></textarea>
+        </div>
+
+        <div id="star-rating"></div>
+
+        <button type="submit" class="fb-modal-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
