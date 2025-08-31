@@ -5,6 +5,7 @@
 .section-feedback {
   padding: 64px 0;
   background-color: #060307;
+  min-width: 320px;
 }
 
 .feedback-slider {
@@ -32,14 +33,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 288px;
+
   background: #060307;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 40px 24px;
+
   box-sizing: border-box;
   text-align: center;
   margin: 0 auto;
+
+  max-width: 288px;
 }
 
 /* === Typography === */
@@ -160,21 +163,21 @@
     font-weight: 700;
     font-size: 26px;
     max-width: 518px;
-    /* line-height: 36px; */
+
     line-height: 140%;
     letter-spacing: -0.01em;
     text-align: center;
     color: #fff;
   }
 
-  feedback-card {
+  .feedback-card {
     max-width: 704px;
     width: 100%;
   }
 }
 
 /* === Desktop === */
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1440px) {
   .section-feedback {
     padding: 112px 0;
   }
@@ -188,7 +191,7 @@
     font-family: 'Epilogue', sans-serif;
     font-weight: 700;
     font-size: 32px;
-
+    max-width: 866px;
     /* line-height: 42px; */
     line-height: 130%;
     letter-spacing: -0.01em;
