@@ -40,7 +40,7 @@ export function renderArtists(data) {
 export const renderFeedbackSlider = feedbacks => {
   const container = document.querySelector('.section-feedback .container');
   if (!container) return console.error('Container not found');
-
+console.log(spriteUrl);
   const markup = `
     <div class="feedback-slider swiper">
       <div class="swiper-wrapper">
@@ -56,12 +56,12 @@ export const renderFeedbackSlider = feedbacks => {
       </div>
       <div class="swiper-button-prev">
         <svg class="icon">
-          <use href="${spriteUrl}#left-arrow-icon"></use>
+          <use href="/project-Dev4L1fe/img/sprite.svg#left-arrow-icon"></use>
         </svg>
       </div>
       <div class="swiper-button-next">
         <svg class="icon">
-          <use href="${spriteUrl}#right-arrow-icon"></use>
+          <use href="/project-Dev4L1fe/img/sprite.svg#right-arrow-icon"></use>
         </svg>
       </div>
       <div class="custom-pagination">
