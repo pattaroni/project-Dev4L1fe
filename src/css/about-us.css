@@ -1,121 +1,103 @@
-
-
-
 .section-about-us {
-   position: relative;
-    background-color: black;
-   width: 100%;
-}    
+  position: relative;
+  background-color: #060307;
+  min-width: 320px;
+  /* width: 100%; */
+}
 
 .container-about {
-   
-    padding: 64px 16px;
-    position: relative;
-    overflow: hidden;
-    gap: 48px;
-    
-   
+  padding: 64px 16px;
+  position: relative;
+  overflow: hidden;
+  gap: 48px;
 }
 .text-container {
-    display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .team-about {
-    max-width: 100%;
-    overflow: hidden;
-    border-radius: 16px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 48px;
 }
-
 
 .team-foto {
-    display: block;
-    width: 100%;
-    height: auto;
-  
-   object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
 
+  object-fit: cover;
 }
-
 
 .logo-about {
-    width: 64px;
-    fill: #fff;
-    height: auto;
-
+  width: 64px;
+  height: 64px;
+  fill: #fff;
 }
 
-
 .h-text {
-    font-family: "Epilogue",
-        sans-serif;
-    font-weight: 700;
-    font-size: 44px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
 
-    color: #fff;
-    line-height: 1.2;
-    
+  color: #fff;
+  line-height: 1.2;
 }
 
 .p-text {
-    font-family: "IBM Plex Sans",
-        sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {
-.container-about {
-padding: 64px 32px;
-gap: 24px;
-
-}
-.team-foto {
-width: auto;
+  .container-about {
+    padding: 64px 32px;
+    gap: 24px;
+  }
+  .team-foto {
+    width: auto;
     max-width: 704px;
     display: block;
     margin: 0 auto;
-}
+  }
 
-.text-container {
+  .text-container {
     gap: 24px;
     width: auto;
-        max-width: 704px;
-        display: block;
-        margin: 0 auto;
-   
-   
-}
-.logo-about {
+    max-width: 704px;
+    display: block;
+    margin: 0 auto;
+  }
+  .logo-about {
     width: 80px;
-}
-.h-text {
+    height: 80px;
+  }
+  .h-text {
     font-size: 44px;
-}
-.p-text {
+  }
+  .p-text {
     font-size: 20px;
-}
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .container-about {
-padding: 64px 112px;
+  .container-about {
+    padding: 64px 112px;
 
-display: flex;
-flex-direction: row;
-align-items: center;
-gap: 32px;
-    }
-    .text-container {
-        max-width: 640px;
-    } 
-.h-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+  .text-container {
+    max-width: 640px;
+  }
+  .h-text {
     font-size: 60px;
-}
-
+  }
 }
