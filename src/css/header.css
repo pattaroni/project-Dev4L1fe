@@ -4,38 +4,43 @@
   box-sizing: border-box;
   font-family: 'IBM Plex Sans', sans-serif;
 }
+
 ul,
 ol {
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
+
 .container {
   margin: 0 auto;
   min-width: 320px;
   padding: 0 16px;
   height: 100%;
 }
+
 .header {
   padding: 17px 0;
   background: #060307;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: #060307;
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .nav-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
+
 .nav-list {
   display: flex;
   align-items: center;
@@ -46,6 +51,7 @@ ol {
   margin: 0;
   display: none;
 }
+
 .nav-link {
   position: relative;
   display: block;
@@ -55,35 +61,17 @@ ol {
   color: #fff;
   text-decoration: none;
 }
+
 .nav-link:hover,
 .nav-link:focus {
   color: #747bff;
 }
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(100%);
-  width: 110%;
-  height: 4px;
-  border-radius: 4px;
-  transform-origin: center;
-  animation: stretch 400ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 200ms both;
-}
-.nav-link.active::after {
-  background: #747bff;
-}
-.logo-icon {
-  width: 106px;
-  height: 30px;
-  fill: #fff; /* padding: 20px 0px; */
-  background-color: transparent;
-}
+
 .burger-menu,
 .burger-menu-icon {
   background-color: transparent;
 }
+
 .burger-menu {
   border: none;
   background: none;
@@ -91,15 +79,20 @@ ol {
   cursor: pointer;
   outline: none;
 }
+
 .us-burger {
   fill: #fff;
   background-color: transparent;
   padding: 24px;
 }
-.icon-menu-alt-right,
+
 .logo-icon {
   fill: #fff;
-} /* Мобільне меню початок */
+  width: 106px;
+  height: 30px;
+}
+
+/* Мобільне меню початок */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -111,13 +104,17 @@ ol {
   transition: right 0.3s ease-in-out;
   z-index: 1001;
 }
+
 .button-close {
-  fill: #fff; /* padding: 10px; */
+  fill: #fff;
   background-color: transparent;
 }
+
 .mobile-menu.active {
   right: 0;
-} /* Overlay */
+}
+
+/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -130,21 +127,25 @@ ol {
   transition: opacity 0.3s ease;
   z-index: 1000;
 }
+
 .overlay.active {
   opacity: 1;
   visibility: visible;
 }
+
 .logo-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 0px;
 }
+
 .mobile-menu-container {
   display: flex;
   flex-direction: column;
-  gap: 39px; /* padding: 8px 12px; */
-} /* Кнопка закриття */
+  gap: 39px;
+}
+
 .mobile-menu-close {
   display: flex;
   align-items: center;
@@ -153,6 +154,7 @@ ol {
   border: none;
   cursor: pointer;
 }
+
 .nav-list-m {
   display: flex;
   flex-direction: column;
@@ -161,23 +163,29 @@ ol {
   justify-content: center;
   text-align: center;
 }
+
 .nav-link-m {
   font-weight: 500;
   font-size: 26px;
   line-height: 1.5;
   color: #fff;
-} /* Мобільне меню кінець */
+}
+/* Мобільне меню кінець */
+
 @media screen and (min-width: 768px) {
   .container {
     padding: 0 32px;
   }
+
   .burger-menu {
     display: none;
   }
+
   .nav-list {
     display: flex;
     gap: 34px;
   }
+
   .nav-link {
     font-weight: 400;
     font-size: 18px;
@@ -189,6 +197,7 @@ ol {
   .container {
     padding: 0 64px;
   }
+
   .header {
     padding: 10px 0;
   }
