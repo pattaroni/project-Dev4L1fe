@@ -1,0 +1,184 @@
+/* --- Modal Container --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* --- Hidden state --- */
+.modal.hidden {
+  display: none;
+}
+
+/* --- Modal Content Wrapper --- */
+.modal-content {
+  background-color: #1c1c1e;
+  color: #fff;
+  width: 100%;
+  max-width: 960px;
+  border-radius: 12px;
+  padding: 32px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+/* --- Close Button --- */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 28px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* --- Title --- */
+.modal-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* --- Header Layout --- */
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.modal-img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* --- Info Block --- */
+.modal-info p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.modal-info > div > p {
+  margin-top: 6px;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+/* --- Genres --- */
+.modal-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.genre-chip {
+  background-color: #333;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* --- Albums Section --- */
+.albums-heading {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.albums-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+/* --- Album Card --- */
+.album-card {
+  background-color: #2a2a2a;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.album-card h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.album-thumb {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+/* --- Track List --- */
+.track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #ccc;
+  font-size: 13px;
+}
+
+.track-item {
+  padding: 4px 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.track-item:last-child {
+  border-bottom: none;
+}
+
+/* --- Loader/Error --- */
+.loader,
+.modal-content p {
+  text-align: center;
+  font-size: 16px;
+  color: #bbb;
+}
+/* --- Scrollbar Fix --- */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-header {
+    flex-direction: column;
+  }
+
+  .modal-title {
+    font-size: 24px;
+  }
+
+  .albums-container {
+    grid-template-columns: 1fr;
+  }
+}
