@@ -36,3 +36,13 @@ export const loader = {
    ... // async code
    loader.hide(loaderEl);
 */
+
+export function showLoader(node) {
+  if (!node) return;
+  node.classList.add('is-loading');
+}
+
+export function hideLoader(node) {
+  if (!node) return;
+  node.classList.remove('is-loading');
+}
