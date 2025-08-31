@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Epilogue', sans-serif;
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
@@ -16,13 +15,13 @@ ol {
 
 .container {
   margin: 0 auto;
-  max-width: 320px;
+  min-width: 320px;
   padding: 0 16px;
   height: 100%;
 }
 
 .header {
-  padding: 20px 0;
+  padding: 17px 0;
   background: #060307;
 }
 
@@ -82,9 +81,10 @@ ol {
 }
 
 .logo-icon {
-  width: 119px;
-  height: 51px;
+  width: 106px;
+  height: 30px;
   fill: #fff;
+  /* padding: 20px 0px; */
   background-color: transparent;
 }
 .burger-menu,
@@ -103,6 +103,7 @@ ol {
 .us-burger {
   fill: #fff;
   background-color: transparent;
+  padding: 24px;
 }
 
 .icon-menu-alt-right,
@@ -115,7 +116,7 @@ ol {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 90%;
+  width: 100%;
   height: 100vh;
   background: #060307;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
@@ -125,6 +126,8 @@ ol {
 
 .button-close {
   fill: #fff;
+  /* padding: 10px; */
+  background-color: transparent;
 }
 
 .mobile-menu.active {
@@ -154,13 +157,14 @@ ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 20px 0px;
 }
 
 .mobile-menu-container {
   display: flex;
   flex-direction: column;
   gap: 39px;
-  padding: 8px 12px;
+  /* padding: 8px 12px; */
 }
 
 /* Кнопка закриття */
@@ -190,3 +194,35 @@ ol {
 }
 
 /* Мобільне меню кінець */
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 34px;
+  }
+
+  .nav-link {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 0 64px;
+  }
+
+  .header {
+    padding: 10px 0;
+  }
+}

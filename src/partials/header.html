@@ -1,103 +1,55 @@
-<!DOCTYPE html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Годинник</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+<header class="header">
+  <div class="container container-my">
+    <nav class="nav">
+      <a href="./index.html" class="nav-logo">
+        <svg class="logo-icon">
+          <use href="/img/sprite.svg#icon-logo"></use>
+        </svg>
+      </a>
 
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container container-my">
-        <nav class="nav">
-          <a href="./index.html" class="nav-logo">
-            <svg class="logo-icon">
-              <use href="/img/sprite.svg#icon-logo"></use>
-            </svg>
-          </a>
+      <ul class="nav-list">
+        <li><a href="#artists" class="nav-link">Artists</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      </ul>
 
-          <ul class="nav-list">
-            <li><a href="./index.html" class="nav-link">Artists</a></li>
-            <li><a href="#" class="nav-link">About Us</a></li>
-            <li><a href="#" class="nav-link">Reviews</a></li>
-          </ul>
+      <!-- Бургер-меню -->
+      <button class="burger-menu" type="button">
+        <svg class="burger-menu-icon" width="24" height="24">
+          <use
+            class="us-burger"
+            href="/img/sprite.svg#icon-menu-alt-right"
+          ></use>
+        </svg>
+      </button>
+    </nav>
+  </div>
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
-          <!-- Бургер-меню -->
-          <button class="burger-menu" type="button">
-            <svg class="burger-menu-icon" width="24" height="24">
-              <use
-                class="us-burger"
-                href="/img/sprite.svg#icon-menu-alt-right"
-              ></use>
-            </svg>
-          </button>
-        </nav>
+  <!-- Мобільне меню -->
+  <div class="mobile-menu">
+    <div class="container mobile-menu-container">
+      <div class="logo-button">
+        <a href="./index.html" class="nav-logo">
+          <svg class="logo-icon">
+            <use href="/img/sprite.svg#icon-logo"></use>
+          </svg>
+        </a>
+        <button class="mobile-menu-close">
+          <svg class="button-close" width="12" height="12">
+            <use href="/img/sprite.svg#close-icon"></use>
+          </svg>
+        </button>
       </div>
-      <!-- Overlay -->
-      <div class="overlay"></div>
-
-      <!-- Мобільне меню -->
-      <div class="mobile-menu">
-        <div class="container mobile-menu-container">
-          <div class="logo-button">
-            <a href="./index.html" class="nav-logo">
-              <svg class="logo-icon">
-                <use href="/img/sprite.svg#icon-logo"></use>
-              </svg>
-            </a>
-            <button class="mobile-menu-close">
-              <svg class="button-close" width="12" height="12">
-                <use href="/img/sprite.svg#close-icon"></use>
-              </svg>
-            </button>
-          </div>
-          <nav class="mobile-menu-nav-m">
-            <ul class="nav-list-m">
-              <li><a href="#artists" class="nav-link-m">Artists</a></li>
-              <li><a href="#about" class="nav-link-m">About Us</a></li>
-              <li><a href="#reviews" class="nav-link-m">Reviews</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <script>
-      const burgerBtn = document.querySelector('.burger-menu');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const closeBtn = document.querySelector('.mobile-menu-close');
-      const navLinks = document.querySelectorAll('.nav-link-m');
-      const overlay = document.querySelector('.overlay');
-
-      // Відкрити меню
-      burgerBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        overlay.classList.add('active');
-      });
-
-      // Закрити меню
-      function closeMenu() {
-        mobileMenu.classList.remove('active');
-        overlay.classList.remove('active');
-      }
-
-      closeBtn.addEventListener('click', closeMenu);
-      overlay.addEventListener('click', closeMenu);
-
-      // Закривати по кліку на пункт меню і переходити до секції
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          closeMenu();
-        });
-      });
-    </script>
-  </body>
-</html>
+      <nav class="mobile-menu-nav-m">
+        <ul class="nav-list-m">
+          <li><a href="#artists" class="nav-link-m">Artists</a></li>
+          <li><a href="#about" class="nav-link-m">About Us</a></li>
+          <li><a href="#reviews" class="nav-link-m">Reviews</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+</script>
