@@ -17,12 +17,59 @@
   <script type="module" crossorigin src="/project-Dev4L1fe/index.js"></script>
   <link rel="modulepreload" crossorigin href="/project-Dev4L1fe/assets/vendor-F9iMMrrb.js">
   <link rel="stylesheet" crossorigin href="/project-Dev4L1fe/assets/vendor-Bdhrjn9o.css">
-  <link rel="stylesheet" crossorigin href="/project-Dev4L1fe/assets/index-2X8kf2S2.css">
+  <link rel="stylesheet" crossorigin href="/project-Dev4L1fe/assets/index-BN6BFjZk.css">
 </head>
 
 <body>
   <header class="header">
-  <div class="container">
+  <div class="container container-my">
+    <nav class="nav">
+      <a href="./index.html" class="nav-logo">
+        <svg class="logo-icon">
+          <use href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#icon-logo"></use>
+        </svg>
+      </a>
+      <ul class="nav-list">
+        <li><a href="#section-artists" class="nav-link">Artists</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      </ul>
+      <!-- Бургер-меню -->
+      <button class="burger-menu" type="button">
+        <svg class="burger-menu-icon" width="24" height="24">
+          <use
+            class="us-burger"
+            href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#icon-menu-alt-right"
+          ></use>
+        </svg>
+      </button>
+    </nav>
+  </div>
+  <!-- Overlay -->
+  <div class="overlay"></div>
+  <!-- Мобільне меню -->
+  <div class="mobile-menu">
+    <div class="container mobile-menu-container">
+      <div class="logo-button">
+        <a href="./index.html" class="nav-logo">
+          <svg class="logo-icon">
+            <use href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#icon-logo"></use>
+          </svg>
+        </a>
+        <button class="mobile-menu-close">
+          <svg class="button-close" width="12" height="12">
+            <use href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#close-icon"></use>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav-m">
+        <ul class="nav-list-m">
+          <li><a href="#artists" class="nav-link-m">Artists</a></li>
+          <li><a href="#about" class="nav-link-m">About Us</a></li>
+          <li><a href="#reviews" class="nav-link-m">Reviews</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -41,7 +88,7 @@
         <span>Explore Artists</span>
         <span class="hero-link-icon">
           <svg class="hero-link-svg" width="24" height="24">
-            <use href="/project-Dev4L1fe/assets/sprite-D03_Ml0c.svg#play-icon"></use>
+            <use href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#play-icon"></use>
           </svg>
         </span>
       </a>
@@ -58,7 +105,7 @@
   </div>
 </section>
 
-    <section class="section-about-us">
+    <section class="section-about-us" id="about">
   <div class="container-about">
     <div class="team-about">
       <picture>
@@ -83,7 +130,7 @@
     </div>
     <div class="text-container">
       <svg class="logo-about">
-        <use href="/project-Dev4L1fe/assets/sprite-D03_Ml0c.svg#logo-icon"></use>
+        <use href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#logo-icon"></use>
       </svg>
       <h2 class="h-text">About ArtistsHub</h2>
       <p class="p-text">
@@ -110,7 +157,7 @@
   
   <button id="toTop" class="to-top">
   <svg class="icon-top">
-    <use href="/project-Dev4L1fe/assets/sprite-D03_Ml0c.svg#arrow-up"></use>
+    <use href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#arrow-up"></use>
   </svg>
 </button>
 
