@@ -2,7 +2,6 @@
   position: relative;
   background-color: #060307;
   min-width: 320px;
-  /* width: 100%; */
 }
 
 .container-about {
@@ -63,7 +62,6 @@
     margin-bottom: 24px;
   }
   .team-foto {
-    width: auto;
     max-width: 704px;
     display: block;
     margin: 0 auto;
@@ -74,6 +72,7 @@
     max-width: 704px;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
   }
   .logo-about {
     width: 80px;
