@@ -1,4 +1,3 @@
-
 import { handleArtists, initFeedbackSection } from './js/handlers';
 import { loader } from './js/helpers.js';
 import { refs } from './js/refs.js';
@@ -10,19 +9,18 @@ initFeedbackSection();
 
 document.addEventListener('DOMContentLoaded', () => {
   const filtersContainer = document.querySelector('#filters-container-placeholder');
-    if (!filtersContainer) return;
-    document.addEventListener('DOMContentLoaded', () => {
-  initFilters();
-});
+  if (!filtersContainer) return; // якщо секції нема — виходим
 
   fetch('./partials/artists-modal.html')
     .then(res => res.text())
     .then(html => {
+      // 1) Вставляем HTML фільтрів
       filtersContainer.innerHTML = html;
-      // initFilters(); если подключен функционал
+
+      // 2) Инициализируем логику ПОСЛЕ вставки
+      initFilters();
     })
     .catch(err => {
+      console.error('Failed to load artists-modal.html:', err);
     });
 });
-
-

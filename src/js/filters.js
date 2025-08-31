@@ -3,92 +3,128 @@ import 'tui-pagination/dist/tui-pagination.css';
 
 const API_URL = 'https://sound-wave.b.goit.study/api/artists';
 const GENRES_URL = 'https://sound-wave.b.goit.study/api/genres';
-const ITEMS_PER_PAGE = 12;
-
-const refs = {
-  form: document.getElementById('filters-form'),
-  genreSelect: document.getElementById('genre-select'),
-  sortSelect: document.getElementById('sort-select'),
-  searchInput: document.getElementById('search-input'),
-  searchButton: document.getElementById('search-button'),
-  resetButton: document.getElementById('reset-filters-btn'),
-  artistsList: document.querySelector('.artists-list'),
-  paginationContainer: document.getElementById('pagination'),
-};
-
+const ITEMS_PER_PAGE = 8; 
+let refs = {};
 let pagination = null;
+
+
 let currentFilters = {
   genre: '',
-  sort: '',
-  search: '',
+  sortName: '', // asc|desc
+  name: '',     // строка поиска
 };
 
+// ---- ИНИЦИАЛИЗАЦИЯ ----
+export async function initFilters() {
+  // 1) Берём ссылки на элементы ТОЛЬКО сейчас, когда HTML уже вставлен в DOM
+  refs = {
+    form: document.getElementById('filters-form'),
+    genreSelect: document.getElementById('genre-select'),
+    sortSelect: document.getElementById('sort-select'),
+    searchInput: document.getElementById('search-input'),
+    searchButton: document.getElementById('search-button'),
+    resetButton: document.getElementById('reset-filters-btn'),
+    artistsList: document.querySelector('.artists-list'),
+    paginationContainer: document.getElementById('pagination'),
+  };
+
+  await populateGenreSelect();
+  setupEventListeners();
+  await handleFilters(); // первичная загрузка первой страницы без фильтров
+}
+
+// ---- GENRES ----
 async function fetchGenres() {
   try {
     const res = await fetch(GENRES_URL);
-    return await res.json();
-  } catch (error) {
-    console.error('Ошибка загрузки жанров:', error);
+    if (!res.ok) throw new Error('Genres request failed');
+    return await res.json(); // ожидаем [{ name: 'Rock' }, ...]
+  } catch (e) {
+    console.error('Ошибка загрузки жанров:', e);
     return [];
   }
 }
 
 async function populateGenreSelect() {
   const genres = await fetchGenres();
+  if (!refs.genreSelect) return;
   refs.genreSelect.innerHTML = '<option value="">Select genre</option>';
-  genres.forEach(genre => {
-    const option = document.createElement('option');
-    option.value = genre.name;
-    option.textContent = genre.name;
-    refs.genreSelect.appendChild(option);
+  genres.forEach(g => {
+    const opt = document.createElement('option');
+    opt.value = g.name;
+    opt.textContent = g.name;
+    refs.genreSelect.appendChild(opt);
   });
 }
 
-async function fetchArtists({ genre = '', sort = '', search = '', page = 1 } = {}) {
+// ---- ARTISTS ----
+async function fetchArtists({ genre = '', sortName = '', name = '', page = 1 } = {}) {
   const params = new URLSearchParams({
-    genre,
-    sortBy: sort,
-    keyword: search,
-    page,
-    limit: ITEMS_PER_PAGE,
+    page: String(page),
+    limit: String(ITEMS_PER_PAGE),
   });
+  if (genre) params.append('genre', genre);
+  if (name) params.append('name', name);
+  if (sortName) params.append('sortName', sortName);
+
+  const url = `${API_URL}?${params.toString()}`;
 
   try {
-    const res = await fetch(`${API_URL}?${params}`);
-    return await res.json();
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Artists request failed');
+    return await res.json(); // варианты: { artists, totalArtists } или { results, totalItems }
   } catch (error) {
     console.error('Ошибка загрузки артистов:', error);
-    return { results: [], totalItems: 0 };
+    return { artists: [], totalArtists: 0 };
   }
 }
 
-function renderArtists(data) {
+// Нормализация возможных вариантов ответа
+function extractPayload(apiData) {
+  const list = apiData.results ?? apiData.artists ?? [];
+  const total = apiData.totalItems ?? apiData.totalArtists ?? 0;
+  return { list, total };
+}
+
+function renderArtistsUI(list) {
+  if (!refs.artistsList) return;
+
   refs.artistsList.innerHTML = '';
 
-  if (!data.results || data.results.length === 0) {
+  if (!list.length) {
     refs.artistsList.innerHTML = '<p class="no-results">No artists found.</p>';
-    refs.paginationContainer.innerHTML = '';
+    if (refs.paginationContainer) refs.paginationContainer.innerHTML = '';
+    pagination = null; // сброс ссылки, чтобы заново создать при следующей загрузке
     return;
   }
 
-  const markup = data.results
-    .map(artist => {
-      const genresMarkup = artist.genres.map(genre => `<li class="genres-list-item">${genre}</li>`).join('');
+  const markup = list
+    .map(a => {
+      const genresMarkup = (a.genres ?? []).map(g => `<li class="genres-list-item">${g}</li>`).join('');
       return `
         <li class="artists-list-item">
-          <img src="${artist.strArtistThumb}" alt="${artist.strArtist}" class="artist-image" />
+          <img src="${a.strArtistThumb}" alt="${a.strArtist}" class="artist-image" />
           <ul class="genres-list">${genresMarkup}</ul>
-          <h3 class="artist-name">${artist.strArtist}</h3>
-          <p class="artist-descr">${artist.strBiographyEN?.slice(0, 120)}...</p>
-        </li>
-      `;
+          <h3 class="artist-name">${a.strArtist}</h3>
+          <p class="artist-descr">${(a.strBiographyEN || '').slice(0, 120)}...</p>
+        </li>`;
     })
     .join('');
 
   refs.artistsList.insertAdjacentHTML('beforeend', markup);
 }
 
+// ---- PAGINATION ----
+
 function setupPagination(totalItems) {
+  if (!refs.paginationContainer) return;
+
+  if (!totalItems) {
+    refs.paginationContainer.innerHTML = '';
+    pagination = null;
+    return;
+  }
+
   if (pagination) {
     pagination.reset(totalItems);
     return;
@@ -99,46 +135,67 @@ function setupPagination(totalItems) {
     itemsPerPage: ITEMS_PER_PAGE,
     visiblePages: 5,
     centerAlign: true,
-    firstItemClassName: 'tui-first-child',
-    lastItemClassName: 'tui-last-child',
+    template: {
+      page: '<button class="pagination-btn">{{page}}</button>',
+      currentPage: '<button class="pagination-btn active">{{page}}</button>',
+      moveButton({ type }) {
+        const src =
+          type === 'prev'
+            ? '/src/img/SliderArrowLeft.png'
+            : '/src/img/SliderArrowRight.png';
+        const label =
+          type === 'prev' ? 'Previous page' : 'Next page';
+        const className =
+          type === 'prev' ? 'move-prev' : 'move-next';
+
+        return `
+          <button class="pagination-btn ${className}" aria-label="${label}">
+            <img src="${src}" alt="${label}" class="arrow-img" />
+          </button>
+        `;
+      },
+      moreButton: '<span class="pagination-btn dots">...</span>',
+    },
   });
 
   pagination.on('beforeMove', async evt => {
     const page = evt.page;
     const data = await fetchArtists({ ...currentFilters, page });
-    renderArtists(data);
+    const { list } = extractPayload(data);
+    renderArtistsUI(list);
   });
 }
 
+// ---- EVENTS ----
 function setupEventListeners() {
+  // Поиск по кнопке-лупе (submit формы) и Enter
   refs.form.addEventListener('submit', async e => {
     e.preventDefault();
     await handleFilters();
   });
 
-  refs.sortSelect.addEventListener('change', handleFilters);
+  // Изменение жанра/сортировки — сразу фильтруем с первой страницы
   refs.genreSelect.addEventListener('change', handleFilters);
+  refs.sortSelect.addEventListener('change', handleFilters);
 
+  // Сброс
   refs.resetButton.addEventListener('click', async () => {
     refs.form.reset();
-    currentFilters = { genre: '', sort: '', search: '' };
+    currentFilters = { genre: '', sortName: '', name: '' };
     await handleFilters();
   });
 }
 
 async function handleFilters() {
+  // Считываем актуальные значения из UI
   currentFilters.genre = refs.genreSelect.value;
-  currentFilters.sort = refs.sortSelect.value;
-  currentFilters.search = refs.searchInput.value.trim();
+  currentFilters.sortName = refs.sortSelect.value;   // важно имя параметра
+  currentFilters.name = refs.searchInput.value.trim(); // важно имя параметра
 
+  // Загружаем первую страницу с текущими фильтрами
   const data = await fetchArtists({ ...currentFilters, page: 1 });
+  const { list, total } = extractPayload(data);
 
-  renderArtists(data);
-  setupPagination(data.totalItems || 0);
-}
-
-export async function initFilters() {
-  await populateGenreSelect();
-  setupEventListeners();
-  await handleFilters();
+  renderArtistsUI(list);
+  setupPagination(total);
 }

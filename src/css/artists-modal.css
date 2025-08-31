@@ -88,22 +88,7 @@
 }
 
 /* Select fields */
-.filters-select {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: transparent;
-    color: #ffffff;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 14px;
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    cursor: pointer;
-}
+
 
 .filters-select:focus {
     outline: none;
@@ -172,4 +157,136 @@
     color: #ccc;
     text-align: center;
     margin-top: 20px;
+}
+.filters-select {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 8px;
+    padding: 10px 12px;
+    appearance: none;
+    color-scheme: dark;
+    /* подсказываем браузеру тёмную тему */
+}
+
+/* стили для выпадающих опций */
+.filters-select option {
+    background-color: #0f0d13;
+    /* тёмный фон списка */
+    color: #fff;
+    /* белый текст */
+}
+
+/* фокус/hover – чтобы было видно границу */
+.filters-select:focus {
+    outline: none;
+    border-color: #fff;
+}
+.filters-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.2);
+  background-color: #0f0d13;     /* вместо transparent — стабильнее */
+  color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
+  color-scheme: dark;            /* подсказка браузеру: тёмная тема */
+  position: relative;
+  z-index: 1;
+}
+
+.filters-select:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+/* --- ВИДИМОСТЬ ОПЦИЙ В СПИСКЕ --- */
+.filters-select option,
+.filters-select optgroup {
+  background-color: #0f0d13 !important;  /* принудительно тёмный фон */
+  color: #fff !important;                 /* белый текст */
+}
+
+/* Цвет выбранной опции в открытом списке (Chromium/Edge) */
+.filters-select:focus option:checked {
+  background-color: #1b1620 !important;
+}
+
+/* Убрать стрелку IE/старый Edge */
+.filters-select::-ms-expand {
+  display: none;
+}
+
+/* Safari/iOS подстраховка */
+@supports (-webkit-touch-callout: none) {
+  .filters-select {
+    background-color: #0f0d13;
+  }
+}
+
+/* На всякий случай: выпадающий список не перекрывается ничем */
+.filters-wrapper,
+#filters-container-placeholder {
+  position: relative;
+  z-index: 2;
+}
+/* === ПАГИНАЦИЯ === */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 4px;
+}
+
+.pagination-btn {
+    width: 36px;
+    height: 36px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pagination-btn.active {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+}
+
+.pagination-btn.dots {
+    pointer-events: none;
+    opacity: 0.6;
+    border: none;
+}
+
+/* SVG стрелки */
+.arrow {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+}
+
+.flipped {
+    transform: rotate(180deg);
 }
