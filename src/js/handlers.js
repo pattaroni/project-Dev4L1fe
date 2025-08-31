@@ -1,7 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import { fetchArtists } from './api';
-import { renderArtists } from './render-function';
+import { fetchArtists, fetchFeedbacks } from './api';
+import { renderArtists, renderFeedbackSlider } from './render-function';
 import { loader } from './helpers';
 import { refs } from './refs';
 
@@ -23,5 +23,16 @@ export async function handleArtists() {
     }
   } finally {
     loader.hide(loaderEl);
+  }
+}
+
+export async function initFeedbackSection() {
+  try {
+    const { feedbacks } = await fetchFeedbacks(1, 10);
+    if (!Array.isArray(feedbacks)) throw new Error('Feedbacks is not an array');
+
+    renderFeedbackSlider(feedbacks);
+  } catch (err) {
+    console.error('Feedback fetch error:', err);
   }
 }
