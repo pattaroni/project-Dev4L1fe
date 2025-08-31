@@ -43,9 +43,9 @@ export async function renderArtistDetails(artistId, modalContent) {
     const albumsObj = await fetchArtistByIdWithAlbums(artistId);
 
     // 🔒 Перевірка на обʼєкт і фільтрація пошкоджених записів
-    const albums = albumsObj && typeof albumsObj === 'object'
-       ? Object.values(albumsObj).filter(album => album && typeof album === 'object')
-      : [];
+    const albums = Array.isArray(albumsObj.albumsList)
+  ? albumsObj.albumsList.filter(album => album && typeof album === 'object')
+  : [];
 
     const genreChips = artist.genres?.map(
       genre => `<span class="genre-chip">${genre}</span>`
