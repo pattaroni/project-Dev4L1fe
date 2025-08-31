@@ -19,6 +19,12 @@ ol {
 .header {
   padding: 17px 0;
   background: #060307;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #060307;
 }
 .nav {
   display: flex;
