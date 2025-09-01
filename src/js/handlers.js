@@ -59,12 +59,16 @@ export async function handleArtists() {
 }
 
 export async function initFeedbackSection() {
-  try {
+  const loaderEl = loader.create(refs.containerEL)
+  loader.show(loaderEl)
+    try {
     const { feedbacks } = await fetchFeedbacks(1, 10);
     if (!Array.isArray(feedbacks)) throw new Error('Feedbacks is not an array');
 
     renderFeedbackSlider(feedbacks);
   } catch (err) {
     console.error('Feedback fetch error:', err);
+    } finally {
+        loader.hide(loaderEl)
   }
 }
