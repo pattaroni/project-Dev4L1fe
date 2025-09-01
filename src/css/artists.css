@@ -507,3 +507,37 @@ gap: 12px;
     display: flex;
   }
 }
+
+@media (max-width: 767px) {
+  .filters-toggle-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: #1e1c1f;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    gap: 12px;
+  }
+
+  .filters-wrapper {
+    width: 100%;
+    max-width: 289px;
+    background: #1e1c1f;
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto;
+  }
+
+  .filters-wrapper.is-open {
+    display: flex;
+  }
+}
