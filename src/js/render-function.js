@@ -2,40 +2,37 @@ import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 import { refs } from './refs';
 import { prepareArtistDescription } from './helpers';
 import spriteUrl from '../img/sprite.svg?url';
 
-
 export function renderArtists(data) {
-  const markup = data
+  refs.artistsList.innerHTML = data
     .map(artist => {
       const genresMarkup = artist.genres
         .map(genre => `<li class="genres-list-item">${genre}</li>`)
         .join('');
-      const preparedArtistDescription = prepareArtistDescription(artist.strBiographyEN);
+      const preparedArtistDescription = prepareArtistDescription(
+        artist.strBiographyEN
+      );
 
-      return `<li class="artists-list-item" data-id="${artist._id}">
-                <img class="artist-image"
-                  src="${artist.strArtistThumb}" 
-                  alt="${artist.strArtist}" />
-                <ul class="genres-list">
-                    ${genresMarkup}
-                </ul>
-                <h3 class="artist-name">${artist.strArtist}</h3>
-                <p class="artist-descr">${preparedArtistDescription}</p>
-                <button type="button" class="artist-btn-learn-more">
-                    <span>Learn More</span>
-                    <span>
-                        <svg class="artist-learn-svg" width="14" height="14">
-                          <use href="${spriteUrl}#next-icon"></use>
-                        </svg>
-                    </span>
-                </button>
-            </li>`;
+      return `<li class="artists-list-item">
+        <img class="artist-image" src="${artist.strArtistThumb}" alt="${artist.strArtist}" />
+        <ul class="genres-list">${genresMarkup}</ul>
+        <h3 class="artist-name">${artist.strArtist}</h3>
+        <p class="artist-descr">${preparedArtistDescription}</p>
+        <button type="button" class="artist-btn-learn-more">
+          <span>Learn More</span>
+          <span>
+            <svg class="artist-learn-svg" width="14" height="14">
+              <use href="${spriteUrl}#next-icon"></use>
+            </svg>
+          </span>
+        </button>
+      </li>`;
     })
     .join('');
-  refs.artistsList.insertAdjacentHTML('beforeend', markup);
 }
 
 export const renderFeedbackSlider = feedbacks => {
@@ -45,7 +42,9 @@ export const renderFeedbackSlider = feedbacks => {
   const markup = `
     <div class="feedback-slider swiper">
       <div class="swiper-wrapper">
-        ${feedbacks.map(fb => `
+        ${feedbacks
+          .map(
+            fb => `
           <div class="swiper-slide">
             <div class="feedback-card">
               <div class="stars">${renderStars(fb.rating)}</div>
@@ -53,7 +52,9 @@ export const renderFeedbackSlider = feedbacks => {
               <h3 class="comm-name">${fb.name}</h3>
             </div>
           </div>
-        `).join('')}
+        `
+          )
+          .join('')}
       </div>
       <div class="swiper-button-prev">
         <svg class="icon">
@@ -97,12 +98,16 @@ export const renderFeedbackSlider = feedbacks => {
     },
   });
 
-  document.querySelector('.swiper-button-next')?.addEventListener('click', () => {
-    swiperInstance.slideNext();
-  });
-  document.querySelector('.swiper-button-prev')?.addEventListener('click', () => {
-    swiperInstance.slidePrev();
-  });
+  document
+    .querySelector('.swiper-button-next')
+    ?.addEventListener('click', () => {
+      swiperInstance.slideNext();
+    });
+  document
+    .querySelector('.swiper-button-prev')
+    ?.addEventListener('click', () => {
+      swiperInstance.slidePrev();
+    });
 
   function updateCustomPagination(swiper) {
     const total = swiper.slides.length;
