@@ -147,7 +147,7 @@
     }
   
 
-  .artists-pagination {
+  /* .artists-pagination {
     .tui-page-btn {
 
       &.tui-last,
@@ -162,7 +162,20 @@
       height: 24px;
       fill: #fff;
     }
-  }
+  } */
+         /* Спрятать первую и последнюю кнопку пагинации */
+         .artists-pagination .tui-page-btn.tui-first,
+         .artists-pagination .tui-page-btn.tui-last {
+           display: none;
+         }
+    
+         /* Стили для иконок стрелок */
+         .artists-pagination .pagination-left-icon,
+         .artists-pagination .pagination-right-icon {
+           width: 24px;
+           height: 24px;
+           fill: #fff;
+         }
 
 
 
@@ -438,7 +451,7 @@ gap: 12px;
     gap: 12px;
   }
 }
-/* ========== MOBILE: до 767px ========== */
+/* ========== MOBILE: до 768px ========== */
 @media (max-width: 768px) {
   
 
@@ -508,7 +521,7 @@ gap: 12px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .filters-toggle-btn {
     display: flex;
     width: 100%;
@@ -541,3 +554,6 @@ gap: 12px;
     display: flex;
   }
 }
+
+
+
