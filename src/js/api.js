@@ -28,9 +28,15 @@ export const fetchArtists = async ({
   });
 
   const totalItems = data.totalArtists || 0;
-  const isLastPage = page >= Math.ceil(totalItems / PER_PAGE);
+  const totalPages = Math.ceil(totalItems / PER_PAGE);
+  const isLastPage = page >= totalPages;
 
-  return { data, isLastPage };
+  return {
+    artists: data.artists || [],
+    isLastPage,
+    totalItems,
+    perPage: PER_PAGE,
+  };
 };
 
 export const fetchArtistById = async id => {
@@ -62,4 +68,3 @@ export const fetchFeedbacks = async (page = 1, PER_PAGE = 10) => {
 
   return { feedbacks, isLastPage };
 };
-

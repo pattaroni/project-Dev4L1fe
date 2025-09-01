@@ -1,29 +1,61 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 import { fetchArtists, fetchFeedbacks } from './api';
 import { renderArtists, renderFeedbackSlider } from './render-function';
-import { loader } from './helpers';
+import { loader, getPaginationOptions, getVisiblePages } from './helpers';
 import { refs } from './refs';
 
 export async function handleArtists() {
-  let loaderEl;
-  try {
-    loaderEl = loader.create(refs.artistsList);
+  const loaderEl = loader.create(refs.artistsList);
+
+  let pagination = null;
+  let windowWidth = window.innerWidth;
+
+  async function loadPage(page = 1) {
     loader.show(loaderEl);
-    const { data } = await fetchArtists();
-    loader.show(loaderEl);
-    renderArtists(data.artists);
-  } catch (error) {
-    if (error.response) {
-      iziToast.error({
-        message: `Error ${error.response.status}: ${error.response.data}`,
+
+    try {
+      const { artists, totalItems, perPage } = await fetchArtists({
+        page,
       });
-    } else {
-      iziToast.error({ message: `Error: ${error.message}` });
+
+      renderArtists(artists);
+
+      if (!pagination) {
+        initPagination(totalItems, perPage, page);
+      }
+    } catch (error) {
+      if (error.response) {
+        iziToast.error({
+          message: `Error ${error.response.status}: ${error.response.data}`,
+        });
+      } else {
+        iziToast.error({ message: `Error: ${error.message}` });
+      }
+    } finally {
+      loader.hide(loaderEl);
     }
-  } finally {
-    loader.hide(loaderEl);
   }
+
+  function initPagination(totalItems, itemsPerPage, startPage = 1) {
+    pagination = new Pagination(
+      refs.artistsPagination,
+      getPaginationOptions({
+        page: startPage,
+        visiblePages: getVisiblePages(windowWidth),
+        itemsPerPage,
+        totalItems,
+      })
+    );
+
+    pagination.on('afterMove', event => {
+      loadPage(event.page);
+    });
+  }
+
+  await loadPage(1);
 }
 
 export async function initFeedbackSection() {
