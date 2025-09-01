@@ -1,3 +1,5 @@
+import spriteUrl from '../img/sprite.svg?url';
+
 export const prepareArtistDescription = (text = '') => {
   const isSupportsLineClamp =
     CSS.supports('-webkit-line-clamp', '2') &&
@@ -37,12 +39,50 @@ export const loader = {
    loader.hide(loaderEl);
 */
 
-export function showLoader(node) {
-  if (!node) return;
-  node.classList.add('is-loading');
-}
+export const getPaginationOptions = ({
+  page,
+  visiblePages,
+  itemsPerPage,
+  totalItems,
+} = {}) => ({
+  totalItems,
+  itemsPerPage,
+  page,
+  visiblePages,
+  centerAlign: true,
+  usageStatistics: false,
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton: ({ type }) =>
+      `<a href="#" class="tui-page-btn tui-${type}">` +
+      `<svg class="pagination-${
+        type === 'next' ? 'right' : 'left'
+      }-icon"><use href="${spriteUrl}#${
+        type === 'next' ? 'right' : 'left'
+      }-arrow-icon"></use></svg>` +
+      '</a>',
+    disabledMoveButton: ({ type }) =>
+      `<span class="tui-page-btn tui-is-disabled tui-${type}">` +
+      `<svg class="icon-disabled pagination-${
+        type === 'next' ? 'right' : 'left'
+      }-icon"><use href="${spriteUrl}#${
+        type === 'next' ? 'right' : 'left'
+      }-arrow-icon"></use></svg>` +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+});
 
-export function hideLoader(node) {
-  if (!node) return;
-  node.classList.remove('is-loading');
-}
+export const getVisiblePages = width => {
+  if (width < 768) {
+    return 3;
+  } else if (width >= 768 && width < 1440) {
+    return 4;
+  }
+  return 5;
+};

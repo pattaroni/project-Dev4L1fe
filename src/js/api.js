@@ -29,12 +29,13 @@ export const fetchArtists = async ({
 
   const totalItems = data.totalArtists || 0;
   const totalPages = Math.ceil(totalItems / PER_PAGE);
+  const isLastPage = page >= totalPages;
 
   return {
-    artists: data.artists || [], // массив артистов
-    totalItems, // всего артистов
-    totalPages, // всего страниц
-    currentPage: page, // текущая страница
+    artists: data.artists || [],
+    isLastPage,
+    totalItems,
+    perPage: PER_PAGE,
   };
 };
 
@@ -63,15 +64,7 @@ export const fetchFeedbacks = async (page = 1, PER_PAGE = 10) => {
 
   const feedbacks = data.data || [];
   const totalItems = data.total || 0;
-  const totalPages = Math.ceil(totalItems / PER_PAGE);
-
-  return {
-    feedbacks: data.feedbacks || [],
-    totalItems,
-    totalPages,
-    currentPage: page,
-  };
+  const isLastPage = page >= Math.ceil(totalItems / PER_PAGE);
 
   return { feedbacks, isLastPage };
 };
-
