@@ -3,6 +3,7 @@
   max-width: 375px;
   margin: 0 auto;
   padding: 0 16px;
+  min-width: 320px;
 }
 
 /* Styles for Tablet devices */
