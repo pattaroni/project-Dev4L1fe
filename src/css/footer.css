@@ -4,7 +4,7 @@
   min-width: 320px;
 }
 
-.ul-anchors{
+.ul-anchors {
   display: flex;
   flex-direction: column;
   max-width: 288px;
@@ -14,20 +14,22 @@
   gap: 32px;
   margin-bottom: 48px;
 }
-.logo-icon-footer{
+.logo-icon-footer {
   display: flex;
   margin: 0 auto;
   fill: #764191;
   margin-bottom: 32px;
+  width: 116px;
+  height: 45px;
 }
 
-.icon-footer{
+.icon-footer {
   fill: #fbfafc;
   width: 40px;
   height: 40px;
 }
 
-.ul-icons-footer{
+.ul-icons-footer {
   display: flex;
   flex-direction: row;
   max-width: 184px;
@@ -36,45 +38,50 @@
   margin-bottom: 32px;
 }
 
-.a-footer{
-  font-family: "IBM Plex Sans", sans-serif;
-font-weight: 600;
-font-size: 16px;
+.a-footer {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
 
-/* line-height: 24px; */ 
-line-height: 150%;
-color: #fff;
+  /* line-height: 24px; */
+  line-height: 150%;
+  color: #fff;
+  transition: 200ms ease-in;
 }
 
-.p-allrights{
-  font-family: "IBM Plex Sans", sans-serif;
-font-weight: 400;
-font-size: 16px;
-
-/* line-height: 24px; */ 
-line-height: 150%;
-color: #fff;
-text-align: center;
+.a-footer:hover,
+.a-footer:focus {
+  color: #747bff;
 }
 
-@media (min-width: 768px){
-  
-  .footer{
+.p-allrights {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 150%;
+  color: #fff;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer {
     padding: 80px 0;
   }
-  .ul-anchors{
+  .ul-anchors {
     flex-direction: row;
     max-width: 493px;
     justify-content: center;
   }
 
-.con-footer > div {
+  .con-footer > div {
     display: flex;
     flex-direction: column;
     gap: 32px;
   }
 
-  .con-footer> div > div:first-child {
+  .con-footer > div > div:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,8 +101,6 @@ text-align: center;
   .ul-icons-footer {
     margin: 0;
   }
-
-
 }
 
 @media (max-width: 767px) {
@@ -115,8 +120,6 @@ text-align: center;
     align-items: center;
   }
 }
-
-
 
 .footer-desc {
   text-align: center;
