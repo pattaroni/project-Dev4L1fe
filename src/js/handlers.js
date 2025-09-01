@@ -8,12 +8,11 @@ import { loader, getPaginationOptions, getVisiblePages } from './helpers';
 import { refs } from './refs';
 
 export async function handleArtists() {
-  const loaderEl = loader.create(refs.artistsList);
-
   let pagination = null;
   let windowWidth = window.innerWidth;
 
   async function loadPage(page = 1) {
+    const loaderEl = loader.create(refs.artistsList);
     loader.show(loaderEl);
 
     try {
