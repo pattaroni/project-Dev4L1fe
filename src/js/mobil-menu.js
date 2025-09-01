@@ -9,12 +9,14 @@ const mobileLinks = document.querySelectorAll('.nav-list-m a');
 function openMenu() {
   mobileMenu.classList.add('active');
   overlay.classList.add('active');
+  document.body.classList.add('lock');
 }
 
 // Функція для закриття меню
 function closeMenu() {
   mobileMenu.classList.remove('active');
   overlay.classList.remove('active');
+  document.body.classList.remove('lock');
 }
 
 // Відкриваємо меню по кліку на бургер
