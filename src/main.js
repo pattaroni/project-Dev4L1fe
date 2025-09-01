@@ -4,3 +4,4 @@ import './js/mobil-menu.js';
 
 handleArtists();
 initFeedbackSection();
+
