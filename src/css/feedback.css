@@ -118,11 +118,6 @@
   z-index: 10;
 }
 
-.swiper-button-prev,
-.swiper-button-next:hover:focus {
-  opacity: 0.6;
-}
-
 .swiper-button-prev::after,
 .swiper-button-next::after {
   display: none;
