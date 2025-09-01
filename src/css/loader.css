@@ -1,7 +1,9 @@
 .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 48px;
   height: 48px;
-  display: inline-block;
   margin: 0 auto;
   position: relative;
   border: 3px solid;

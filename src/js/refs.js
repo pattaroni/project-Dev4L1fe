@@ -3,4 +3,5 @@ export const refs = {
   containerEL: document.querySelector('.container'),
   loader: document.querySelector('.loader'),
   artistsPagination: document.querySelector('#artists-pagination'),
+  feedbackContainer: document.querySelector('.section-feedback .container'),
 };
