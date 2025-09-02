@@ -171,11 +171,11 @@ export async function renderArtistDetails(artistId, modalContent) {
         <img src="${artist.strArtistThumb || ''}" alt="${artist.strArtist}" class="modal-img" />
         <div class="modal-info">
           <div class="modal-info-container">
-          <div class="modal-info-froup">
+          <div class="modal-info-group">
             <p><span>Years active</span> ${artist.intFormedYear || 'N/A'}-${artist.intDiedYear || 'present'}</p>
             <p><span>Sex</span> ${artist.strGender || 'N/A'}</p>
             </div>
-            <div class="modal-info-froup">
+            <div class="modal-info-group">
             <p><span>Members</span> ${artist.intMembers || 'N/A'}</p>
             <p><span>Country</span> ${artist.strCountry || 'N/A'}</p>
             </div>

@@ -58,6 +58,8 @@
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 16px;
+  line-height: 130%;
+  letter-spacing: -0.01em;
 }
 
 /* --- Header Layout --- */
@@ -71,8 +73,7 @@
 
 .modal-img {
   width: 100%;
-  height: auto;
-  max-height: 300px;
+  height: 177px;
   object-fit: cover;
   object-position: top;
   border-radius: 16px;
@@ -84,9 +85,13 @@
   flex-direction: column;
 }
 
-.modal-info-froup {
+.modal-info-group {
   display: flex;
   flex-direction: column;
+
+  p {
+    min-width: 146px;
+  }
 }
 
 .modal-info p {
@@ -195,6 +200,9 @@
 }
 
 .album-tracks-header {
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 150%;
   padding: 4px 12px;
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -235,14 +243,7 @@
   width: 25px;
   height: 27px;
   fill: #fff;
-
-  &:hover,
-  &:focus {
-    /* opacity: 0.6; */
-  }
 }
-
-/* --- Loader/Error --- */
 
 /* --- Scrollbar Fix --- */
 .modal-content::-webkit-scrollbar {
@@ -256,14 +257,43 @@
 
 
 /* --- Responsive --- */
-@media (min-width: 768px) {
-  .modal-content {
-    max-width: 702px;
+#artist-modal {
+  @media only screen and (min-width: 768px) {
+    .modal-content {
+      max-width: 702px;
+      padding: 64px 24px;
+    }
+
+    .modal-img {
+      height: 402px;
+    }
+
+    .modal-info-container {
+      flex-direction: row;
+    }
+
+    .modal-info-group {
+
+      &:first-child {
+        margin-right: 24px;
+      }
+    }
+
+    .modal-info p {
+      margin-bottom: 24px;
+    }
+
+    .albums-container {
+      gap: 32px;
+    }
+
+    .modal-header {
+      margin-bottom: 48px;
+    }
+
+    .modal-title {
+      font-size: 32px;
+      margin-bottom: 48px;
+    }
   }
-
-  .modal-header {}
-
-  .modal-title {}
-
-  .albums-container {}
 }
