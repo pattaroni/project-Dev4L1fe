@@ -32,10 +32,6 @@
   }
 }
 
-.loader.hidden {
-  display: none;
-}
-
 .artists-loader {
   position: absolute;
   inset: 0;

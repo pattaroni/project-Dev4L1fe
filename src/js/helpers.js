@@ -16,7 +16,7 @@ export const loader = {
     if (!element) return;
     let loaderEl = element.querySelector('.loader');
     if (!loaderEl) {
-      const markup = '<span class="loader hidden"></span>';
+      const markup = '<span class="loader"></span>';
       element.insertAdjacentHTML('beforeend', markup);
       loaderEl = element.querySelector('.loader');
     }
@@ -24,8 +24,10 @@ export const loader = {
   },
   show({ loaderEl, parent } = {}) {
     if (!loaderEl || !parent) return;
+    loaderEl?.classList.remove('hidden');
     if (parent === document.querySelector('.artists-loader')) {
       parent.style.display = 'flex';
+      loaderEl?.classList.remove('hidden');
     }
   },
   hide({ loaderEl, parent } = {}) {
@@ -33,6 +35,7 @@ export const loader = {
     loaderEl?.classList.add('hidden');
     if (parent === document.querySelector('.artists-loader')) {
       parent.style.display = 'none';
+      loaderEl?.classList.add('hidden');
     }
   },
 };
