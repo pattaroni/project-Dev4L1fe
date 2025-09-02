@@ -12,8 +12,9 @@ export async function handleArtists() {
   let windowWidth = window.innerWidth;
 
   async function loadPage(page = 1) {
-    const loaderEl = loader.create(refs.artistsList);
+    const loaderEl = loader.create(refs.artistsLoader);
     loader.show(loaderEl);
+    refs.artistsLoader.style.display = 'flex';
 
     try {
       const { artists, totalItems, perPage } = await fetchArtists({
@@ -35,6 +36,10 @@ export async function handleArtists() {
       }
     } finally {
       loader.hide(loaderEl);
+      refs.artistsLoader.style.display = 'none';
+      document
+        .querySelector('.artists-subtitle')
+        .scrollIntoView({ behavior: 'smooth' });
     }
   }
 
