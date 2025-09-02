@@ -27,6 +27,7 @@ export const loader = {
     loaderEl?.classList.remove('hidden');
     if (parent === document.querySelector('.artists-loader')) {
       parent.style.display = 'flex';
+      loaderEl?.classList.remove('hidden');
     }
   },
   hide({ loaderEl, parent } = {}) {
@@ -34,6 +35,7 @@ export const loader = {
     loaderEl?.classList.add('hidden');
     if (parent === document.querySelector('.artists-loader')) {
       parent.style.display = 'none';
+      loaderEl?.classList.add('hidden');
     }
   },
 };
