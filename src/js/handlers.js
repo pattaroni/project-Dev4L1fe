@@ -97,9 +97,10 @@ async function loadGenres() {
   try {
     const genres = await fetchGenres(); // массив жанров
 
+    
     const options = genres
-      .map(g => `<option value="${g._id}">${g.genre}</option>`)
-      .join('');
+  .map(g => `<option value="${g.genre}">${g.genre}</option>`) // 👈 genre вместо _id
+  .join('');
 
     genreSelect.innerHTML =
       `<option value="" disabled selected hidden>Genre</option>` + options;

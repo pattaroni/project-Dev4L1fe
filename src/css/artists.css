@@ -246,7 +246,6 @@
   font-size: 12px;
   line-height: 1.5;
   text-decoration: underline;
-  /* как в макете */
   cursor: pointer;
   transition: opacity .2s ease;
 }
@@ -261,7 +260,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  /* строго 12 между контролами */
 }
 
 /* ====== Search (иконка в круге + пилюльный инпут) ====== */
@@ -275,7 +273,6 @@
   top: 50%;
   transform: translateY(-50%);
   width: 28px;
-  /* маленький кружок под лупу */
   height: 28px;
   border-radius: 999px;
   background: transparent;
@@ -299,11 +296,8 @@
 .filters-search-input {
   width: 100%;
   height: 48px;
-  /* визуальная высота поля в макете */
   padding: 12px 16px 12px 52px;
-  /* место под круглую кнопку слева */
   border-radius: 12px;
-  /* скругление как у макета */
   border: 1px solid rgba(255, 255, 255, .16);
   background: transparent;
   color: #fff;
@@ -321,12 +315,11 @@
   border-color: rgba(255, 255, 255, .32);
 }
 
-/* ====== Selects: Sorting / Genre (пилюли + стрелка) ====== */
+/* ====== Selects: Sorting / Genre  ====== */
 .filters-select {
   width: 100%;
   height: 48px;
   padding: 12px 44px 12px 16px;
-  /* место под стрелку справа */
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, .16);
   background: transparent;
@@ -334,10 +327,8 @@
   font-size: 16px;
   line-height: 1.25;
   appearance: none;
-  /* скрыть системную стрелку */
   box-sizing: border-box;
 
-  /* стрелка вниз (закрытый селект) */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M7.4 9.4a1 1 0 0 1 1.4 0L12 12.6l3.2-3.2a1 1 0 1 1 1.4 1.4l-3.9 3.9a1.5 1.5 0 0 1-2.1 0L7.4 10.8a1 1 0 0 1 0-1.4z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
@@ -349,7 +340,6 @@
   outline: none;
   border-color: rgba(255, 255, 255, .32);
 
-  /* стрелка вверх (раскрыт) */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M16.6 14.6a1 1 0 0 1-1.4 0L12 11.4l-3.2 3.2a1 1 0 1 1-1.4-1.4l3.9-3.9a1.5 1.5 0 0 1 2.1 0l3.9 3.9a1 1 0 0 1 0 1.4z'/%3E%3C/svg%3E");
 }
 
