@@ -4,17 +4,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { refs } from './refs';
-import { prepareArtistDescription } from './helpers';
+import { prepareArtistDescription, formatDuration } from './helpers';
 import spriteUrl from '../img/sprite.svg?url';
 import { fetchArtistById, fetchArtistByIdWithAlbums } from './api';
-
-function formatDuration(ms) {
-  if (!ms || isNaN(ms)) return 'N/A';
-  const totalSeconds = Math.floor(ms / 1000);
-  const min = Math.floor(totalSeconds / 60);
-  const sec = totalSeconds % 60;
-  return `${min}:${sec.toString().padStart(2, '0')}`;
-}
 
 export function renderArtists(data) {
   refs.artistsList.innerHTML = data
@@ -26,7 +18,7 @@ export function renderArtists(data) {
         artist.strBiographyEN
       );
 
-      return `<li class="artists-list-item data-id="${artist._id}">
+      return `<li class="artists-list-item" data-id="${artist._id}">
         <img class="artist-image" src="${artist.strArtistThumb}" alt="${artist.strArtist}" />
         <ul class="genres-list">${genresMarkup}</ul>
         <h3 class="artist-name">${artist.strArtist}</h3>
@@ -166,9 +158,10 @@ export async function renderArtistDetails(artistId, modalContent) {
       ? albumsObj.albumsList.filter(album => album && typeof album === 'object')
       : [];
 
-    const genreChips = artist.genres?.map(
-      genre => `<span class="genre-chip">${genre}</span>`
-    ).join('') || '';
+    const genreChips =
+      artist.genres
+        ?.map(genre => `<span class="genre-chip">${genre}</span>`)
+        .join('') || '';
 
     modalContent.innerHTML = `
       <button class="close-btn" id="close-modal">&times;</button>
@@ -177,7 +170,7 @@ export async function renderArtistDetails(artistId, modalContent) {
       <div class="modal-header">
         <img src="${artist.strArtistThumb || ''}" alt="${artist.strArtist}" class="modal-img" />
         <div class="modal-info">
-          <p><strong>Years active:</strong> ${artist.intFormedYear || 'N/A'}–${artist.intDiedYear || 'present'}</p>
+          <p><strong>Years active:</strong> ${artist.intFormedYear || 'N/A'}-${artist.intDiedYear || 'present'}</p>
           <p><strong>Sex:</strong> ${artist.strGender || 'N/A'}</p>
           <p><strong>Members:</strong> ${artist.intMembers || 'N/A'}</p>
           <p><strong>Country:</strong> ${artist.strCountry || 'N/A'}</p>
@@ -188,25 +181,35 @@ export async function renderArtistDetails(artistId, modalContent) {
 
       <h3 class="albums-heading">Albums</h3>
 <div class="albums-container">
-  ${albums.length > 0
-      ? albums.map(album => `
+  ${
+    albums.length > 0
+      ? albums
+          .map(
+            album => `
       <div class="album-card">
         <h4 class="album-title">${album.strAlbum || 'Unknown Album'}</h4>
         <p class="album-year">Year: ${album.intYearReleased || 'N/A'}</p>
         <ul class="album-tracklist">
-          ${Array.isArray(album.tracks) && album.tracks.length > 0
-        ? album.tracks.map(track => `
+          ${
+            Array.isArray(album.tracks) && album.tracks.length > 0
+              ? album.tracks
+                  .map(
+                    track => `
               <li class="album-track-item">
-                ${track.strTrack || 'Track'} – ${formatDuration(track.intDuration)}
-              </li>`).join('')
-        : '<li class="album-track-item">No tracks available</li>'
-      }
+                ${track.strTrack || 'Track'} - ${formatDuration(track.intDuration)}
+              </li>`
+                  )
+                  .join('')
+              : '<li class="album-track-item">No tracks available</li>'
+          }
         </ul>
       </div>
-    `).join('')
+    `
+          )
+          .join('')
       : '<p>No albums found</p>'
-    }
-</div>`
+  }
+</div>`;
   } catch (err) {
     console.error('Modal render error:', err);
     modalContent.innerHTML = `<p>Error loading artist data</p>`;
