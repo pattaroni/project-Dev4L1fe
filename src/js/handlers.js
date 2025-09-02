@@ -8,13 +8,13 @@ import { loader, getPaginationOptions, getVisiblePages } from './helpers';
 import { refs } from './refs';
 
 export async function handleArtists() {
-  const loaderEl = loader.create(refs.artistsList);
-
   let pagination = null;
   let windowWidth = window.innerWidth;
 
   async function loadPage(page = 1) {
+    const loaderEl = loader.create(refs.artistsLoader);
     loader.show(loaderEl);
+    refs.artistsLoader.style.display = 'flex';
 
     try {
       const { artists, totalItems, perPage } = await fetchArtists({
@@ -36,6 +36,10 @@ export async function handleArtists() {
       }
     } finally {
       loader.hide(loaderEl);
+      refs.artistsLoader.style.display = 'none';
+      document
+        .querySelector('.artists-subtitle')
+        .scrollIntoView({ behavior: 'smooth' });
     }
   }
 
