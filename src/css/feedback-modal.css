@@ -1,0 +1,143 @@
+.modal {
+  display: none; /* ховаємо за замовчуванням */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  justify-content: center; /* центруємо, але НЕ вмикаємо display:flex тут */
+  align-items: center;
+  z-index: 9999;
+  padding: 149px, 288px;
+}
+
+.modal.active {
+  display: flex; /* показуємо тільки коли є .active */
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0; /* під панеллю */
+}
+
+.modal__panel {
+  position: relative;
+  background: #060307;
+  color: #fff;
+  padding: 64px;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1; /* над бекдропом */
+}
+
+/* блокування скролу, коли модалка відкрита */
+body.modal-open {
+  overflow: hidden;
+}
+.modal__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  fill: #fff;
+  cursor: pointer;
+}
+.modal__title {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #fff;
+}
+.form__group_1 {
+  margin-top: 48px;
+}
+.form__group_2 {
+  margin-top: 24px;
+}
+input,
+textarea {
+  width: 100%;
+
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 18px;
+
+  line-height: 1.5;
+  color: #fff;
+  background: rgba(255, 255, 255, 0);
+}
+
+.fb-modal-btn,
+.btn-leave-fb {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #764191;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.model-submit-feedback {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feedback-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
+/* Рейтинг */
+.star-rating {
+  display: inline-flex;
+  gap: 10px;
+  user-select: none;
+  margin-top: 12px;
+}
+
+.star-rating button {
+  all: unset;
+  display: inline-block; /* явний дисплей */
+  width: 32px; /* фіксуємо ширину для ховера-половинок */
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  /* Шрифт з гарантованим символом ★ */
+  font:
+    700 32px/1 'Segoe UI Symbol',
+    'Arial Unicode MS',
+    'Noto Sans Symbols',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Arial,
+    sans-serif;
+  color: #fff; /* базово — біла (порожня) */
+}
+
+.star-rating button::before {
+  content: '\2605'; /* ★ унікс-код */
+  color: #fff; /* порожня = біла */
+}
+
+.star-rating button.is-on::before,
+.star-rating button.is-hover::before {
+  color: #764191; /* заповнена/hover — фіолетова */
+}
+
+.star-rating button.is-half::after,
+.star-rating button.is-hover-half::after {
+  content: '\2605';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: #764191; /* півзірка — фіолетова */
+}
