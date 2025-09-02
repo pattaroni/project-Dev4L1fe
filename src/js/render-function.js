@@ -164,7 +164,6 @@ export async function renderArtistDetails(artistId, modalContent) {
         .join('') || '';
 
     modalContent.innerHTML = `
-      <button class="close-btn" id="close-modal">&times;</button>
       <h2 class="modal-title">${artist.strArtist || 'Unknown Artist'}</h2>
 
       <div class="modal-header">
