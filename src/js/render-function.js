@@ -170,15 +170,20 @@ export async function renderArtistDetails(artistId, modalContent) {
       <div class="modal-header">
         <img src="${artist.strArtistThumb || ''}" alt="${artist.strArtist}" class="modal-img" />
         <div class="modal-info">
-          <p><strong>Years active:</strong> ${artist.intFormedYear || 'N/A'}-${artist.intDiedYear || 'present'}</p>
-          <p><strong>Sex:</strong> ${artist.strGender || 'N/A'}</p>
-          <p><strong>Members:</strong> ${artist.intMembers || 'N/A'}</p>
-          <p><strong>Country:</strong> ${artist.strCountry || 'N/A'}</p>
-          <div><strong>Biography:</strong><p>${artist.strBiographyEN || 'N/A'}</p></div>
+          <div class="modal-info-container">
+          <div class="modal-info-froup">
+            <p><span>Years active</span> ${artist.intFormedYear || 'N/A'}-${artist.intDiedYear || 'present'}</p>
+            <p><span>Sex</span> ${artist.strGender || 'N/A'}</p>
+            </div>
+            <div class="modal-info-froup">
+            <p><span>Members</span> ${artist.intMembers || 'N/A'}</p>
+            <p><span>Country</span> ${artist.strCountry || 'N/A'}</p>
+            </div>
+          </div>
+          <div><span>Biography</span><p>${artist.strBiographyEN || 'N/A'}</p></div>
           <div class="modal-genres">${genreChips}</div>
         </div>
       </div>
-
       <h3 class="albums-heading">Albums</h3>
 <div class="albums-container">
   ${
@@ -188,15 +193,32 @@ export async function renderArtistDetails(artistId, modalContent) {
             album => `
       <div class="album-card">
         <h4 class="album-title">${album.strAlbum || 'Unknown Album'}</h4>
-        <p class="album-year">Year: ${album.intYearReleased || 'N/A'}</p>
+        <div class="album-tracks-header">
+        <p>Track</p>
+        <div class="track-info">
+          <p>Time</p>
+          <p>Link</p>
+        </div>
+        </div>
         <ul class="album-tracklist">
           ${
-            Array.isArray(album.tracks) && album.tracks.length > 0
+            album?.tracks?.length
               ? album.tracks
                   .map(
                     track => `
               <li class="album-track-item">
-                ${track.strTrack || 'Track'} - ${formatDuration(track.intDuration)}
+                <h5>${track.strTrack || 'Track'}</h5>
+                <div class="track-info">
+                  <p>
+                    ${formatDuration(track.intDuration)}
+                  </p>
+                  <a class="track-video-link ${track.movie ? '' : 'track-video-link-hidden'}" 
+                      href="${track.movie || '#'}" target="_blank" rel="noopener noreferrer">
+                    <svg class="track-video-icon icon-hidden">
+                      <use href="${spriteUrl}#youtube-icon"></use>
+                    </svg>
+                  </a>
+                </div>
               </li>`
                   )
                   .join('')
