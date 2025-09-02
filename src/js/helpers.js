@@ -14,15 +14,26 @@ export const prepareArtistDescription = (text = '') => {
 export const loader = {
   create(element) {
     if (!element) return;
-    const markup = '<span class="loader hidden"></span>';
-    element.insertAdjacentHTML('beforeend', markup);
-    return element.querySelector('.loader');
+    let loaderEl = element.querySelector('.loader');
+    if (!loaderEl) {
+      const markup = '<span class="loader hidden"></span>';
+      element.insertAdjacentHTML('beforeend', markup);
+      loaderEl = element.querySelector('.loader');
+    }
+    return { loaderEl, parent: element };
   },
-  show(loaderEl) {
-    loaderEl?.classList.remove('hidden');
+  show({ loaderEl, parent } = {}) {
+    if (!loaderEl || !parent) return;
+    if (parent === document.querySelector('.artists-loader')) {
+      parent.style.display = 'flex';
+    }
   },
-  hide(loaderEl) {
+  hide({ loaderEl, parent } = {}) {
+    if (!loaderEl || !parent) return;
     loaderEl?.classList.add('hidden');
+    if (parent === document.querySelector('.artists-loader')) {
+      parent.style.display = 'none';
+    }
   },
 };
 

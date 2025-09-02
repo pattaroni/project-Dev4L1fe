@@ -2,16 +2,14 @@
   <div class="container">
     <h3 class="artists-title">Artists</h3>
     <h2 class="artists-subtitle">Explore Your New Favorite Artists</h2>
-
-    <!-- ✅ Блок фильтрации + артисты -->
     <div class="filters-and-artists">
       <!-- ✅ КНОПКА ДЛЯ МОБАЙЛА И ПЛАНШЕТА -->
       <div class="filters-dropdown-wrapper">
         <button class="filters-toggle-btn" aria-expanded="false">
           Search and Filters
           <svg
-            width="16"
-            height="16"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -77,7 +75,10 @@
 
       <!-- ✅ Правая часть с артистами -->
       <div class="artists-content">
-        <ul class="artists-list"></ul>
+        <div class="artists-wrapper">
+          <ul class="artists-list"></ul>
+          <div class="artists-loader"></div>
+        </div>
         <div id="artists-pagination" class="artists-pagination"></div>
         <div class="artists-empty-state is-hidden">
           <div class="empty-box">
