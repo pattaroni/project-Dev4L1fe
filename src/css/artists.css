@@ -544,6 +544,81 @@ gap: 12px;
     display: flex;
   }
 }
+.genres-list-item {
+  cursor: pointer;
+}
 
+.artists-empty-state {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  margin-top: 0;
+}
 
+.artists-empty-state.is-hidden {
+  display: none;
+}
 
+.empty-box {
+  width: 976px;
+  min-height: 341px;
+  background-color: #2d1739;
+  border-radius: 16px;
+  padding: 64px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.empty-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  stroke: #fff;
+  opacity: 0.85;
+}
+
+.empty-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.empty-subtitle {
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.empty-reset-btn {
+  align-self: flex-start;
+  background-color: #9f5afd;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.empty-reset-btn:hover,
+.empty-reset-btn:focus {
+  background-color: #7b45c2;
+}
+
+.artists-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

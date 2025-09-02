@@ -77,6 +77,35 @@
       <div class="artists-content">
         <ul class="artists-list"></ul>
         <div id="artists-pagination" class="artists-pagination"></div>
+        <div class="artists-empty-state is-hidden">
+          <div class="empty-box">
+            <div class="empty-icon-title">
+              <svg
+                class="empty-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <circle cx="12" cy="16" r="1" />
+              </svg>
+              <p class="empty-title">Silence on the stage…</p>
+            </div>
+            <p class="empty-subtitle">
+              Looks like no artists match your filters.<br />
+              Try changing them or hit “Reset Filters” to bring back the beat.
+            </p>
+            <button class="filters-reset-btn empty-reset-btn">
+              Reset Filters
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

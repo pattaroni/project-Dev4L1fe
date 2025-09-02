@@ -148,6 +148,19 @@ function attachFilterListeners() {
     filtersState = { genre: '', sortName: '', name: '', page: 1 };
     applyFilters();
   });
+  // ✅ ДОБАВЛЕННЫЙ код для Reset Filters в пустом состоянии
+  const emptyResetBtn = document.querySelector('.empty-reset-btn');
+
+  if (emptyResetBtn) {
+    emptyResetBtn.addEventListener('click', () => {
+      genreSelect.value = '';
+      sortSelect.value = '';
+      searchInput.value = '';
+      filtersState = { genre: '', sortName: '', name: '', page: 1 };
+      document.querySelector('.artists-empty-state').classList.add('is-hidden');
+      applyFilters();
+    });
+  }
 }
 
 let paginationInstance = null;
@@ -163,8 +176,17 @@ async function applyFilters() {
       throw new Error('Invalid API response structure');
     }
 
-    renderArtists(response.artists);
-    initFilteredPagination(response.totalItems, response.perPage);
+    // renderArtists(response.artists);
+    // initFilteredPagination(response.totalItems, response.perPage);
+    if (response.artists.length === 0) {
+  refs.artistsList.innerHTML = ''; // очищаем предыдущих артистов
+  document.querySelector('.artists-empty-state').classList.remove('is-hidden');
+  refs.artistsPagination.innerHTML = ''; // убираем пагинацию
+} else {
+  document.querySelector('.artists-empty-state').classList.add('is-hidden');
+  renderArtists(response.artists);
+  initFilteredPagination(response.totalItems, response.perPage);
+}
   } catch (error) {
     iziToast.error({ message: 'Failed to load filtered artists' });
   } finally {
