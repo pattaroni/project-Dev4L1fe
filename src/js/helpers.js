@@ -16,7 +16,7 @@ export const loader = {
     if (!element) return;
     let loaderEl = element.querySelector('.loader');
     if (!loaderEl) {
-      const markup = '<span class="loader"></span>';
+      const markup = '<span class="loader hidden"></span>';
       element.insertAdjacentHTML('beforeend', markup);
       loaderEl = element.querySelector('.loader');
     }

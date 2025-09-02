@@ -11,6 +11,7 @@ export async function handleArtists() {
   async function loadPage(page = 1) {
     const loaderEl = loader.create(refs.artistsLoader);
     loader.show(loaderEl);
+    refs.artistsLoader.style.display = 'flex';
 
     try {
       const response = await fetchArtists({
