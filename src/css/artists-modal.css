@@ -296,4 +296,27 @@
       margin-bottom: 48px;
     }
   }
+
+  @media only screen and (min-width: 1440px) {
+    .modal-content {
+      max-width: 1312px;
+      padding: 64px;
+    }
+
+    .modal-img {
+      height: 354px;
+    }
+
+    .modal-info>div>p {
+      height: 135px;
+      overflow-y: scroll;
+      padding-right: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: #555;
+    }
+
+    .modal-header {
+      flex-direction: row;
+    }
+  }
 }
