@@ -6,70 +6,72 @@
     <!-- ✅ Блок фильтрации + артисты -->
     <div class="filters-and-artists">
       <!-- ✅ КНОПКА ДЛЯ МОБАЙЛА И ПЛАНШЕТА -->
-      <button class="filters-toggle-btn" aria-expanded="false">
-        Search and Filters
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
+      <div class="filters-dropdown-wrapper">
+        <button class="filters-toggle-btn" aria-expanded="false">
+          Search and Filters
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
 
-      <!-- ✅ Левая колонка фильтров -->
-      <div class="filters-wrapper is-hidden">
-        <div class="filters-header">
-          <span>Filters</span>
-          <button class="filters-reset-btn">Reset</button>
-        </div>
-
-        <div class="filters-form">
-          <div class="filters-search-box" style="position: relative">
-            <input
-              type="text"
-              class="filters-search-input"
-              placeholder="Search..."
-            />
-            <button
-              type="submit"
-              class="filters-search-btn"
-              aria-label="Search"
-            >
-              <!-- SVG иконка поиска встроена прямо в HTML -->
-              <svg
-                class="filters-search-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </button>
+        <!-- ✅ Левая колонка фильтров -->
+        <div class="filters-wrapper is-hidden">
+          <div class="filters-header">
+            <span>Filters</span>
+            <button class="filters-reset-btn">Reset</button>
           </div>
 
-          <select class="filters-select" name="sort" id="sort-select">
-            <option value="">Sorting</option>
-            <option value="default">Default</option>
-            <option value="az">A-Z</option>
-            <option value="za">Z-A</option>
-          </select>
+          <div class="filters-form">
+            <div class="filters-search-box" style="position: relative">
+              <input
+                type="text"
+                class="filters-search-input"
+                placeholder="Search..."
+              />
+              <button
+                type="submit"
+                class="filters-search-btn"
+                aria-label="Search"
+              >
+                <!-- SVG иконка поиска встроена прямо в HTML -->
+                <svg
+                  class="filters-search-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
+            </div>
 
-          <select class="filters-select" name="genre" id="genre-select">
-            <option value="">Genre</option>
-          </select>
+            <select class="filters-select" name="sort" id="sort-select">
+              <option value="">Sorting</option>
+              <option value="default">Default</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+            </select>
+
+            <select class="filters-select" name="genre" id="genre-select">
+              <option value="">Genre</option>
+            </select>
+          </div>
         </div>
       </div>
 

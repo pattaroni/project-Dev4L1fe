@@ -161,6 +161,17 @@ function attachFilterListeners() {
       applyFilters();
     });
   }
+  // ✅ Кнопка "Search and Filters" — показать/скрыть фильтры
+  const toggleBtn = document.querySelector('.filters-toggle-btn');
+  const filtersWrapper = document.querySelector('.filters-wrapper');
+
+  if (toggleBtn && filtersWrapper) {
+    toggleBtn.addEventListener('click', () => {
+      filtersWrapper.classList.toggle('is-open');
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!expanded));
+    });
+  }
 }
 
 let paginationInstance = null;
