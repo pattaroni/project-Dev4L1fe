@@ -32,7 +32,14 @@
   }
 }
 
-.loader.hidden {
+.artists-loader {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
   display: none;
 }
 

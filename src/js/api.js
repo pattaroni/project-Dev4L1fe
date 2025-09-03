@@ -68,3 +68,4 @@ export const fetchFeedbacks = async (page = 1, PER_PAGE = 10) => {
 
   return { feedbacks, isLastPage };
 };
+
