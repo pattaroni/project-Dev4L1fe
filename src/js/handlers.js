@@ -32,9 +32,6 @@ export async function handleArtists() {
     } finally {
       loader.hide(loaderEl);
       refs.artistsLoader.style.display = 'none';
-      document
-        .querySelector('.artists-subtitle')
-        .scrollIntoView({ behavior: 'smooth' });
     }
   }
 
