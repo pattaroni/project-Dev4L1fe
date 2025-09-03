@@ -1,4 +1,5 @@
 import spriteUrl from '../img/sprite.svg?url';
+import { saveTheme } from './storage';
 
 export const prepareArtistDescription = (text = '') => {
   const isSupportsLineClamp =
@@ -129,4 +130,12 @@ export function updateArrowVisibility(swiper) {
     prevBtn.classList.add('swiper-button-disabled');
     nextBtn.classList.add('swiper-button-disabled');
   }
+}
+
+export function toggleTheme() {
+  const current = document.body.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.body.setAttribute('data-theme', next);
+
+  saveTheme(next);
 }

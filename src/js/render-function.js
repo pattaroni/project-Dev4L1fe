@@ -144,7 +144,7 @@ function renderStars(rating) {
   return (
     '<span class="stars">' +
     '<span class="fa fa-star checked"></span>'.repeat(fullStars) +
-    '<span class="fa fa-star" style="color: #fff;"></span>'.repeat(emptyStars) +
+    '<span class="fa fa-star"></span>'.repeat(emptyStars) +
     '</span>'
   );
 }

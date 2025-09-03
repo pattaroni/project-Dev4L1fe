@@ -37,6 +37,57 @@ body.lock {
   margin: 0;
   display: none;
 }
+/* перемикач теми початок */
+.theme-toggle {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-theme {
+  width: 24px;
+  height: 24px;
+  transition:
+    transform 0.4s ease,
+    opacity 0.2s ease;
+}
+
+.icon-theme:hover .sun {
+  opacity: 1;
+}
+
+.icon-theme:hover .moon {
+  opacity: 1;
+}
+
+.sun {
+  fill: #facc15;
+  stroke: #facc15;
+  transition: opacity 0.4s ease;
+  opacity: 0.6;
+}
+
+.moon {
+  fill: #e2e8f0;
+  transform: scale(0);
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  opacity: 0.6;
+}
+
+[data-theme='dark'] .sun {
+  opacity: 0;
+  display: none;
+}
+
+[data-theme='dark'] .moon {
+  transform: scale(1);
+}
+
+/* перемикач теми кінець */
 
 .nav-link {
   position: relative;
@@ -79,6 +130,16 @@ body.lock {
 }
 
 /* Мобільне меню початок */
+@media screen and (max-width: 768px) {
+  .theme-toggle-hide {
+    display: none;
+  }
+  .icon-theme-m {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .mobile-menu {
   position: fixed;
   top: 0;
