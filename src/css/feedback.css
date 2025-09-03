@@ -5,7 +5,7 @@
 .section-feedback {
   padding: 64px 0;
   background-color: #060307;
-  min-width: 320px;
+  /* min-width: 320px; */
 }
 
 .feedback-slider {

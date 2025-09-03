@@ -3,7 +3,6 @@ body.lock {
 }
 
 .header {
-  min-width: 320px;
   padding: 10.5px 0;
   background: #060307;
   position: sticky;

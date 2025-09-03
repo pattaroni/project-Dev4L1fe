@@ -1,8 +1,16 @@
+.artists-content {
+  max-width: 288px;
+}
+
+.artist-list {
+  max-width: 288px;
+}
+
 .section-artists {
   display: flex;
   flex-wrap: wrap;
   background-color: #060307;
-  min-width: 320px;
+
   padding: 64px 0;
 }
 
