@@ -11,7 +11,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 2000;
   display: flex;
   opacity: 0;
   pointer-events: none;
@@ -34,7 +34,7 @@
   font-family: 'IBM Plex Sans', sans-serif;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   position: relative;
-  margin: 128px 16px 64px 16px;
+  margin: 64px 16px;
   min-height: 50%;
 }
 
@@ -77,6 +77,14 @@
   object-fit: cover;
   object-position: top;
   border-radius: 16px;
+}
+
+.modal-info>div>p {
+  height: 297px;
+  overflow-y: scroll;
+  padding-right: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #555;
 }
 
 /* --- Info Block --- */
@@ -197,6 +205,13 @@
   &:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.1);
   }
+
+  h5 {
+    padding-right: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .album-tracks-header {
@@ -275,6 +290,10 @@
       height: 402px;
     }
 
+    .modal-info>div>p {
+      height: 108px;
+    }
+
     .modal-info-container {
       flex-direction: row;
     }
@@ -316,10 +335,6 @@
 
     .modal-info>div>p {
       height: 135px;
-      overflow-y: scroll;
-      padding-right: 12px;
-      scrollbar-width: thin;
-      scrollbar-color: #555;
     }
 
     .modal-info {
