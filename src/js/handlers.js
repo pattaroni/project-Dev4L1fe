@@ -6,6 +6,7 @@ import { fetchArtists, fetchFeedbacks, fetchGenres } from './api';
 import { renderArtists, renderFeedbackSlider } from './render-function';
 import { loader, getPaginationOptions, getVisiblePages } from './helpers';
 import { refs } from './refs';
+import { openArtistModal } from './modal';
 
 export async function handleArtists() {
   async function loadPage(page = 1) {
@@ -195,3 +196,22 @@ function initFilteredPagination(totalItems, itemsPerPage) {
     applyFilters();
   });
 }
+
+export const initArtistModal = () => {
+  refs.artistsList.addEventListener('click', async e => {
+    const btn = e.target.closest('.artist-btn-learn-more');
+
+    if (btn?.nodeName !== 'BUTTON') {
+      return;
+    }
+    const artistId = btn.closest('.artists-list-item')?.dataset?.id;
+    if (!artistId) {
+      iziToast.error({
+        message: `Unable to find this artist. Please try again later.`,
+      });
+      return;
+    }
+
+    openArtistModal(artistId);
+  });
+};

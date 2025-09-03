@@ -100,3 +100,11 @@ export const getVisiblePages = width => {
   }
   return 5;
 };
+
+export const formatDuration = ms => {
+  if (!ms || isNaN(ms)) return 'N/A';
+  const totalSeconds = Math.floor(ms / 1000);
+  const min = Math.floor(totalSeconds / 60);
+  const sec = totalSeconds % 60;
+  return `${min}:${sec.toString().padStart(2, '0')}`;
+};

@@ -13,4 +13,5 @@ export const refs = {
   toggleBtn: document.querySelector('.filters-toggle-btn'),
   filtersWrapper: document.querySelector('.filters-wrapper'),
   artistsLoader: document.querySelector('.artists-loader'),
+  modalArtistLoader: document.querySelector('.modal-artist-loader'),
 };
