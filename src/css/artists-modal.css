@@ -322,6 +322,10 @@
       scrollbar-color: #555;
     }
 
+    .modal-info {
+      max-width: 576;
+    }
+
     .modal-header {
       flex-direction: row;
     }
