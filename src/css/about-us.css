@@ -9,6 +9,8 @@
   position: relative;
   overflow: hidden;
   gap: 48px;
+  width: 320px;
+  margin: 0 auto;
 }
 .text-container {
   display: flex;
@@ -57,6 +59,7 @@
   .container-about {
     padding: 64px 32px;
     gap: 24px;
+    width: 768px;
   }
   .team-about {
     margin-bottom: 24px;
@@ -89,12 +92,12 @@
 @media screen and (min-width: 1440px) {
   .container-about {
     padding: 112px 64px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 32px;
+    width: 1440px;
   }
   .text-container {
     max-width: 640px;
