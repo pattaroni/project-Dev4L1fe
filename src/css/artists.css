@@ -324,7 +324,7 @@
   opacity: 0.85;
 }
 
-.filters-search-input {
+/* .filters-search-input {
   width: 100%;
   height: 48px;
   padding: 12px 16px 12px 52px;
@@ -335,7 +335,7 @@
   font-size: 16px;
   line-height: 1.25;
   box-sizing: border-box;
-}
+} */
 
 .filters-search-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
@@ -364,20 +364,19 @@
   position: relative;
 }
 
-.filters-search-input {
+/* .filters-search-input {
   width: 100%;
   height: 48px;
   padding: 12px 16px 12px 52px;
   /* отступ слева под кнопку */
-  border-radius: 12px;
+  /* border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: transparent;
   color: #fff;
   font-size: 16px;
   line-height: 1.25;
-  box-sizing: border-box;
-}
-
+  box-sizing: border-box; */
+/* } */
 .filters-search-btn {
   position: absolute;
   left: 12px;
@@ -421,9 +420,6 @@
   margin-top: 0;
 }
 
-.artists-empty-state.is-hidden {
-  display: none;
-}
 
 
 .empty-icon-title {
@@ -547,7 +543,7 @@
   opacity: 0.85;
 }
 
-.filters-search-input {
+/* .filters-search-input {
   width: 100%;
   height: 48px;
   padding: 12px 16px 12px 52px;
@@ -558,16 +554,16 @@
   font-size: 16px;
   line-height: 1.25;
   box-sizing: border-box;
-}
+} */
 
-.filters-search-input::placeholder {
+/* .filters-search-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
 .filters-search-input:focus {
   outline: none;
   border-color: rgba(255, 255, 255, 0.32);
-}
+} */
 
 /* ====== Selects: Sorting / Genre  ====== */
 .filters-select {
@@ -612,10 +608,10 @@
 }
 
 .filters-search-input {
+  margin: 0;
   width: 100%;
   height: 48px;
   padding: 12px 16px 12px 52px;
-  /* отступ слева под кнопку */
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: transparent;
@@ -777,7 +773,7 @@
         display: flex;
       }
     
-  .filters-dropdown-wrapper {
+ .filters-dropdown-wrapper {
     width: 233px;
       height: 47px;
       position: relative;
@@ -791,11 +787,11 @@
   .filters-wrapper {
       position: absolute;
       top: calc(100% + 8px);
-      left: 0;
+      /* left: 0; */
       right: 0;
       width: 100%;
       max-width: 289px;
-      margin: 0 auto;
+      /* margin: 0 auto; */
       background: #1e1c1f;
       border-radius: 12px;
       padding: 12px;
@@ -813,6 +809,9 @@
   }
     .filters-wrapper.is-open {
       display: flex;
+      position: absolute;
+        right: 0;
+        z-index: 1000;
       width: 304px;
       height: 343px;
       border-radius: 12px;
@@ -925,22 +924,11 @@
 
 
   .filters-wrapper {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 289px;
-    margin: 0 auto;
-    background: #1e1c1f;
-    border-radius: 12px;
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    display: none;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 100;
+      position: absolute;
+        top: 100%;
+        /* сразу под кнопкой */
+        right: 0;
+        z-index: 1000;
   }
 
   .filters-wrapper.is-open {
@@ -995,8 +983,8 @@
   }
     
 }
-.filters-wrapper {
+/* .filters-wrapper {
   width: 304px;
   height: 197px;
   gap: 12px;
-}
+} */
