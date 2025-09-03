@@ -28,7 +28,7 @@
     <script type="module" crossorigin src="/project-Dev4L1fe/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-Dev4L1fe/assets/vendor-WtVtfYKs.js">
     <link rel="stylesheet" crossorigin href="/project-Dev4L1fe/assets/vendor-D9L8WyXK.css">
-    <link rel="stylesheet" crossorigin href="/project-Dev4L1fe/assets/index-DCVBpxpJ.css">
+    <link rel="stylesheet" crossorigin href="/project-Dev4L1fe/assets/index-C_Szc6Vn.css">
   </head>
 
   <body>
@@ -265,7 +265,68 @@
   <div class="container">
     <h2 class="hidden">Feedbacks our visitors</h2>
   </div>
+  <div class="feedback-actions">
+    <button id="open-modal" class="btn-leave-fb" type="button">
+      Leave feedback
+    </button>
+  </div>
 </section>
+
+      <section class="feedback-modal-section">
+  <div
+    class="modal"
+    id="feedback-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="feedback-modal-title"
+  >
+    <div class="modal__backdrop"></div>
+
+    <div class="modal__panel">
+      <svg
+        width="16"
+        height="16"
+        class="modal__close"
+        aria-label="Close dialog"
+      >
+        <use href="/project-Dev4L1fe/assets/sprite-BCLXoa-8.svg#close-icon"></use>
+      </svg>
+
+      <h2 id="feedback-modal-title" class="modal__title">Submit feedback</h2>
+
+      <form class="modal__form" action="#" method="post" novalidate>
+        <div class="form__group_1">
+          <label for="fb-name">Name</label>
+          <input
+            id="fb-name"
+            name="name"
+            type="text"
+            placeholder="Emily"
+            required
+          />
+        </div>
+
+        <div class="form__group_2">
+          <label for="fb-message">Message</label>
+          <textarea
+            id="fb-message"
+            name="message"
+            rows="5"
+            placeholder="Type your message..."
+            required
+          ></textarea>
+        </div>
+
+        <div id="star-rating"></div>
+
+        <div class="model-submit-feedback">
+          <button type="submit" class="fb-modal-btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
     </main>
 
     <footer class="footer">
