@@ -108,3 +108,25 @@ export const formatDuration = ms => {
   const sec = totalSeconds % 60;
   return `${min}:${sec.toString().padStart(2, '0')}`;
 };
+
+export function updateArrowVisibility(swiper) {
+  const prevBtn = swiper.el.querySelector('.swiper-button-prev');
+  const nextBtn = swiper.el.querySelector('.swiper-button-next');
+
+  if (swiper.isBeginning) {
+    prevBtn.classList.add('swiper-button-disabled');
+  } else {
+    prevBtn.classList.remove('swiper-button-disabled');
+  }
+
+  if (swiper.isEnd) {
+    nextBtn.classList.add('swiper-button-disabled');
+  } else {
+    nextBtn.classList.remove('swiper-button-disabled');
+  }
+
+  if (swiper.slides.length <= swiper.params.slidesPerView) {
+    prevBtn.classList.add('swiper-button-disabled');
+    nextBtn.classList.add('swiper-button-disabled');
+  }
+}
