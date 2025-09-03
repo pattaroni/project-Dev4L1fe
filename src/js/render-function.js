@@ -4,7 +4,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { refs } from './refs';
-import { prepareArtistDescription, formatDuration } from './helpers';
+import { prepareArtistDescription, formatDuration, loader } from './helpers';
 import spriteUrl from '../img/sprite.svg?url';
 import { fetchArtistById, fetchArtistByIdWithAlbums } from './api';
 
@@ -147,7 +147,9 @@ function renderStars(rating) {
 }
 
 export async function renderArtistDetails(artistId, modalContent) {
-  // modalContent.innerHTML = `<p class="loader">Loading...</p>`;
+  const loaderEl = loader.create(refs.modalArtistLoader);
+  loader.show(loaderEl);
+  refs.modalArtistLoader.style.display = 'flex';
 
   try {
     const artist = await fetchArtistById(artistId);
@@ -234,5 +236,8 @@ export async function renderArtistDetails(artistId, modalContent) {
   } catch (err) {
     console.error('Modal render error:', err);
     modalContent.innerHTML = `<p>Error loading artist data</p>`;
+  } finally {
+    loader.hide(loaderEl);
+    refs.modalArtistLoader.style.display = 'none';
   }
 }

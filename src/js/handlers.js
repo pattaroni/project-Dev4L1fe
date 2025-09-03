@@ -88,7 +88,7 @@ export const initArtistModal = () => {
     const artistId = btn.closest('.artists-list-item')?.dataset?.id;
     if (!artistId) {
       iziToast.error({
-        message: `CUnable to find this artist. Please try again later.`,
+        message: `Unable to find this artist. Please try again later.`,
       });
       return;
     }

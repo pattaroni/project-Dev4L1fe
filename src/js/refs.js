@@ -5,4 +5,5 @@ export const refs = {
   artistsPagination: document.querySelector('#artists-pagination'),
   feedbackContainer: document.querySelector('.section-feedback .container'),
   artistsLoader: document.querySelector('.artists-loader'),
+  modalArtistLoader: document.querySelector('.modal-artist-loader'),
 };

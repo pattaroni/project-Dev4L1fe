@@ -255,6 +255,13 @@
   border-radius: 4px;
 }
 
+.modal-artist-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 /* --- Responsive --- */
 #artist-modal {

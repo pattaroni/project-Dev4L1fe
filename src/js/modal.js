@@ -15,6 +15,7 @@ export function closeArtistModal() {
   modal.classList.remove('is-open');
   document.body.style.overflow = 'auto';
   document.removeEventListener('keydown', escHandler);
+  modalContent.innerHTML = '';
 }
 
 function escHandler(e) {
