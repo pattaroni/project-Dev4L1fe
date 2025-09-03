@@ -205,6 +205,13 @@
   &:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.1);
   }
+
+  h5 {
+    padding-right: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .album-tracks-header {
