@@ -27,6 +27,7 @@ export const loader = {
     loaderEl?.classList.remove('hidden');
     if (parent === document.querySelector('.artists-loader')) {
       parent.style.display = 'flex';
+      loaderEl?.classList.remove('hidden');
     }
   },
   hide({ loaderEl, parent } = {}) {
@@ -34,6 +35,7 @@ export const loader = {
     loaderEl?.classList.add('hidden');
     if (parent === document.querySelector('.artists-loader')) {
       parent.style.display = 'none';
+      loaderEl?.classList.add('hidden');
     }
   },
 };
@@ -97,4 +99,12 @@ export const getVisiblePages = width => {
     return 4;
   }
   return 5;
+};
+
+export const formatDuration = ms => {
+  if (!ms || isNaN(ms)) return 'N/A';
+  const totalSeconds = Math.floor(ms / 1000);
+  const min = Math.floor(totalSeconds / 60);
+  const sec = totalSeconds % 60;
+  return `${min}:${sec.toString().padStart(2, '0')}`;
 };

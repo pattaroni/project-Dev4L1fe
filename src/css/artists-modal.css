@@ -1,0 +1,333 @@
+/* --- Modal Container --- */
+.artist-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #1e1c1f;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* --- Modal Content Wrapper --- */
+.modal-content {
+  background-color: #060307;
+  color: #fff;
+  width: 100%;
+  max-width: 288px;
+  border-radius: 12px;
+  padding: 52px 8px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  position: relative;
+  margin: 128px 16px 64px 16px;
+  min-height: 50%;
+}
+
+/* --- Close Button --- */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 28px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* --- Title --- */
+.modal-title {
+  font-family: 'Epilogue', sans-serif;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 130%;
+  letter-spacing: -0.01em;
+}
+
+/* --- Header Layout --- */
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.modal-img {
+  width: 100%;
+  height: 177px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 16px;
+}
+
+/* --- Info Block --- */
+.modal-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-info-group {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    min-width: 146px;
+  }
+}
+
+.modal-info p {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 150%;
+  color: #fff;
+
+  span {
+    display: block;
+    font-weight: 600;
+  }
+}
+
+.modal-info>div {
+  span {
+    font-weight: 600;
+  }
+}
+
+/* --- Genres --- */
+.modal-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.genre-chip {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+/* --- Albums Section --- */
+.albums-heading {
+  margin-bottom: 16px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: -0.01em;
+}
+
+.albums-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+/* --- Album Card --- */
+.album-card {
+  background-color: #1e1c1f;
+  padding: 14px 11px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.album-card h4 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 12px;
+}
+
+.album-thumb {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+/* --- Track List --- */
+.album-tracklist {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.album-track-item,
+.album-tracks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+
+  .track-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 100px;
+  }
+}
+
+.album-track-item {
+  padding: 8px 12px;
+
+  &:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.album-tracks-header {
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 150%;
+  padding: 4px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #ccc;
+  font-size: 13px;
+}
+
+.track-item {
+  padding: 4px 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.track-item:last-child {
+  border-bottom: none;
+}
+
+.track-video-link {
+  display: flex;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+}
+
+.track-video-link-hidden {
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.track-video-icon {
+  width: 25px;
+  height: 27px;
+  fill: #fff;
+}
+
+/* --- Scrollbar Fix --- */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+.modal-artist-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* --- Responsive --- */
+#artist-modal {
+  @media only screen and (min-width: 768px) {
+    .modal-content {
+      max-width: 702px;
+      padding: 64px 24px;
+    }
+
+    .modal-img {
+      height: 402px;
+    }
+
+    .modal-info-container {
+      flex-direction: row;
+    }
+
+    .modal-info-group {
+
+      &:first-child {
+        margin-right: 24px;
+      }
+    }
+
+    .modal-info p {
+      margin-bottom: 24px;
+    }
+
+    .albums-container {
+      gap: 32px;
+    }
+
+    .modal-header {
+      margin-bottom: 48px;
+    }
+
+    .modal-title {
+      font-size: 32px;
+      margin-bottom: 48px;
+    }
+  }
+
+  @media only screen and (min-width: 1440px) {
+    .modal-content {
+      max-width: 1312px;
+      padding: 64px;
+    }
+
+    .modal-img {
+      height: 354px;
+    }
+
+    .modal-info>div>p {
+      height: 135px;
+      overflow-y: scroll;
+      padding-right: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: #555;
+    }
+
+    .modal-info {
+      max-width: 576px;
+    }
+
+    .modal-header {
+      flex-direction: row;
+    }
+  }
+}
