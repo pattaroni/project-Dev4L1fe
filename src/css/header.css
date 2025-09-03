@@ -11,8 +11,8 @@ body.lock {
   left: 0;
   width: 100%;
   z-index: 1001;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.45);
+  /* border-bottom: 1.5px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.45); */
 }
 
 .nav {
