@@ -5,6 +5,10 @@
 .section-feedback {
   padding: 64px 0;
   background-color: var(--bg-main);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    fill 0.4s ease;
   /* min-width: 320px; */
 }
 
@@ -44,6 +48,10 @@
 
   max-width: 288px;
   margin-bottom: 16px;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    fill 0.4s ease;
 }
 
 /* === Typography === */
@@ -65,6 +73,10 @@
   font-size: 18px;
   line-height: 150%;
   color: var(--text-main);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    fill 0.4s ease;
 }
 
 /* === Stars === */
@@ -80,7 +92,10 @@
   line-height: 1;
   vertical-align: middle;
   color: var(--fa-star);
-  /* border: 1px solid var(--border-color); */
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    fill 0.4s ease;
 }
 
 .fa-star.checked {
@@ -131,7 +146,10 @@
   background: var(--arrow-bg);
   border-radius: 8px;
   border: 1px solid rgb(159, 160, 160);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s ease,
+    fill 0.4s ease;
 
   &:hover,
   &:focus,
@@ -167,6 +185,7 @@
     letter-spacing: -0.01em;
     text-align: center;
     color: var(--text-main);
+    transition: color 0.4s ease;
   }
 
   .feedback-card {
@@ -196,5 +215,6 @@
     letter-spacing: -0.01em;
     text-align: center;
     color: var(--text-main);
+    transition: color 0.4s ease;
   }
 }

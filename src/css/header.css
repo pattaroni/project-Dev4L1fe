@@ -5,7 +5,7 @@ body.lock {
 .header {
   min-width: 320px;
   padding: 10.5px 0;
-  background: var(--bg-main);
+  background-color: var(--bg-main);
   position: sticky;
   top: 0;
   left: 0;
@@ -13,6 +13,7 @@ body.lock {
   z-index: 1001;
   /* border-bottom: 1.5px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.45); */
+  transition: background-color 0.4s ease;
 }
 
 .nav {
@@ -103,11 +104,12 @@ body.lock {
   transition: 200ms ease-in;
   color: var(--text-main);
   text-decoration: none;
+  transition: color 0.4s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #747bff;
+  color: var(--link);
 }
 
 .burger-menu,
@@ -127,12 +129,14 @@ body.lock {
   fill: var(--text-main);
   background-color: transparent;
   padding: 24px;
+  transition: fill 0.4s ease;
 }
 
 .logo-icon {
   fill: var(--text-main);
   width: 119px;
   height: 51px;
+  transition: fill 0.4s ease;
 }
 
 /* Мобільне меню початок */
@@ -156,6 +160,7 @@ body.lock {
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
   transition: right 0.3s ease-in-out;
   z-index: 1001;
+  transition: background-color 0.4s ease;
 }
 
 .button-close {
@@ -222,6 +227,7 @@ body.lock {
   font-size: 26px;
   line-height: 1.5;
   color: var(--text-main);
+  transition: color 0.4s ease;
 }
 /* Мобільне меню кінець */
 
@@ -244,6 +250,7 @@ body.lock {
     font-size: 18px;
     line-height: 1.5;
     color: var(--text-main);
+    transition: color 0.4s ease;
   }
 }
 @media screen and (min-width: 1440px) {
