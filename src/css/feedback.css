@@ -4,8 +4,8 @@
 
 .section-feedback {
   padding: 64px 0;
-  background-color: #060307;
-  min-width: 320px;
+  background-color: var(--bg-main);
+  /* min-width: 320px; */
 }
 
 .feedback-slider {
@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
 
-  background: #060307;
+  background: var(--bg-main);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
@@ -43,16 +43,17 @@
   margin: 0 auto;
 
   max-width: 288px;
+  margin-bottom: 16px;
 }
 
 /* === Typography === */
 .comment {
   font-family: 'Epilogue', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 140%;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 32px;
   min-height: 145px;
   height: 100%;
@@ -63,8 +64,7 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 150%;
-  color: #fff;
-  margin-bottom: 16px;
+  color: var(--text-main);
 }
 
 /* === Stars === */
@@ -79,15 +79,12 @@
   font-size: 24px;
   line-height: 1;
   vertical-align: middle;
-  color: #fff;
+  color: var(--fa-star);
+  /* border: 1px solid var(--border-color); */
 }
 
 .fa-star.checked {
-  color: #764191;
-}
-
-.fa-star.empty {
-  color: #fa3636;
+  color: var(--star);
 }
 
 /* === Pagination === */
@@ -106,7 +103,7 @@
 }
 
 .bullet.active {
-  background-color: rgb(253, 252, 252);
+  background-color: rgb(204, 201, 201);
 }
 
 /* === Navigation Buttons === */
@@ -130,10 +127,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: #f1eeee;
-  background: #060307;
+  fill: #ffffff;
+  background: var(--arrow-bg);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(159, 160, 160);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
@@ -169,7 +166,7 @@
     line-height: 140%;
     letter-spacing: -0.01em;
     text-align: center;
-    color: #fff;
+    color: var(--text-main);
   }
 
   .feedback-card {
@@ -198,6 +195,6 @@
     line-height: 130%;
     letter-spacing: -0.01em;
     text-align: center;
-    color: #fff;
+    color: var(--text-main);
   }
 }

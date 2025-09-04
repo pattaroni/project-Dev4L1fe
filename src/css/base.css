@@ -1,4 +1,23 @@
 :root {
+  /* Dark theme (default) */
+  --bg-main: #060307;
+  --card-bg: #0d0b10;
+  --text-main: #fff;
+  --text-secondary: #d1d5db;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --border-color: #27272a;
+
+  --btn-bg: var(--primary);
+  --btn-text: #fff;
+  --icon-footer: #fbfafc;
+  --arrow-bg: #0d0b10;
+  --star: #764191;
+  --fa-star: #ffffff;
+  --logo-footer: #764191;
+
   font-family:
     system-ui,
     -apple-system,
@@ -15,14 +34,31 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+[data-theme='light'] {
+  --bg-main: #f9fafb;
+  --card-bg: #fff;
+  --text-main: #1f2937;
+  --text-secondary: #4b5563;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --border-color: #e5e7eb;
+
+  --btn-bg: var(--primary);
+  --btn-text: #fff;
+  --icon-footer: #0d0b10;
+  --arrow-bg: #62c71f;
+  --fa-star: rgb(194, 192, 192);
+  --star: #62c71f;
+  --logo-footer: #62c71f;
 }
 
 html {
@@ -37,7 +73,11 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'IBM Plex Sans', sans-serif;
-  color: #fff;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 main {
