@@ -14,4 +14,6 @@ export const refs = {
   filtersWrapper: document.querySelector('.filters-wrapper'),
   artistsLoader: document.querySelector('.artists-loader'),
   modalArtistLoader: document.querySelector('.modal-artist-loader'),
+  headerEl: document.querySelector('.header'),
+  artistsEl: document.querySelector('.section-artists'),
 };
