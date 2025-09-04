@@ -4,6 +4,7 @@
   background-color: var(--bg-main);
   min-width: 320px;
   padding: 64px 0;
+  transition: background-color 0.4s ease;
 }
 
 .artists-title {
@@ -60,6 +61,7 @@
   padding: 4px 10px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
+  transition: all 0.4s ease;
 }
 
 .artist-name {
@@ -70,6 +72,7 @@
   line-height: 130%;
   letter-spacing: -0.01em;
   color: var(--text-main);
+  transition: all 0.4s ease;
 }
 
 .artist-btn-learn-more {
@@ -243,6 +246,7 @@
   width: 59px;
   background-color: var(--bg-selected);
   font-weight: 600;
+  transition: all 0.4s ease;
 }
 
 .artists-pagination .tui-prev.tui-is-disabled,

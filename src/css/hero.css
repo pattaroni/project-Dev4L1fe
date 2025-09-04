@@ -47,6 +47,7 @@
   width: 100%;
   pointer-events: none;
   z-index: 3;
+  transition: all 0.4s ease;
 }
 
 .section-hero::before {
