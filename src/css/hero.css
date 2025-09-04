@@ -1,6 +1,6 @@
 .section-hero {
   position: relative;
-  background: #23132b;
+  background: var(--bg-hero);
   min-width: 320px;
 }
 
@@ -53,10 +53,10 @@
   height: 125px;
   background: linear-gradient(
     180deg,
-    #060307 0%,
-    rgba(6, 3, 7, 0.7) 20%,
-    rgba(6, 3, 7, 0.3) 40%,
-    rgba(6, 3, 7, 0) 100%
+    var(--bg-main) 0%,
+    var(--linear-gradient20) 20%,
+    var(--linear-gradient40) 40%,
+    var(--linear-gradient100) 100%
   );
   z-index: 1;
 }
@@ -66,10 +66,10 @@
   height: 137px;
   background: linear-gradient(
     0deg,
-    #060307 0%,
-    rgba(6, 3, 7, 0.7) 20%,
-    rgba(6, 3, 7, 0.3) 40%,
-    rgba(6, 3, 7, 0) 100%
+    var(--bg-main) 0%,
+    var(--linear-gradient20) 20%,
+    var(--linear-gradient40) 40%,
+    var(--linear-gradient100) 100%
   );
 }
 
@@ -138,7 +138,7 @@
     inset 0 0 0 1px rgba(6, 3, 7, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-  background: #764191;
+  background: var(--star);
   font-weight: 500;
   font-size: 18px;
   line-height: 1.5;
@@ -173,7 +173,7 @@
 }
 
 .hero-link-svg {
-  fill: #fff;
+  fill: currentColor;
 }
 
 .hero-content::after {

@@ -1,6 +1,6 @@
 .section-about-us {
   position: relative;
-  background-color: #060307;
+  background-color: var(--bg-main);
   min-width: 320px;
 }
 
@@ -35,7 +35,7 @@
 .logo-about {
   width: 64px;
   height: 64px;
-  fill: #fff;
+  fill: var(--text-main);
 }
 
 .h-text {
@@ -43,7 +43,7 @@
   font-weight: 700;
   font-size: 44px;
 
-  color: #fff;
+  color: var(--text-main);
   line-height: 1.2;
 }
 
@@ -52,7 +52,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  color: #fff;
+  color: var(--text-main);
 }
 
 @media screen and (min-width: 768px) {

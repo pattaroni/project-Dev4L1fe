@@ -7,7 +7,7 @@
   margin: 0 auto;
   position: relative;
   border: 3px solid;
-  border-color: #de3500 #0000 #fff #0000;
+  border-color: #de3500 #0000 var(--text-main) #0000;
   border-radius: 50%;
   box-sizing: border-box;
   animation: 1s rotate linear infinite;
@@ -19,7 +19,7 @@
   left: 0;
   position: absolute;
   border: 10px solid transparent;
-  border-bottom-color: #fff;
+  border-bottom-color: var(--text-main);
   transform: translate(-10px, 19px) rotate(-35deg);
 }
 .loader:after {
@@ -35,18 +35,7 @@
 .artists-loader {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  display: none;
-}
-
-.artists-loader {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--loader-bg);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -5,7 +5,7 @@ body.lock {
 .header {
   min-width: 320px;
   padding: 10.5px 0;
-  background: #060307;
+  background: var(--bg-main);
   position: sticky;
   top: 0;
   left: 0;
@@ -30,7 +30,7 @@ body.lock {
   transition: 250ms ease-in-out;
 }
 .nav-logo:hover .logo-icon {
-  fill: rgb(118, 65, 145);
+  fill: var(--logo-footer);
 }
 
 .nav-list {
@@ -101,7 +101,7 @@ body.lock {
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: 200ms ease-in;
-  color: #fff;
+  color: var(--text-main);
   text-decoration: none;
 }
 
@@ -124,19 +124,19 @@ body.lock {
 }
 
 .us-burger {
-  fill: #fff;
+  fill: var(--text-main);
   background-color: transparent;
   padding: 24px;
 }
 
 .logo-icon {
-  fill: #fff;
+  fill: var(--text-main);
   width: 119px;
   height: 51px;
 }
 
 /* Мобільне меню початок */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .theme-toggle-hide {
     display: none;
   }
@@ -152,14 +152,14 @@ body.lock {
   right: -100%;
   width: 100%;
   height: 100vh;
-  background: #060307;
+  background: var(--bg-main);
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
   transition: right 0.3s ease-in-out;
   z-index: 1001;
 }
 
 .button-close {
-  fill: #fff;
+  fill: var(--text-main);
   background-color: transparent;
 }
 
@@ -221,7 +221,7 @@ body.lock {
   font-weight: 500;
   font-size: 26px;
   line-height: 1.5;
-  color: #fff;
+  color: var(--text-main);
 }
 /* Мобільне меню кінець */
 
@@ -243,7 +243,7 @@ body.lock {
     font-weight: 400;
     font-size: 18px;
     line-height: 1.5;
-    color: #fff;
+    color: var(--text-main);
   }
 }
 @media screen and (min-width: 1440px) {
