@@ -1,5 +1,7 @@
 .modal {
-  display: none;
+  display: flex;
+  pointer-events: none;
+
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
@@ -10,8 +12,10 @@
   transition: opacity 0.2s ease-out;
 }
 .modal.active {
-  display: flex;
+  pointer-events: auto;
+
   opacity: 1;
+  transform: translateY(0);
 }
 
 .modal__backdrop {

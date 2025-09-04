@@ -2,6 +2,7 @@
   position: relative;
   background-color: var(--bg-main);
   min-width: 320px;
+  transition: background-color 0.4s ease;
 }
 
 .container-about {
@@ -36,6 +37,7 @@
   width: 64px;
   height: 64px;
   fill: var(--text-main);
+  transition: fill 0.4s ease;
 }
 
 .h-text {
@@ -45,6 +47,7 @@
 
   color: var(--text-main);
   line-height: 1.2;
+  transition: color 0.4s ease;
 }
 
 .p-text {
@@ -53,6 +56,7 @@
   font-size: 18px;
   line-height: 1.5;
   color: var(--text-main);
+  transition: color 0.4s ease;
 }
 
 @media screen and (min-width: 768px) {
