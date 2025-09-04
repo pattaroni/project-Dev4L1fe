@@ -1,5 +1,5 @@
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
@@ -7,17 +7,22 @@
   align-items: center;
   z-index: 9999;
   opacity: 0;
-  transition: opacity 0.2s ease-out;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease-out,
+    visibility 0.2s ease-out;
 }
 .modal.active {
-  display: flex;
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--feedback-modal-ovr);
   z-index: 0;
 }
 
@@ -58,6 +63,10 @@ body.modal-open {
   height: 28px;
   display: grid;
   place-items: center;
+  transition: transform 0.25s ease-in-out;
+}
+.modal__close:hover {
+  transform: scale(1.1);
 }
 
 .modal__title {
@@ -86,6 +95,8 @@ textarea {
   line-height: 1.5;
   color: var(--text-main);
   background: var(--bg-main);
+  resize: none;
+  /* overflow-y: auto; */
 }
 
 .fb-modal-btn {
@@ -99,7 +110,12 @@ textarea {
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+  transition: opacity 0.25s ease-in-out;
 }
+.fb-modal-btn:hover {
+  opacity: 0.6;
+}
+
 .model-submit-feedback {
   margin-top: 24px;
   display: flex;
@@ -308,4 +324,23 @@ textarea {
     padding-left: max(16px, env(safe-area-inset-left));
     padding-right: max(16px, env(safe-area-inset-right));
   }
+}
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-main);
+  border-radius: 6px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: var(--text-main);
+  border-radius: 6px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--text-main);
+}
+
+textarea {
+  scrollbar-color: var(--text-main) var(--bg-main);
 }

@@ -109,7 +109,6 @@ function initFeedbackModal() {
 
   const lockScroll = () => document.body.classList.add('modal-open');
   const unlockScroll = () => document.body.classList.remove('modal-open');
-
   const open = () => {
     modal.classList.add('active');
     lockScroll();

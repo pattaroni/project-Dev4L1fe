@@ -16,6 +16,7 @@
   --bg-selected: rgba(255, 255, 255, 0.1);
   --genre-chip: rgba(255, 255, 255, 0.2);
   --albums-tracker: rgba(255, 255, 255, 0.05);
+  --feedback-modal-ovr: rgba(255, 255, 255, 0.25);
   --track-list: #ccc;
   --scrollbar-thumb: #444;
   --btn-bg: var(--primary);
@@ -67,6 +68,7 @@
   --genre-chip: rgba(0, 0, 0, 0.2);
   --btn-bg: var(--primary);
   --albums-tracker: rgba(0, 0, 0, 0.05);
+  --feedback-modal-ovr: rgba(0, 0, 0, 0.25);
   --track-list: #333333;
   --scrollbar-thumb: #333333;
   --btn-text: #fff;
