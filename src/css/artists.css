@@ -54,7 +54,7 @@
 }
 
 .genres-list-item {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--genre-chip);
   background-color: var(--bg-main);
   border-radius: 6px;
   padding: 4px 10px;

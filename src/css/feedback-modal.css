@@ -23,8 +23,8 @@
 
 .modal__panel {
   position: relative;
-  background: #060307;
-  color: #fff;
+  background: var(--bg-main);
+  color: var(--text-main);
   padding: 64px;
   border-radius: 16px;
   max-width: 600px;
@@ -52,7 +52,7 @@ body.modal-open {
   top: 16px;
   right: 16px;
   background: none;
-  fill: #fff;
+  fill: var(--text-main);
   cursor: pointer;
   width: 28px;
   height: 28px;
@@ -66,7 +66,7 @@ body.modal-open {
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-align: center;
-  color: #fff;
+  color: var(--text-main);
 }
 
 .form__group_1 {
@@ -84,16 +84,16 @@ textarea {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  color: #fff;
-  background: rgba(255, 255, 255, 0);
+  color: var(--text-main);
+  background: var(--bg-main);
 }
 
 .fb-modal-btn {
   display: inline-block;
   padding: 12px 24px;
   height: 47px;
-  background: #764191;
-  color: #fff;
+  background: var(--star);
+  color: var(--text-main);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -110,8 +110,8 @@ textarea {
 .btn-leave-fb {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background: #764191;
-  color: #fff;
+  background: var(--star);
+  color: var(--text-main);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -146,15 +146,15 @@ textarea {
     'Segoe UI',
     Arial,
     sans-serif;
-  color: #fff;
+  color: var(--fa-star);
 }
 .star-rating button::before {
   content: '\2605';
-  color: #fff;
+  color: var(--fa-star);
 }
 .star-rating button.is-on::before,
 .star-rating button.is-hover::before {
-  color: #764191;
+  color: var(--star);
 }
 .star-rating button.is-half::after,
 .star-rating button.is-hover-half::after {
@@ -164,7 +164,7 @@ textarea {
   top: 0;
   width: 50%;
   overflow: hidden;
-  color: #764191;
+  color: var(--star);
 }
 
 .form-error {

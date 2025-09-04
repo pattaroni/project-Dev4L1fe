@@ -7,11 +7,17 @@
   --bg-hero: #23132b;
   --linear-gradient20: rgba(6, 3, 7, 0.7);
   --linear-gradient40: rgba(6, 3, 7, 0.3);
+  --linear-gradient100: rgba(6, 3, 7, 0);
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
-
+  --loader-bg: rgba(0, 0, 0, 0.5);
+  --artists-modal-ovr: #1e1c1f;
   --border-color: #27272a;
   --bg-selected: rgba(255, 255, 255, 0.1);
+  --genre-chip: rgba(255, 255, 255, 0.2);
+  --albums-tracker: rgba(255, 255, 255, 0.05);
+  --track-list: #ccc;
+  --scrollbar-thumb: #444;
   --btn-bg: var(--primary);
   --btn-text: #fff;
   --icon-footer: #fbfafc;
@@ -50,13 +56,19 @@
   --text-secondary: #4b5563;
   --bg-hero: #dcecd4;
   --linear-gradient20: rgba(249, 250, 251, 0.7);
-  --linear-gradient40: rgba(220, 236, 212, 0.3);
+  --linear-gradient40: rgba(249, 250, 251, 0.3);
+  --linear-gradient100: rgba(249, 250, 251, 0);
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
-
+  --loader-bg: rgba(255, 255, 255, 0.5);
+  --artists-modal-ovr: #e1e3e0;
   --border-color: #e5e7eb;
   --bg-selected: rgba(0, 0, 0, 0.1);
+  --genre-chip: rgba(0, 0, 0, 0.2);
   --btn-bg: var(--primary);
+  --albums-tracker: rgba(0, 0, 0, 0.05);
+  --track-list: #333333;
+  --scrollbar-thumb: #333333;
   --btn-text: #fff;
   --icon-footer: #0d0b10;
   --arrow-bg: #62c71f;
@@ -81,7 +93,8 @@ body {
   color: var(--text-main);
   transition:
     background-color 0.4s ease,
-    color 0.4s ease;
+    color 0.4s ease,
+    fill 0.4s ease;
 }
 
 main {
