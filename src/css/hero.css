@@ -27,6 +27,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-content {
+    height: 900px;
+    width: 1312px;
+  }
 }
 
 .section-hero::before,
@@ -36,7 +45,7 @@
   left: 0;
   width: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 .section-hero::before {
@@ -49,6 +58,7 @@
     var(--linear-gradient40) 40%,
     var(--linear-gradient100) 100%
   );
+  z-index: 1;
 }
 
 .section-hero::after {
@@ -71,7 +81,7 @@
   letter-spacing: -0.01em;
   margin-bottom: 20px;
   position: relative;
-  z-index: 2;
+  z-index: 4;
 }
 
 @media screen and (min-width: 768px) {
@@ -133,7 +143,7 @@
   font-size: 18px;
   line-height: 1.5;
   transition: opacity 0.2s ease-in-out;
-  margin-bottom: 64px;
+  margin-bottom: 449px;
 }
 
 @media screen and (min-width: 768px) {
@@ -141,7 +151,7 @@
     width: 246px;
     height: 47px;
     font-size: 20px;
-    margin-bottom: 32px;
+    margin-bottom: 664px;
   }
 }
 
@@ -166,45 +176,54 @@
   fill: currentColor;
 }
 
-.hero-artists-img {
+.hero-content::after {
   background-image: url('/img/hero/mob/hero@1x.webp');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   min-height: 385px;
   aspect-ratio: 280 / 385;
+  position: absolute;
+  content: '';
+  bottom: 0;
+  z-index: 1;
 }
 
 @media screen and (min-resolution: 192dpi) {
-  .hero-artists-img {
+  .hero-content::after {
     background-image: url('/img/hero/mob/hero@2x.webp');
   }
 }
 
 @media screen and (min-width: 768px) {
-  .hero-artists-img {
+  .hero-content::after {
     background-image: url('/img/hero/tablet/hero@1x.webp');
-    aspect-ratio: 704 /632;
+    aspect-ratio: 704 / 632;
     min-height: 632px;
   }
 }
 
 @media screen and (min-width: 768px) and (min-resolution: 192dpi) {
-  .hero-artists-img {
+  .hero-content::after {
     background-image: url('/img/hero/tablet/hero@2x.webp');
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .hero-artists-img {
+  .hero-content::after {
     background-image: url('/img/hero/desktop/hero@1x.webp');
-    aspect-ratio: 641 / 900;
     min-height: 900px;
+    width: 674px;
+    right: 0;
+    z-index: 6;
+  }
+  .section-hero::before {
+    z-index: 5;
   }
 }
 
 @media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
-  .hero-artists-img {
+  .hero-content::after {
     background-image: url('/img/hero/desktop/hero@2x.webp');
   }
 }

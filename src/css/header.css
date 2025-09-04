@@ -26,6 +26,12 @@ body.lock {
   align-items: center;
   justify-content: center;
 }
+.nav-logo .logo-icon {
+  transition: 250ms ease-in-out;
+}
+.nav-logo:hover .logo-icon {
+  fill: rgb(118, 65, 145);
+}
 
 .nav-list {
   display: flex;
