@@ -26,6 +26,7 @@
   --fa-star: #ffffff;
   --logo-footer: #764191;
   --link: #747bff;
+  --topbtnhover: rgb(83, 83, 83);
 
   font-family:
     system-ui,
@@ -77,6 +78,7 @@
   --star: #62c71f;
   --logo-footer: #62c71f;
   --link: #62c71f;
+  --topbtnhover: #62c71f;
 }
 
 html {

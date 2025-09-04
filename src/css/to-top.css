@@ -24,7 +24,7 @@
 }
 
 .to-top:hover {
-  background-color: #333;
+  background-color: var(--topbtnhover);
 }
 
 .to-top .icon-top {
