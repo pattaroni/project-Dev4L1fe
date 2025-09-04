@@ -5,7 +5,7 @@ export const refs = {
   artistsPagination: document.querySelector('#artists-pagination'),
   feedbackContainer: document.querySelector('.section-feedback .container'),
   genreSelect: document.querySelector('#genre-select'),
-  sortSelect: document.querySelector('#sort-select'),
+  sortSelect: document.querySelector('#sorting-select'),
   searchInput: document.querySelector('.filters-search-input'),
   searchBtn: document.querySelector('.filters-search-btn'),
   resetBtn: document.querySelector('.filters-reset-btn'),

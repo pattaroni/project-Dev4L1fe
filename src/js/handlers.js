@@ -3,7 +3,11 @@ import 'izitoast/dist/css/iziToast.min.css';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { fetchArtists, fetchFeedbacks, fetchGenres } from './api';
-import { renderArtists, renderFeedbackSlider } from './render-function';
+import {
+  renderArtists,
+  renderFeedbackSlider,
+  renderGenresOptions,
+} from './render-function';
 import { loader, getPaginationOptions, getVisiblePages } from './helpers';
 import { refs } from './refs';
 import { openArtistModal } from './modal';
@@ -71,15 +75,11 @@ async function loadGenres() {
   try {
     const genres = await fetchGenres();
 
-    const options = genres
-      .map(g => `<option value="${g.genre}">${g.genre}</option>`)
-      .join('');
+    const options = renderGenresOptions(genres);
 
-    refs.genreSelect.innerHTML =
-      `<option value="" disabled selected hidden>Genre</option>` + options;
+    refs.genreSelect.insertAdjacentHTML('beforeend', options);
   } catch (error) {
     iziToast.error({ message: 'Failed to load genres' });
-    console.error(error);
   }
 }
 

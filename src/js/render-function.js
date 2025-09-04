@@ -4,7 +4,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { refs } from './refs';
-import { prepareArtistDescription, formatDuration, loader, updateArrowVisibility, } from './helpers';
+import {
+  prepareArtistDescription,
+  formatDuration,
+  loader,
+  updateArrowVisibility,
+} from './helpers';
 import spriteUrl from '../img/sprite.svg?url';
 import { fetchArtistById, fetchArtistByIdWithAlbums } from './api';
 
@@ -82,25 +87,24 @@ export const renderFeedbackSlider = feedbacks => {
   const swiperEl = container.querySelector('.feedback-slider');
   if (!swiperEl) return console.error('Swiper container not found');
 
- const swiperInstance = new Swiper(swiperEl, {
-  spaceBetween: 30,
-  slidesPerView: 1,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  on: {
-    init(swiper) {
-      updateCustomPagination(swiper);
-      updateArrowVisibility(swiper);
+  const swiperInstance = new Swiper(swiperEl, {
+    spaceBetween: 30,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
-    slideChange(swiper) {
-      updateCustomPagination(swiper);
-      updateArrowVisibility(swiper); 
+    on: {
+      init(swiper) {
+        updateCustomPagination(swiper);
+        updateArrowVisibility(swiper);
+      },
+      slideChange(swiper) {
+        updateCustomPagination(swiper);
+        updateArrowVisibility(swiper);
+      },
     },
-  },
-});
-
+  });
 
   document
     .querySelector('.swiper-button-next')
@@ -244,3 +248,14 @@ export async function renderArtistDetails(artistId, modalContent) {
     refs.modalArtistLoader.style.display = 'none';
   }
 }
+
+export const renderGenresOptions = genres => {
+  if (!genres?.length) return;
+
+  return genres
+    .map(
+      ({ _id, genre }) =>
+        `<li><button class="filters-option" data-id="${_id}">${genre}</button></li>`
+    )
+    .join('');
+};
