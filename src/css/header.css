@@ -130,7 +130,7 @@ body.lock {
 }
 
 /* Мобільне меню початок */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .theme-toggle-hide {
     display: none;
   }

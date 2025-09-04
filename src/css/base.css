@@ -4,12 +4,14 @@
   --card-bg: #0d0b10;
   --text-main: #fff;
   --text-secondary: #d1d5db;
-
+  --bg-hero: #23132b;
+  --linear-gradient20: rgba(6, 3, 7, 0.7);
+  --linear-gradient40: rgba(6, 3, 7, 0.3);
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
 
   --border-color: #27272a;
-
+  --bg-selected: rgba(255, 255, 255, 0.1);
   --btn-bg: var(--primary);
   --btn-text: #fff;
   --icon-footer: #fbfafc;
@@ -46,12 +48,14 @@
   --card-bg: #fff;
   --text-main: #1f2937;
   --text-secondary: #4b5563;
-
+  --bg-hero: #dcecd4;
+  --linear-gradient20: rgba(249, 250, 251, 0.7);
+  --linear-gradient40: rgba(220, 236, 212, 0.3);
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
 
   --border-color: #e5e7eb;
-
+  --bg-selected: rgba(0, 0, 0, 0.1);
   --btn-bg: var(--primary);
   --btn-text: #fff;
   --icon-footer: #0d0b10;

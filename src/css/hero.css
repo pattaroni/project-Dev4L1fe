@@ -1,6 +1,6 @@
 .section-hero {
   position: relative;
-  background: #23132b;
+  background: var(--bg-hero);
   min-width: 320px;
 }
 
@@ -44,10 +44,10 @@
   height: 125px;
   background: linear-gradient(
     180deg,
-    #060307 0%,
-    rgba(6, 3, 7, 0.7) 20%,
-    rgba(6, 3, 7, 0.3) 40%,
-    rgba(6, 3, 7, 0) 100%
+    var(--bg-main) 0%,
+    var(--linear-gradient20) 20%,
+    var(--linear-gradient40) 40%,
+    var(--bg-hero) 100%
   );
 }
 
@@ -56,10 +56,10 @@
   height: 137px;
   background: linear-gradient(
     0deg,
-    #060307 0%,
-    rgba(6, 3, 7, 0.7) 20%,
-    rgba(6, 3, 7, 0.3) 40%,
-    rgba(6, 3, 7, 0) 100%
+    var(--bg-main) 0%,
+    var(--linear-gradient20) 20%,
+    var(--linear-gradient40) 40%,
+    var(--bg-hero) 100%
   );
 }
 
