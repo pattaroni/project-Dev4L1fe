@@ -13,7 +13,7 @@ body.lock {
   z-index: 1001;
   /* border-bottom: 1.5px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.45); */
-  transition: background-color 0.4s ease;
+  /* transition: background-color 0.4s ease; */
 }
 
 .nav {
@@ -158,9 +158,10 @@ body.lock {
   height: 100vh;
   background: var(--bg-main);
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
-  transition: right 0.3s ease-in-out;
   z-index: 1001;
-  transition: background-color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    right 0.3s ease-in-out;
 }
 
 .button-close {
