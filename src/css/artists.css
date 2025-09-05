@@ -248,7 +248,6 @@
     &.is-open {
       max-height: 737px;
       padding: 12px;
-      overflow: auto;
     }
 
     .filters-search-input {
@@ -630,7 +629,6 @@
     .filters-form-container {
       max-height: 701px;
       padding: 12px;
-      overflow: auto;
       right: inherit;
       margin-top: 0;
       background-color: var(--bg-main);
