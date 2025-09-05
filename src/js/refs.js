@@ -8,7 +8,6 @@ export const refs = {
   sortSelect: document.querySelector('#sorting-select'),
   searchInput: document.querySelector('.filters-search-input'),
   searchBtn: document.querySelector('.filters-search-btn'),
-  resetBtn: document.querySelector('.filters-reset-btn'),
   emptyResetBtn: document.querySelector('.empty-reset-btn'),
   toggleBtn: document.querySelector('.filters-toggle-btn'),
   filtersWrapper: document.querySelector('.filters-wrapper'),
@@ -26,4 +25,8 @@ export const refs = {
   filtersGenreBtn: document.querySelector('[data-genre-button'),
   filtersGenreIcon: document.querySelector('.filters-genre-icon'),
   filtersGenreMenu: document.querySelector('#genre-select'),
+
+  filtersSortingList: document.querySelector('#sorting-select'),
+  filtersGenreList: document.querySelector('#genre-select'),
+  filtersResetBtn: document.querySelector('.filters-reset-btn'),
 };

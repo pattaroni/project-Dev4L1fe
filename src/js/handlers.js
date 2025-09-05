@@ -11,6 +11,7 @@ import {
 import { loader, getPaginationOptions, getVisiblePages } from './helpers';
 import { refs } from './refs';
 import { openArtistModal } from './modal';
+import { SORT_TYPES } from './constants';
 
 export async function handleArtists() {
   async function loadPage(page = 1) {
@@ -101,21 +102,45 @@ function attachFilterListeners() {
     refs.filtersGenreBtn.classList.toggle('is-open');
   });
 
-  refs.genreSelect.addEventListener('change', () => {
-    filtersState.genre = refs.genreSelect.value;
+  refs.filtersSortingList.addEventListener('click', e => {
+    const selectedOption = e.target;
+    let parameter = '';
+
+    if (!selectedOption || selectedOption.nodeName !== 'BUTTON') return;
+
+    if (selectedOption.hasAttribute('data-filters-asc')) {
+      parameter = SORT_TYPES.ASC;
+    }
+    if (selectedOption.hasAttribute('data-filters-desc')) {
+      parameter = SORT_TYPES.DESC;
+    }
+
+    if (parameter === filtersState.sortName) return;
+
+    filtersState.sortName = parameter;
     filtersState.page = 1;
     applyFilters();
   });
 
-  refs.sortSelect.addEventListener('change', () => {
-    const val = refs.sortSelect.value;
-    filtersState.sortName = val === 'az' ? 'asc' : val === 'za' ? 'desc' : '';
+  refs.filtersGenreList.addEventListener('click', e => {
+    const selectedOption = e.target;
+
+    if (!selectedOption || selectedOption.nodeName !== 'BUTTON') return;
+    const genre = selectedOption.dataset.genre;
+
+    if (!genre || filtersState.genre === genre) return;
+
+    filtersState.genre = genre;
     filtersState.page = 1;
     applyFilters();
   });
 
   refs.searchBtn.addEventListener('click', e => {
     e.preventDefault();
+
+    const value = refs.searchInput.value.trim();
+    if (value === filtersState.name) return;
+
     filtersState.name = refs.searchInput.value.trim();
     filtersState.page = 1;
     applyFilters();
@@ -124,17 +149,30 @@ function attachFilterListeners() {
   refs.searchInput.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      filtersState.name = refs.searchInput.value.trim();
+      const value = refs.searchInput.value.trim();
+      if (value === filtersState.name) return;
+
+      filtersState.name = value;
       filtersState.page = 1;
       applyFilters();
     }
   });
 
-  refs.resetBtn.addEventListener('click', () => {
-    refs.genreSelect.value = '';
-    refs.sortSelect.value = '';
+  refs.filtersResetBtn.addEventListener('click', () => {
+    // refs.genreSelect.value = '';
+    // refs.sortSelect.value = '';
     refs.searchInput.value = '';
     filtersState = { genre: '', sortName: '', name: '', page: 1 };
+    refs.filtersWrapper?.classList?.remove('is-open');
+    refs.filtersMenu.classList.remove('is-open');
+    refs.filtersMenuIcon.classList.remove('is-open');
+    refs.filtersSortingMenu.classList.remove('is-open');
+    refs.filtersSortingIcon.classList.remove('is-open');
+    refs.filtersSortingBtn.classList.remove('is-open');
+    refs.filtersGenreMenu.classList.remove('is-open');
+    refs.filtersGenreIcon.classList.remove('is-open');
+    refs.filtersGenreBtn.classList.remove('is-open');
+
     applyFilters();
   });
 
@@ -146,14 +184,6 @@ function attachFilterListeners() {
       filtersState = { genre: '', sortName: '', name: '', page: 1 };
       document.querySelector('.artists-empty-state').classList.add('is-hidden');
       applyFilters();
-    });
-  }
-
-  if (refs.toggleBtn && refs.filtersWrapper) {
-    refs.toggleBtn.addEventListener('click', () => {
-      refs.filtersWrapper.classList.toggle('is-open');
-      const expanded = refs.toggleBtn.getAttribute('aria-expanded') === 'true';
-      refs.toggleBtn.setAttribute('aria-expanded', String(!expanded));
     });
   }
 }

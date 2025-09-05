@@ -254,8 +254,8 @@ export const renderGenresOptions = genres => {
 
   return genres
     .map(
-      ({ _id, genre }) =>
-        `<li><button class="filters-option" data-id="${_id}">${genre}</button></li>`
+      ({ genre }) =>
+        `<li><button class="filters-option" data-genre="${genre}">${genre}</button></li>`
     )
     .join('');
 };
