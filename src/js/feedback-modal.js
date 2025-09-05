@@ -107,9 +107,8 @@ function initFeedbackModal() {
     );
   };
 
-  const lockScroll = () => document.body.classList.add('modal-open');
-  const unlockScroll = () => document.body.classList.remove('modal-open');
-
+  const lockScroll = () => (document.body.style.overflow = 'hidden');
+  const unlockScroll = () => (document.body.style.overflow = 'auto');
   const open = () => {
     modal.classList.add('active');
     lockScroll();

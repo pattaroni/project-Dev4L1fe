@@ -1,5 +1,6 @@
 import spriteUrl from '../img/sprite.svg?url';
 import { saveTheme } from './storage';
+import { refs } from './refs';
 
 export const prepareArtistDescription = (text = '') => {
   const isSupportsLineClamp =
@@ -138,4 +139,17 @@ export function toggleTheme() {
   document.body.setAttribute('data-theme', next);
 
   saveTheme(next);
+}
+
+export function handleScrollNavigation() {
+  window.addEventListener('scroll', () => {
+    const headerHeight = refs.headerEl.offsetHeight;
+    const sectionTop = refs.artistsEl.offsetTop;
+
+    if (window.scrollY >= sectionTop - headerHeight) {
+      refs.headerEl.style.transition = 'background-color 0.4s ease';
+    } else {
+      refs.headerEl.style.transition = 'none';
+    }
+  });
 }

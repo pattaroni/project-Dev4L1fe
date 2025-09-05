@@ -17,6 +17,7 @@
   pointer-events: none;
   transition:
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.4s ease,
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-open {
@@ -38,6 +39,9 @@
   position: relative;
   margin: 64px 16px;
   min-height: 50%;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 /* --- Close Button --- */
@@ -51,6 +55,7 @@
   border: none;
   cursor: pointer;
   z-index: 10;
+  transition: color 0.4s ease;
 }
 
 /* --- Title --- */
@@ -105,6 +110,7 @@
 }
 
 .modal-info p {
+  transition: color 0.4s ease;
   margin-bottom: 10px;
   font-size: 18px;
   line-height: 150%;
@@ -138,6 +144,9 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
+  transition:
+    border 0.4s ease,
+    border-color 0.4s ease;
 }
 
 /* --- Albums Section --- */
@@ -162,6 +171,7 @@
   padding: 14px 11px;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.4s ease;
 }
 
 .album-card h4 {
@@ -206,6 +216,7 @@
 
   &:nth-child(even) {
     background-color: var(--bg-selected);
+    transition: background-color 0.4s ease;
   }
 
   h5 {
@@ -222,6 +233,7 @@
   line-height: 150%;
   padding: 4px 12px;
   background-color: var(--albums-tracker);
+  transition: background-color 0.4s ease;
 }
 
 .track-list {
@@ -230,6 +242,7 @@
   margin: 0;
   color: var(--track-list);
   font-size: 13px;
+  transition: color 0.4s ease;
 }
 
 .track-item {
@@ -260,6 +273,7 @@
   width: 25px;
   height: 27px;
   fill: var(--text-main);
+  transition: fill 0.4s ease;
 }
 
 /* --- Scrollbar Fix --- */
@@ -270,6 +284,7 @@
 .modal-content::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   border-radius: 4px;
+  transition: background-color 0.4s ease;
 }
 
 .modal-artist-loader {

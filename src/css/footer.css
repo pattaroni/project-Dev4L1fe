@@ -2,6 +2,7 @@
   padding: 48px 0;
   background-color: var(--bg-main);
   min-width: 320px;
+  transition: background-color 0.4s ease;
 }
 
 .ul-anchors {
@@ -21,6 +22,7 @@
   margin-bottom: 32px;
   width: 116px;
   height: 45px;
+  transition: fill 0.4s ease;
 }
 
 .icon-footer {
@@ -28,7 +30,9 @@
   width: 40px;
   height: 40px;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 0.4s ease;
 
   &:hover,
   &:focus,
@@ -59,7 +63,7 @@
 
 .a-footer:hover,
 .a-footer:focus {
-  color: #747bff;
+  color: var(--link);
 }
 
 .p-allrights {

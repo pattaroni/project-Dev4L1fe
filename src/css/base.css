@@ -16,6 +16,7 @@
   --bg-selected: rgba(255, 255, 255, 0.1);
   --genre-chip: rgba(255, 255, 255, 0.2);
   --albums-tracker: rgba(255, 255, 255, 0.05);
+  --feedback-modal-ovr: rgba(255, 255, 255, 0.25);
   --track-list: #ccc;
   --scrollbar-thumb: #444;
   --btn-bg: var(--primary);
@@ -27,7 +28,8 @@
   --logo-footer: #764191;
   --filters-border: rgba(255, 255, 255, 0.2);
   --filters-background: #1e1d20;
-
+  --link: #747bff;
+  --topbtnhover: rgb(83, 83, 83);
 
   font-family:
     system-ui,
@@ -70,6 +72,7 @@
   --genre-chip: rgba(0, 0, 0, 0.2);
   --btn-bg: var(--primary);
   --albums-tracker: rgba(0, 0, 0, 0.05);
+  --feedback-modal-ovr: rgba(0, 0, 0, 0.25);
   --track-list: #333333;
   --scrollbar-thumb: #333333;
   --btn-text: #fff;
@@ -80,6 +83,8 @@
   --logo-footer: #62c71f;
   --filters-border: rgba(0, 0, 0, 0.2);
   --filters-background: #e0e1e1;
+  --link: #62c71f;
+  --topbtnhover: #62c71f;
 }
 
 html {
@@ -112,42 +117,47 @@ main:has(.back-link) {
 
 @font-face {
   font-family: 'Epilogue';
-  src: url('../assets/fonts/Epilogue/Epilogue-VariableFont_wght.ttf') format('truetype');
+  src: url('../assets/fonts/Epilogue/Epilogue-VariableFont_wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Epilogue';
-  src: url('../assets/fonts/Epilogue/Epilogue-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('../assets/fonts/Epilogue/Epilogue-Italic-VariableFont_wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'IBM Plex Sans';
-  src: url('../assets/fonts/IBM_Plex_Sans/IBMPlexSans-VariableFont_wdth-wght.ttf') format('truetype');
+  src: url('../assets/fonts/IBM_Plex_Sans/IBMPlexSans-VariableFont_wdth-wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'IBM Plex Sans';
-  src: url('../assets/fonts/IBM_Plex_Sans/IBMPlexSans-Italic-VariableFont_wdth-wght.ttf') format('truetype');
+  src: url('../assets/fonts/IBM_Plex_Sans/IBMPlexSans-Italic-VariableFont_wdth-wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto/Roboto-VariableFont_wdth-wght.ttf') format('truetype');
+  src: url('../assets/fonts/Roboto/Roboto-VariableFont_wdth-wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto/Roboto-Italic-VariableFont_wdth-wght.ttf') format('truetype');
+  src: url('../assets/fonts/Roboto/Roboto-Italic-VariableFont_wdth-wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }

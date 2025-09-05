@@ -29,4 +29,6 @@ export const refs = {
   filtersSortingList: document.querySelector('#sorting-select'),
   filtersGenreList: document.querySelector('#genre-select'),
   filtersResetBtn: document.querySelector('.filters-reset-btn'),
+  headerEl: document.querySelector('.header'),
+  artistsEl: document.querySelector('.section-artists'),
 };
