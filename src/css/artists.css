@@ -39,11 +39,13 @@
 
   .artists-pagination {
     .tui-page-btn {
+
       &.tui-last,
       &.tui-first {
         display: none;
       }
     }
+
     &.is-hidden {
       display: none;
     }
@@ -51,6 +53,7 @@
 
   .artists-pagination {
     .tui-page-btn {
+
       &.tui-last,
       &.tui-first {
         display: none;
@@ -466,9 +469,11 @@
       }
     }
   }
+
   .artists-wrapper {
     position: relative;
   }
+
   .artists-empty-state {
     display: flex;
     flex-direction: column;
@@ -482,6 +487,7 @@
       height: 40px;
       fill: var(--text-main);
     }
+
     .empty-title {
       font-weight: 700;
       font-size: 32px;
@@ -490,6 +496,7 @@
       color: var(--text-main);
       margin: 24px 0;
     }
+
     .empty-subtitle {
       font-weight: 400;
       font-size: 20px;
@@ -497,6 +504,7 @@
       color: var(--text-main);
       margin-bottom: 24px;
     }
+
     .empty-reset-btn {
       border-radius: 12px;
       padding: 10px 24px;
@@ -516,6 +524,7 @@
       border: none;
       transition: opacity 0.25s ease;
     }
+
     .empty-reset-btn:hover,
     .empty-reset-btn:focus {
       opacity: 0.6;
@@ -567,6 +576,7 @@
     .filters-form-container {
       width: 304px;
     }
+
     .filters-reset-btn-mob {
       margin-left: 240px;
     }
@@ -648,9 +658,11 @@
         display: block;
       }
     }
+
     .filters-reset-btn-mob {
       display: none;
     }
+
     .filters-menu-container {
       margin-bottom: 0;
     }
@@ -661,6 +673,13 @@
 
     .artists-empty-state {
       width: 976px;
+    }
+
+    .artists-loader {
+      .loader {
+        position: absolute;
+        right: 638px;
+      }
     }
   }
 }
