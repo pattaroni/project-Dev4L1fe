@@ -2,78 +2,56 @@
   <div class="container">
     <h3 class="artists-title">Artists</h3>
     <h2 class="artists-subtitle">Explore Your New Favorite Artists</h2>
-    <div class="filters-and-artists">
-      <!-- ✅ КНОПКА ДЛЯ МОБАЙЛА И ПЛАНШЕТА -->
-      <div class="filters-dropdown-wrapper">
-        <button class="filters-toggle-btn" aria-expanded="false">
-          Search and Filters
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </button>
-
-        <!-- ✅ Левая колонка фильтров -->
-        <div class="filters-wrapper is-hidden">
-          <div class="filters-header">
+    <div class="artists-content-wrapper">
+      <div class="artists-filters-wrapper">
+        <div class="filters-menu-container">
+          <div class="filters-menu-title">
             <span>Filters</span>
             <button class="filters-reset-btn">Reset</button>
           </div>
-
-          <div class="filters-form">
-            <div class="filters-search-box" style="position: relative">
-              <input
-                type="text"
-                class="filters-search-input"
-                placeholder="Search..."
-              />
-              <button
-                type="submit"
-                class="filters-search-btn"
-                aria-label="Search"
-              >
-                <!-- SVG иконка поиска встроена прямо в HTML -->
-                <svg
-                  class="filters-search-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <button class="filters-menu-btn">
+            <span>Search and Filters</span>
+            <svg class="filters-menu-icon">
+              <use href="../img/sprite.svg#icon-arrow"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="filters-form-container">
+          <button class="filters-reset-btn-mob">Reset</button>
+          <form class="filters-form">
+            <div class="search-group">
+              <button class="filters-search-btn">
+                <svg class="search-icon">
+                  <use href="../img/sprite.svg#search-icon"></use>
                 </svg>
               </button>
+              <input type="text" name="search-input" class="filters-search-input" placeholder="Search" required>
             </div>
-
-            <select class="filters-select" name="sort" id="sort-select">
-              <option value="">Sorting</option>
-              <option value="default">Default</option>
-              <option value="az">A-Z</option>
-              <option value="za">Z-A</option>
-            </select>
-
-            <select class="filters-select" name="genre" id="genre-select">
-              <option value="">Genre</option>
-            </select>
+          </form>
+          <div class="filters-dropdown">
+            <button class="filters-menu-sorting-btn" data-sorting-button>
+              <span>Sorting</span>
+              <svg class="filters-menu-icon filters-sorting-icon">
+                <use href="../img/sprite.svg#icon-arrow"></use>
+              </svg>
+            </button>
+            <ul class="filters-form-buttons" id="sorting-select">
+              <li><button class="filters-option">Default</button></li>
+              <li><button class="filters-option" data-filters-asc>A-Z</button></li>
+              <li><button class="filters-option" data-filters-desc>Z-A</button></li>
+            </ul>
+          </div>
+          <div class="filters-dropdown">
+            <button class="filters-menu-sorting-btn" data-genre-button>
+              <span>Genre</span>
+              <svg class="filters-menu-icon filters-genre-icon">
+                <use href="../img/sprite.svg#icon-arrow"></use>
+              </svg>
+            </button>
+            <ul class="filters-form-buttons" id="genre-select"></ul>
           </div>
         </div>
       </div>
-
-      <!-- ✅ Правая часть с артистами -->
       <div class="artists-content">
         <div class="artists-wrapper">
           <ul class="artists-list"></ul>
@@ -81,35 +59,22 @@
         </div>
         <div id="artists-pagination" class="artists-pagination"></div>
         <div class="artists-empty-state is-hidden">
-          <div class="empty-box">
-            <div class="empty-icon-title">
-              <svg
-                class="empty-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="12" />
-                <circle cx="12" cy="16" r="1" />
-              </svg>
-              <p class="empty-title">Silence on the stage…</p>
-            </div>
-            <p class="empty-subtitle">
-              Looks like no artists match your filters.<br />
-              Try changing them or hit “Reset Filters” to bring back the beat.
-            </p>
-            <button class="filters-reset-btn empty-reset-btn">
-              Reset Filters
-            </button>
+          <!-- empty state -->
+          <div class="empty-icon-title">
+            <svg class="empty-icon filters-sorting-icon">
+              <use href="../img/sprite.svg#error-icon"></use>
+            </svg>
+            <p class="empty-title">Silence on the stage…</p>
           </div>
+          <p class="empty-subtitle">
+            Looks like no artists match your filters.<br />
+            Try changing them or hit “Reset Filters” to bring back the beat.
+          </p>
+          <button class="filters-reset-btn empty-reset-btn">
+            Reset filters
+          </button>
         </div>
       </div>
+
     </div>
-  </div>
 </section>

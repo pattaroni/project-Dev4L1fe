@@ -26,6 +26,8 @@
   --star: #764191;
   --fa-star: #ffffff;
   --logo-footer: #764191;
+  --filters-border: rgba(255, 255, 255, 0.2);
+  --filters-background: #1e1d20;
   --link: #747bff;
   --topbtnhover: rgb(83, 83, 83);
 
@@ -79,6 +81,8 @@
   --fa-star: rgb(194, 192, 192);
   --star: #62c71f;
   --logo-footer: #62c71f;
+  --filters-border: rgba(0, 0, 0, 0.2);
+  --filters-background: #e0e1e1;
   --link: #62c71f;
   --topbtnhover: #62c71f;
 }
