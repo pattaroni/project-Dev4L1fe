@@ -246,7 +246,7 @@
       background 0.4s ease;
 
     &.is-open {
-      max-height: 701px;
+      max-height: 737px;
       padding: 12px;
       overflow: auto;
     }
