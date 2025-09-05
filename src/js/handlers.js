@@ -84,6 +84,23 @@ async function loadGenres() {
 }
 
 function attachFilterListeners() {
+  refs.filtersMenuBtn.addEventListener('click', () => {
+    refs.filtersMenu.classList.toggle('is-open');
+    refs.filtersMenuIcon.classList.toggle('is-open');
+  });
+
+  refs.filtersSortingBtn.addEventListener('click', () => {
+    refs.filtersSortingMenu.classList.toggle('is-open');
+    refs.filtersSortingIcon.classList.toggle('is-open');
+    refs.filtersSortingBtn.classList.toggle('is-open');
+  });
+
+  refs.filtersGenreBtn.addEventListener('click', () => {
+    refs.filtersGenreMenu.classList.toggle('is-open');
+    refs.filtersGenreIcon.classList.toggle('is-open');
+    refs.filtersGenreBtn.classList.toggle('is-open');
+  });
+
   refs.genreSelect.addEventListener('change', () => {
     filtersState.genre = refs.genreSelect.value;
     filtersState.page = 1;
