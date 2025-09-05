@@ -9,6 +9,7 @@ export const refs = {
   searchInput: document.querySelector('.filters-search-input'),
   searchBtn: document.querySelector('.filters-search-btn'),
   emptyResetBtn: document.querySelector('.empty-reset-btn'),
+
   toggleBtn: document.querySelector('.filters-toggle-btn'),
   filtersWrapper: document.querySelector('.filters-wrapper'),
   artistsLoader: document.querySelector('.artists-loader'),
@@ -29,6 +30,7 @@ export const refs = {
   filtersSortingList: document.querySelector('#sorting-select'),
   filtersGenreList: document.querySelector('#genre-select'),
   filtersResetBtn: document.querySelector('.filters-reset-btn'),
+  filtersResetBtnMob: document.querySelector('.filters-reset-btn-mob'),
   headerEl: document.querySelector('.header'),
   artistsEl: document.querySelector('.section-artists'),
 };

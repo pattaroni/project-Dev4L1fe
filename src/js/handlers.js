@@ -151,16 +151,31 @@ function attachFilterListeners() {
       e.preventDefault();
       const value = refs.searchInput.value.trim();
       if (value === filtersState.name) return;
-
+      refs.filtersMenu.classList.remove('is-open');
       filtersState.name = value;
       filtersState.page = 1;
+
       applyFilters();
     }
   });
 
   refs.filtersResetBtn.addEventListener('click', () => {
-    // refs.genreSelect.value = '';
-    // refs.sortSelect.value = '';
+    refs.searchInput.value = '';
+    filtersState = { genre: '', sortName: '', name: '', page: 1 };
+    refs.filtersWrapper?.classList?.remove('is-open');
+    refs.filtersMenu.classList.remove('is-open');
+    refs.filtersMenuIcon.classList.remove('is-open');
+    refs.filtersSortingMenu.classList.remove('is-open');
+    refs.filtersSortingIcon.classList.remove('is-open');
+    refs.filtersSortingBtn.classList.remove('is-open');
+    refs.filtersGenreMenu.classList.remove('is-open');
+    refs.filtersGenreIcon.classList.remove('is-open');
+    refs.filtersGenreBtn.classList.remove('is-open');
+
+    applyFilters();
+  });
+
+  refs.filtersResetBtnMob.addEventListener('click', () => {
     refs.searchInput.value = '';
     filtersState = { genre: '', sortName: '', name: '', page: 1 };
     refs.filtersWrapper?.classList?.remove('is-open');
@@ -183,6 +198,7 @@ function attachFilterListeners() {
       refs.searchInput.value = '';
       filtersState = { genre: '', sortName: '', name: '', page: 1 };
       document.querySelector('.artists-empty-state').classList.add('is-hidden');
+
       applyFilters();
     });
   }
@@ -206,9 +222,10 @@ async function applyFilters() {
       document
         .querySelector('.artists-empty-state')
         .classList.remove('is-hidden');
-      refs.artistsPagination.innerHTML = '';
+      refs.artistsPagination.classList.add('is-hidden');
     } else {
       document.querySelector('.artists-empty-state').classList.add('is-hidden');
+      refs.artistsPagination.classList.remove('is-hidden');
       renderArtists(response.artists);
       initFilteredPagination(response.totalItems, response.perPage);
     }
