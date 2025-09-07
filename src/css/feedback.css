@@ -159,6 +159,41 @@
   }
 }
 
+.sceleton-feedback {
+  max-width: 288px;
+  height: 354px;
+  background-color: var(--bg-main);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 8px rgb(159, 160, 160);
+  overflow: hidden;
+}
+
+.sceleton-feedback.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-shimer),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 /* === Hide buttons on mobile === */
 @media (max-width: 767px) {
   .swiper-button-prev,
@@ -171,6 +206,14 @@
 
 /* === Tablet === */
 @media (min-width: 768px) {
+  .sceleton-feedback {
+    max-width: 704px;
+    height: 298px;
+    background-color: var(--bg-main);
+    border-radius: 8px;
+    border: 1px solid rgb(75, 74, 74);
+  }
+
   .feedback-card {
     max-width: 704px;
     width: 100%;
@@ -197,6 +240,14 @@
 
 /* === Desktop === */
 @media only screen and (min-width: 1440px) {
+  .sceleton-feedback {
+    max-width: 1312px;
+    height: 298px;
+    background-color: var(--bg-main);
+    border-radius: 8px;
+    border: 1px solid grey;
+  }
+
   .section-feedback {
     padding: 112px 0;
   }

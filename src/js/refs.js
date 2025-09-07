@@ -33,4 +33,6 @@ export const refs = {
   filtersResetBtnMob: document.querySelector('.filters-reset-btn-mob'),
   headerEl: document.querySelector('.header'),
   artistsEl: document.querySelector('.section-artists'),
+
+  divForSkeletonFeed: document.querySelector('.feedback-loader')
 };
