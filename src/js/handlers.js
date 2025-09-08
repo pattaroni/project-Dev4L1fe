@@ -44,7 +44,7 @@ export async function handleArtists() {
 }
 
 export async function initFeedbackSection() {
-  const loaderEl = loader.create(refs.feedbackContainer);
+  const loaderEl = loader.create(refs.divForSkeletonFeed);
   loader.show(loaderEl);
   try {
     const { feedbacks } = await fetchFeedbacks(1, 10);

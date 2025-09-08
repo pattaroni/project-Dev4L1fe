@@ -81,6 +81,9 @@ export const renderFeedbackSlider = feedbacks => {
       </div>
     </div>
   `;
+  // refs.divForSkeletonFeed.classList.remove('active');
+  refs.feedbackContainer.innerHTML = "";
+  
 
   container.insertAdjacentHTML('beforeend', markup);
 
@@ -259,3 +262,4 @@ export const renderGenresOptions = genres => {
     )
     .join('');
 };
+

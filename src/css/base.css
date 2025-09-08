@@ -30,6 +30,7 @@
   --filters-background: #1e1d20;
   --link: #747bff;
   --topbtnhover: rgb(83, 83, 83);
+  --skeleton-shimer: #764191;
 
   font-family:
     system-ui,
@@ -85,6 +86,7 @@
   --filters-background: #e0e1e1;
   --link: #62c71f;
   --topbtnhover: #62c71f;
+  --skeleton-shimer: #62c71f;
 }
 
 html {

@@ -11,12 +11,15 @@ import './js/feedback-modal.js';
 import { refs } from './js/refs.js';
 import { handleScrollNavigation, toggleTheme } from './js/helpers.js';
 import { loadTheme, saveTheme } from './js/storage.js';
+
+
 loadTheme();
 handleScrollNavigation();
 handleArtists();
 initFeedbackSection();
 initArtistFilters();
 initArtistModal();
+
 
 document.querySelectorAll('.theme-toggle').forEach(btn => {
   btn.addEventListener('click', toggleTheme);
