@@ -167,6 +167,9 @@
   position: relative;
   box-shadow: 0 2px 8px rgb(159, 160, 160);
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sceleton-feedback.active::before {
