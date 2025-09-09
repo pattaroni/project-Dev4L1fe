@@ -42,7 +42,7 @@
 
   max-height: calc(100dvh - 48px);
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch; */
 
   transform: translateY(6px);
   transition: transform 0.2s ease-out;
@@ -99,7 +99,15 @@ textarea {
   color: var(--text-main);
   background: var(--bg-main);
   resize: none;
+
   /* overflow-y: auto; */
+}
+
+.modal.active input:focus {
+  border-color: var(--inputmodafocus);
+  /* box-shadow: 0 0 0 2px rgba(0, 191, 255, 0.3);
+  outline: none; */
+  caret-color: var(--caretcollor);
 }
 
 .fb-modal-btn {
@@ -349,4 +357,8 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 textarea {
   scrollbar-color: var(--text-main) var(--bg-main);
+}
+textarea:focus {
+  border-color: var(--inputmodafocus);
+  outline: none;
 }
