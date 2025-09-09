@@ -34,5 +34,5 @@ export const refs = {
   headerEl: document.querySelector('.header'),
   artistsEl: document.querySelector('.section-artists'),
 
-  divForSkeletonFeed: document.querySelector('.feedback-loader'),
+  divForSkeletonFeed: document.querySelector('.sceleton-feedback'),
 };

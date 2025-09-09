@@ -121,6 +121,47 @@ main:has(.back-link) {
   text-align: center;
 }
 
+/* Базовий клас FA */
+.fa {
+  display: inline-block;
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Solid стиль */
+.fa-solid,
+.fas {
+  font-weight: 900;
+}
+
+/* Зірка */
+.fa-star:before {
+  content: '\f005'; /* код іконки зірки */
+}
+
+/* Твої додаткові стилі */
+.fa-star {
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: middle;
+  transition: color 0.3s ease;
+}
+
+.fa-star.checked {
+  color: gold;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../assets/fonts/Font_Awesome/fa-solid-900.woff2') format('woff2');
+}
+
 @font-face {
   font-family: 'Epilogue';
   src: url('../assets/fonts/Epilogue/Epilogue-VariableFont_wght.ttf')

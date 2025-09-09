@@ -4,10 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="ArtistsHub — your personal music discovery guide. Browse and filter artists, share feedback, and explore fresh sounds with ease.">
+    <meta
+      name="description"
+      content="ArtistsHub — your personal music discovery guide. Browse and filter artists, share feedback, and explore fresh sounds with ease."
+    />
     <title>ArtistsHub</title>
-    <link rel="stylesheet" href="./libs/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="preload"
+      href="./assets/fonts/Font_Awesome/fa-solid-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="./css/styles.css" as="style" />
+    <link
+      rel="stylesheet"
+      href="./css/styles.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="./css/styles.css" /></noscript>
   </head>
 
   <body>
