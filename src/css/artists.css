@@ -39,7 +39,6 @@
 
   .artists-pagination {
     .tui-page-btn {
-
       &.tui-last,
       &.tui-first {
         display: none;
@@ -53,7 +52,6 @@
 
   .artists-pagination {
     .tui-page-btn {
-
       &.tui-last,
       &.tui-first {
         display: none;
