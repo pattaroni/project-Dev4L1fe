@@ -41,6 +41,17 @@ export function renderArtists(data) {
     .join('');
 }
 
+export function showArtistSkeletons(count = 6) {
+  refs.artistsList.innerHTML = '';
+  const tpl = document.getElementById('artist-skeleton');
+  const frag = document.createDocumentFragment();
+
+  for (let i = 0; i < count; i++) {
+    frag.appendChild(tpl.content.cloneNode(true));
+  }
+  refs.artistsList.appendChild(frag);
+}
+
 export const renderFeedbackSlider = feedbacks => {
   const container = document.querySelector('.section-feedback .container');
   if (!container) return console.error('Container not found');

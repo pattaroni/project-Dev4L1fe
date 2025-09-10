@@ -681,3 +681,44 @@
     }
   }
 }
+
+/* === Skeleton styles (Artists) === */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e9ecef;
+  border-radius: 4px;
+  min-height: 16px;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  animation: shimmer 1.25s infinite;
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+/* widths for skeleton lines */
+.w-40 { width: 40%; }
+.w-60 { width: 60%; }
+.w-70 { width: 70%; }
+.w-100 { width: 100%; }
+
+/* Skeleton layout inside artists list item */
+.skeleton-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.artist-image.skeleton {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after { animation: none; }
+}
