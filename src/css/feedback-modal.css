@@ -138,6 +138,12 @@ textarea {
     background-color 2s ease,
     color 0.4s ease;
 }
+
+.btn-leave-fb:hover,
+.btn-leave-fb:focus {
+    opacity: 0.6;
+}
+
 .feedback-actions {
   display: flex;
   align-items: center;
