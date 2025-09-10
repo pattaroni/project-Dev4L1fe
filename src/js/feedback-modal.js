@@ -1,6 +1,7 @@
 import iziToast from 'izitoast';
 import { postFeedback } from './api';
 
+
 function mountStarRating(host, options = {}) {
   const max = options.max ?? 5;
   const scoreName = options.scoreName ?? 'rating';
@@ -90,7 +91,7 @@ function initFeedbackModal() {
 
   let starsMounted = false;
 
-  const clearErrors = () => {
+ const clearErrors = () => {
     form.querySelectorAll('.form-error').forEach(n => n.remove());
     form
       .querySelectorAll('.field-invalid')
@@ -110,15 +111,23 @@ function initFeedbackModal() {
   const lockScroll = () => (document.body.style.overflow = 'hidden');
   const unlockScroll = () => (document.body.style.overflow = 'auto');
   const open = () => {
-    modal.classList.add('active');
-    lockScroll();
-    setTimeout(() => nameInput?.focus(), 0);
+  modal.classList.add('active');
+  lockScroll();
 
-    if (!starsMounted && ratingHost) {
-      mountStarRating(ratingHost, { name: 'rating', max: 5 });
-      starsMounted = true;
-    }
-  };
+  // після завершення анімації
+  modal.addEventListener(
+    'transitionend',
+    () => {
+      nameInput?.focus();
+    },
+    { once: true }
+  );
+
+  if (!starsMounted && ratingHost) {
+    mountStarRating(ratingHost, { name: 'rating', max: 5 });
+    starsMounted = true;
+  }
+};
 
   const resetStars = () => {
     if (!ratingHost) return;
@@ -132,9 +141,14 @@ function initFeedbackModal() {
   };
 
   const close = () => {
-    modal.classList.remove('active');
-    unlockScroll();
-  };
+  modal.classList.remove('active');
+  unlockScroll();
+
+  form.reset(); // скидає поля
+  clearErrors(); // прибирає помилки
+  resetStars(); // скидає рейтинг
+};
+
 
   document.addEventListener('click', e => {
     const btn = e.target.closest(openSelector);

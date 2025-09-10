@@ -31,6 +31,8 @@
   --link: #747bff;
   --topbtnhover: rgb(83, 83, 83);
   --skeleton-shimer: #764191;
+  --inputmodafocus: #764191;
+  --caretcollor: #ffffff;
 
   font-family:
     system-ui,
@@ -87,6 +89,8 @@
   --link: #62c71f;
   --topbtnhover: #62c71f;
   --skeleton-shimer: #62c71f;
+  --inputmodafocus: #62c71f;
+  --caretcollor: #050505;
 }
 
 html {
