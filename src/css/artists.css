@@ -686,17 +686,23 @@
 .skeleton {
   position: relative;
   overflow: hidden;
-  background: #e9ecef;
-  border-radius: 4px;
+  background-color: var(--bg-main);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 8px rgb(159, 160, 160);
   min-height: 16px;
 }
 .skeleton::after {
   content: "";
   position: absolute;
   inset: 0;
-  transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
-  animation: shimmer 1.25s infinite;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-shimer),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
 }
 @keyframes shimmer { 100% { transform: translateX(100%); } }
 
@@ -722,3 +728,13 @@
 @media (prefers-reduced-motion: reduce) {
   .skeleton::after { animation: none; }
 }
+
+@media (min-width: 768px) {
+  .sceleton {
+    
+    background-color: var(--bg-main);
+    border-radius: 8px;
+    border: 1px solid rgb(75, 74, 74);
+  }
+}
+
