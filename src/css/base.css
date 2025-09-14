@@ -33,6 +33,7 @@
   --skeleton-shimer: #764191;
   --inputmodafocus: #764191;
   --caretcollor: #ffffff;
+  --pagination-btn: #764191;
 
   font-family:
     system-ui,
@@ -91,6 +92,7 @@
   --skeleton-shimer: #62c71f;
   --inputmodafocus: #62c71f;
   --caretcollor: #050505;
+  --pagination-btn: #62c71f;
 }
 
 html {

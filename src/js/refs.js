@@ -35,4 +35,8 @@ export const refs = {
   artistsEl: document.querySelector('.section-artists'),
 
   divForSkeletonFeed: document.querySelector('.sceleton-feedback'),
+
+  textareaEl: document.querySelector("#fb-message"),
+  counterEl: document.getElementById("$char-count"),
+
 };

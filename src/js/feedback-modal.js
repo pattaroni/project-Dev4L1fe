@@ -1,5 +1,7 @@
 import iziToast from 'izitoast';
 import { postFeedback } from './api';
+import { refs } from './refs';
+import { loadValueTextArea, saveValueTextArea } from './storage';
 
 
 function mountStarRating(host, options = {}) {
@@ -89,6 +91,24 @@ function initFeedbackModal() {
   const ratingHost = modal.querySelector('#star-rating');
   const openSelector = '#open-modal, [data-open="feedback-modal"]';
 
+ const textareaEl = modal.querySelector('#fb-message');
+const counterEl = modal.querySelector('#char-count');
+
+if (textareaEl && counterEl) {
+  textareaEl.addEventListener("input", () => {
+    const len = textareaEl.value.length;
+    counterEl.textContent = `${len} / 500`;
+    console.log(textareaEl.value);
+    const textareaValue = textareaEl.value
+saveValueTextArea(textareaValue)
+    const isInvalid = len < 10 || len > 500;
+    textareaEl.classList.toggle("invalid", isInvalid);
+    counterEl.classList.toggle("error", isInvalid);
+  });
+}
+
+
+
   let starsMounted = false;
 
  const clearErrors = () => {
@@ -110,24 +130,32 @@ function initFeedbackModal() {
 
   const lockScroll = () => (document.body.style.overflow = 'hidden');
   const unlockScroll = () => (document.body.style.overflow = 'auto');
-  const open = () => {
+const open = () => {
   modal.classList.add('active');
   lockScroll();
 
-  // після завершення анімації
-  modal.addEventListener(
-    'transitionend',
-    () => {
-      nameInput?.focus();
-    },
-    { once: true }
-  );
+  const savedMessage = localStorage.getItem("textFeedBack");
+  if (savedMessage && refs.textareaEl && refs.counterEl) {
+    refs.textareaEl.value = savedMessage;
+    refs.counterEl.textContent = `${savedMessage.length} / 500`;
+
+    const isInvalid = savedMessage.length < 10 || savedMessage.length > 500;
+    refs.textareaEl.classList.toggle("invalid", isInvalid);
+    refs.counterEl.classList.toggle("error", isInvalid);
+  }
+
+  modal.addEventListener('transitionend', () => {
+    refs.textareaEl?.focus();
+  }, { once: true });
 
   if (!starsMounted && ratingHost) {
     mountStarRating(ratingHost, { name: 'rating', max: 5 });
     starsMounted = true;
   }
 };
+
+
+
 
   const resetStars = () => {
     if (!ratingHost) return;
@@ -140,13 +168,14 @@ function initFeedbackModal() {
       );
   };
 
-  const close = () => {
+ const close = () => {
   modal.classList.remove('active');
   unlockScroll();
 
-  form.reset(); // скидає поля
-  clearErrors(); // прибирає помилки
-  resetStars(); // скидає рейтинг
+
+
+  clearErrors(); 
+  resetStars(); 
 };
 
 
@@ -206,7 +235,7 @@ function initFeedbackModal() {
           `<div class="form-error">${errors.rating}</div>`
         );
       }
-      return;
+         return;
     }
 
     const submitBtn = form.querySelector('.fb-modal-btn');
@@ -214,6 +243,7 @@ function initFeedbackModal() {
 
     try {
       await postFeedback(payload);
+      localStorage.removeItem("textFeedBack");
       iziToast.success({
         title: 'Success',
         message: 'Thank you for your feedback!',

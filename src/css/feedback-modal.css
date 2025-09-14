@@ -103,6 +103,20 @@ textarea {
   /* overflow-y: auto; */
 }
 
+.invalid {
+  border: 1px solid red;
+}
+
+.char-count {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #666;
+}
+
+.char-count.error {
+  color: red;
+}
+
 .modal.active input:focus {
   border-color: var(--inputmodafocus);
   /* box-shadow: 0 0 0 2px rgba(0, 191, 255, 0.3);
@@ -144,8 +158,14 @@ textarea {
   cursor: pointer;
   transition:
     background-color 2s ease,
-    color 0.4s ease;
+    color 0.4s ease,
+    opacity 0.4s ease;
 }
+
+.btn-leave-fb:hover {
+  opacity: 0.6;
+}
+
 .feedback-actions {
   display: flex;
   align-items: center;

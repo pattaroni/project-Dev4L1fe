@@ -98,6 +98,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.2s ease;
+  }
+
+  .tui-page-btn:hover {
+    background-color: var(--pagination-btn);
   }
 
   .artists-pagination .tui-is-selected {

@@ -1,20 +1,9 @@
 <section class="feedback-modal-section">
-  <div
-    class="modal"
-    id="feedback-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="feedback-modal-title"
-  >
+  <div class="modal" id="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
     <div class="modal__backdrop"></div>
 
     <div class="modal__panel">
-      <svg
-        width="16"
-        height="16"
-        class="modal__close"
-        aria-label="Close dialog"
-      >
+      <svg width="16" height="16" class="modal__close" aria-label="Close dialog">
         <use href="/img/sprite.svg#close-icon"></use>
       </svg>
 
@@ -23,24 +12,14 @@
       <form class="modal__form" action="#" method="post" novalidate>
         <div class="form__group_1">
           <label for="fb-name">Name</label>
-          <input
-            id="fb-name"
-            name="name"
-            type="text"
-            placeholder="Emily"
-            required
-          />
+          <input id="fb-name" name="name" type="text" placeholder="Emily" required />
         </div>
 
         <div class="form__group_2">
           <label for="fb-message">Message</label>
-          <textarea
-            id="fb-message"
-            name="message"
-            rows="5"
-            placeholder="Type your message..."
-            required
-          ></textarea>
+          <textarea id="fb-message" name="message" rows="5" placeholder="Type your message..." required></textarea>
+          <div id="char-count" class="char-count">0 / 500</div>
+
         </div>
 
         <div id="star-rating"></div>
