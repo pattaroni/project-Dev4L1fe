@@ -1,12 +1,13 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+import Pagination from 'tui-pagination/dist/tui-pagination.min.js';
+import 'tui-pagination/dist/tui-pagination.min.css';
 import { fetchArtists, fetchFeedbacks, fetchGenres } from './api';
 import {
   renderArtists,
   renderFeedbackSlider,
   renderGenresOptions,
+  showArtistSkeletons
 } from './render-function';
 import { loader, getPaginationOptions, getVisiblePages } from './helpers';
 import { refs } from './refs';
@@ -18,6 +19,9 @@ export async function handleArtists() {
     const loaderEl = loader.create(refs.artistsLoader);
     loader.show(loaderEl);
     refs.artistsLoader.style.display = 'flex';
+    showArtistSkeletons(12);
+// Optionally hide empty state while loading
+document.querySelector('.artists-empty-state')?.classList.add('is-hidden');
 
     try {
       const response = await fetchArtists({

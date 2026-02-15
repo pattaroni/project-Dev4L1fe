@@ -125,6 +125,7 @@
     margin-top: 8px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 
@@ -679,3 +680,60 @@
     }
   }
 }
+
+/* === Skeleton styles (Artists) === */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-main);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 8px rgb(159, 160, 160);
+  min-height: 16px;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-shimer),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+/* widths for skeleton lines */
+.w-40 { width: 40%; }
+.w-60 { width: 60%; }
+.w-70 { width: 70%; }
+.w-100 { width: 100%; }
+
+/* Skeleton layout inside artists list item */
+.skeleton-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.artist-image.skeleton {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after { animation: none; }
+}
+
+@media (min-width: 768px) {
+  .sceleton {
+    
+    background-color: var(--bg-main);
+    border-radius: 8px;
+    border: 1px solid rgb(75, 74, 74);
+  }
+}
+

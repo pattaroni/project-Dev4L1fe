@@ -25,6 +25,10 @@
   transition: fill 0.4s ease;
 }
 
+.logo-icon-footer:hover,
+.logo-icon-footer:focus {
+fill: var(--icon-footer);
+}
 .icon-footer {
   fill: var(--icon-footer);
   width: 40px;

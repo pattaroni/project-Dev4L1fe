@@ -56,6 +56,20 @@
         <div class="artists-wrapper">
           <ul class="artists-list"></ul>
           <div class="artists-loader"></div>
+          <template id="artist-skeleton">
+            <li class="artists-list-item skeleton-item">
+              <div class="artist-image skeleton"></div>
+              <ul class="genres-list">
+                <li class="genres-list-item skeleton w-40"></li>
+                <li class="genres-list-item skeleton w-60"></li>
+              </ul>
+              <h3 class="artist-name skeleton w-70"></h3>
+              <p class="artist-descr skeleton w-100"></p>
+              <button type="button" class="artist-btn-learn-more skeleton-btn">
+                <span class="skeleton w-40"></span>
+              </button>
+            </li>
+          </template>
         </div>
         <div id="artists-pagination" class="artists-pagination"></div>
         <div class="artists-empty-state is-hidden">
